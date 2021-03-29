@@ -3,6 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,6 +24,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BKx-FW-WVd" kind="show" id="RNO-b3-PVo"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,11 +34,23 @@
                             <outlet property="delegate" destination="vdk-5Q-RKt" id="E9v-xF-PEP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="NBA Stats Go" id="9mL-67-HjO"/>
+                    <navigationItem key="navigationItem" title="NBA Stats Go" id="9mL-67-HjO">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="u4G-4t-yrJ"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9q-gG-gD4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="1035.832083958021"/>
+        </scene>
+        <!--NBA Stats Go-->
+        <scene sceneID="Tup-bz-q2X">
+            <objects>
+                <viewController id="BKx-FW-WVd" customClass="PlayerStatsViewController" customModule="NBAStatsGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="NBA Stats Go" id="uw5-sm-Kbf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Eq-vK-T94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="1060"/>
         </scene>
         <!--Statlines-->
         <scene sceneID="J2A-1k-uqt">
@@ -55,6 +71,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBq-j0-Zrk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.6" y="-242.42878560719643"/>
+        </scene>
+        <!--Chart Comparison View Controller-->
+        <scene sceneID="RdJ-Q1-Opl">
+            <objects>
+                <viewController id="AUG-tH-XkC" customClass="ChartComparisonViewController" customModule="NBAStatsGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ncg-Wq-inP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="DcO-1W-m0F"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WzT-HY-XtT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2006" y="-399"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LiW-Ws-EhJ">

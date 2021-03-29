@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C334ED4A26127A2600F38E32 /* StatlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334ED4926127A2600F38E32 /* StatlinesViewController.swift */; };
 		C334ED4D26127A7A00F38E32 /* ComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334ED4C26127A7A00F38E32 /* ComparisonViewController.swift */; };
+		C334ED502612873B00F38E32 /* PlayerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334ED4F2612873B00F38E32 /* PlayerStatsViewController.swift */; };
+		C334ED532612890800F38E32 /* ChartComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334ED522612890700F38E32 /* ChartComparisonViewController.swift */; };
 		C3730AE0260FD2B800D29E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3730ADF260FD2B800D29E07 /* AppDelegate.swift */; };
 		C3730AE2260FD2B800D29E07 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3730AE1260FD2B800D29E07 /* SceneDelegate.swift */; };
 		C3730AE7260FD2B800D29E07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3730AE5260FD2B800D29E07 /* Main.storyboard */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		C334ED4926127A2600F38E32 /* StatlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatlinesViewController.swift; sourceTree = "<group>"; };
 		C334ED4C26127A7A00F38E32 /* ComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonViewController.swift; sourceTree = "<group>"; };
+		C334ED4F2612873B00F38E32 /* PlayerStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsViewController.swift; sourceTree = "<group>"; };
+		C334ED522612890700F38E32 /* ChartComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComparisonViewController.swift; sourceTree = "<group>"; };
 		C3730ADC260FD2B800D29E07 /* NBAStatsGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NBAStatsGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3730ADF260FD2B800D29E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3730AE1260FD2B800D29E07 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 				C3730AFA2612609800D29E07 /* SearchTableViewController.swift */,
 				C334ED4926127A2600F38E32 /* StatlinesViewController.swift */,
 				C334ED4C26127A7A00F38E32 /* ComparisonViewController.swift */,
+				C334ED4F2612873B00F38E32 /* PlayerStatsViewController.swift */,
+				C334ED522612890700F38E32 /* ChartComparisonViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,9 +162,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3730AE0260FD2B800D29E07 /* AppDelegate.swift in Sources */,
+				C334ED502612873B00F38E32 /* PlayerStatsViewController.swift in Sources */,
 				C3730AE2260FD2B800D29E07 /* SceneDelegate.swift in Sources */,
 				C334ED4D26127A7A00F38E32 /* ComparisonViewController.swift in Sources */,
 				C334ED4A26127A2600F38E32 /* StatlinesViewController.swift in Sources */,
+				C334ED532612890800F38E32 /* ChartComparisonViewController.swift in Sources */,
 				C3730AFB2612609800D29E07 /* SearchTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
