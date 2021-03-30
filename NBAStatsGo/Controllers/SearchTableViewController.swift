@@ -7,16 +7,14 @@
 
 import UIKit
 
+// Search Bar
+var playerSearchBar: UISearchBar?
+
 class SearchTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        playerSearchBar = initSearchBar()
     }
 
     // MARK: - Table view data source
