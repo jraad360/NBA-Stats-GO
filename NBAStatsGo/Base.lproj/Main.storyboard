@@ -46,6 +46,12 @@
         <scene sceneID="Tup-bz-q2X">
             <objects>
                 <viewController id="BKx-FW-WVd" customClass="PlayerStatsViewController" customModule="NBAStatsGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oea-Uw-ju4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4Hl-5w-ymk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                     <navigationItem key="navigationItem" title="NBA Stats Go" id="uw5-sm-Kbf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Eq-vK-T94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -56,6 +62,27 @@
         <scene sceneID="J2A-1k-uqt">
             <objects>
                 <viewController title="Statlines" id="cE2-uk-l5i" customClass="StatlinesViewController" customModule="NBAStatsGo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yVW-PM-fF4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xk3-N8-Ukq">
+                                <rect key="frame" x="150" y="296" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="37.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IB5-Zz-Y20"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                     <navigationItem key="navigationItem" title="Statlines" id="YOa-z0-OKX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNF-pX-3Gn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,13 +93,39 @@
         <scene sceneID="xJf-jh-Eve">
             <objects>
                 <viewController title="Compare" id="p3Q-u8-BAE" customClass="ComparisonViewController" customModule="NBAStatsGo" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Player Comparison" id="0Je-I6-Ydj"/>
+                    <view key="view" contentMode="scaleToFill" id="1bn-WX-bp3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYq-5F-WRA">
+                                <rect key="frame" x="150" y="296" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="37.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TsX-cE-RZI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Player Comparison" id="0Je-I6-Ydj">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="Kr7-sg-7c3"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="AUG-tH-XkC" kind="show" id="RwP-Qb-HKV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBq-j0-Zrk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1005.6" y="-242.42878560719643"/>
         </scene>
-        <!--Chart Comparison View Controller-->
+        <!--Player Comparison-->
         <scene sceneID="RdJ-Q1-Opl">
             <objects>
                 <viewController id="AUG-tH-XkC" customClass="ChartComparisonViewController" customModule="NBAStatsGo" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,6 +135,7 @@
                         <viewLayoutGuide key="safeArea" id="DcO-1W-m0F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Player Comparison" id="1y8-Ne-1hU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzT-HY-XtT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,6 +224,9 @@
         <image name="person.and.person.fill" catalog="system" width="128" height="80"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
