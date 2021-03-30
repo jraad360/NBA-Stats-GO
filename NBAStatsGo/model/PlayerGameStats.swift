@@ -31,5 +31,4 @@ struct PlayerGameStats {
     let ftpct: Double
     let turnover: Int
     let pf: Int
-
 }

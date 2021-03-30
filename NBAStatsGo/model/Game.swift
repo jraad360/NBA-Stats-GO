@@ -11,5 +11,4 @@ struct Game {
     let date: Date
     let homeTeam: Team
     let playoffs: Bool
-
 }

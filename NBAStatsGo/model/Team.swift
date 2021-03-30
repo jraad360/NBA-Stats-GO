@@ -14,5 +14,4 @@ struct Team {
     let division: String
     let fullName: String
     let name: String
-
 }

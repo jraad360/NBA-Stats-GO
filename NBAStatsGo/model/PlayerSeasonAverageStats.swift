@@ -32,5 +32,4 @@ struct PlayerSeasonAverageStats {
     let ftpct: Double
     let turnover: Int
     let pf: Int
-    
 }
