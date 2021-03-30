@@ -47,6 +47,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C334ED552613858100F38E32 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C3730AD3260FD2B700D29E07 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +74,7 @@
 		C3730ADE260FD2B800D29E07 /* NBAStatsGo */ = {
 			isa = PBXGroup;
 			children = (
+				C334ED552613858100F38E32 /* Helpers */,
 				C3730AF92612605300D29E07 /* Controllers */,
 				C3730ADF260FD2B800D29E07 /* AppDelegate.swift */,
 				C3730AE1260FD2B800D29E07 /* SceneDelegate.swift */,
