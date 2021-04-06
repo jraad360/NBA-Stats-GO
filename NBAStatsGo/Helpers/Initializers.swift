@@ -16,6 +16,7 @@ extension SearchTableViewController: UISearchBarDelegate {
         let searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.frame = CGRect(x: 0.0, y: 0.0, width: tableView.frame.width, height: 50.0)
+        searchBar.placeholder = "Search NBA Player"
         tableView.tableHeaderView = searchBar
         return searchBar
     }
