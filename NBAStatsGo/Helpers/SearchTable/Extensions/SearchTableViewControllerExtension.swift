@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MessageUI
 
 extension SearchTableViewController {
     // Number of Sections for table view
@@ -19,12 +18,11 @@ extension SearchTableViewController {
         return players[section].count
     }
     
-    // Rendering of a generic UITableViewCell based on DukePeopleCell
+    // Rendering of a generic UITableViewCell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let player: Player = players[indexPath.section][indexPath.row]
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
         cell.textLabel?.text = player.lastName + ", " + player.firstName
-        cell.detailTextLabel?.text = ">"
         return cell
     }
     
