@@ -151,6 +151,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Kr7-sg-7c3"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="compareTableView" destination="mGa-yi-6Sj" id="5Pc-el-Mdq"/>
                         <segue destination="AUG-tH-XkC" kind="show" id="RwP-Qb-HKV"/>
                     </connections>
                 </viewController>

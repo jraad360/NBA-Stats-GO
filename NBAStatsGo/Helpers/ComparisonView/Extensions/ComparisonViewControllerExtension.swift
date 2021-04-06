@@ -1,5 +1,5 @@
 //
-//  StatlinesViewControllerExtension.swift
+//  ComparisonViewControllerExtension.swift
 //  NBAStatsGo
 //
 //  Created by David Liu on 4/6/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension StatlinesViewController: UITableViewDelegate, UITableViewDataSource {
+extension ComparisonViewController: UITableViewDelegate, UITableViewDataSource {
     // Number of Sections for table view
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -22,12 +22,12 @@ extension StatlinesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
         if (indexPath.row == 0) {
-            cell.textLabel?.text = "Player"
-            cell.detailTextLabel?.text = (currStatlinesPlayer == nil ? "Select Player" : currStatlinesPlayer!.lastName + ", " + currStatlinesPlayer!.firstName)
+            cell.textLabel?.text = "Player 1"
+            cell.detailTextLabel?.text = (currCompareFirstPlayer == nil ? "Select Player" : currCompareFirstPlayer!.lastName + ", " + currCompareFirstPlayer!.firstName)
             cell.accessoryType = .disclosureIndicator
         } else {
-            cell.textLabel?.text = "Stat"
-            cell.detailTextLabel?.text = (currStat == nil ? "Select Stat" : currStat!.rawValue)
+            cell.textLabel?.text = "Player 2"
+            cell.detailTextLabel?.text = (currCompareSecondPlayer == nil ? "Select Player" : currCompareSecondPlayer!.lastName + ", " + currCompareSecondPlayer!.firstName)
             cell.accessoryType = .disclosureIndicator
         }
         return cell
@@ -35,7 +35,7 @@ extension StatlinesViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Segue transition to the tableview to select a player
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TO-DO: Either Select from a Picker Menu or Go to Player Selection Window
+        // TO-DO: Go to Player Selection Window
         performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
     }
 }
