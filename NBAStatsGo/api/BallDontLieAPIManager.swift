@@ -6,14 +6,23 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class BallDontLieAPIManager: APIManager {
     let apiPath = "https://balldontlie.io/api/v1/"
     
     func getPlayers(filters: [String : String]) throws -> [Player] {
         let name = filters["name"]!
-        try callAPI(path: apiPath + "players", queryParameters: ["search": name])
-        return []
+        let json = try callAPI(path: apiPath + "players", queryParameters: ["search": name])
+        
+        let currentPage = try json["meta"]["current_page"]
+        let totalPages = try json["meta"]["total_pages"]
+        let perPage = try json["meta"]["per_page"]
+        let totalCount = try json["meta"]["total_count"]
+        
+        let players = try json["data"].map { try Player(json: $1) }
+        
+        return players
     }
     
     func getCareerStats(for player: Player) throws -> [PlayerSeasonAverageStats] {
@@ -24,7 +33,7 @@ class BallDontLieAPIManager: APIManager {
         return []
     }
     
-    func callAPI(path: String, queryParameters: [String: String]) throws -> Any {
+    func callAPI(path: String, queryParameters: [String: String]) throws -> JSON {
         // TODO: handle invalid URL
         let url = getURL(path: path, queryParameters: queryParameters)
         
@@ -49,11 +58,9 @@ class BallDontLieAPIManager: APIManager {
         
         _ = semaphore.wait(wallTimeout: .distantFuture)
 
-        let json = try JSONSerialization.jsonObject(with: result!, options: []) as! [String:AnyObject]
+        let json = try JSON(data: result!)
         
-        print(json)
-        
-        return result
+        return json
     }
     
     func getURL(path: String, queryParameters: [String: String]) -> URL {
