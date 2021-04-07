@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1BE42431261D5184000220D7 /* NBAStatsGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE42430261D5184000220D7 /* NBAStatsGoTests.swift */; };
+		451025C0EBD1F00C8AE29DBA /* Pods_NBAStatsGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DBDBE8F2EC94B4889FC0A0 /* Pods_NBAStatsGo.framework */; };
+		944B74B2A6969586ABAF6F8B /* Pods_NBAStatsGoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BEABBC57A98719E53426A81 /* Pods_NBAStatsGoTests.framework */; };
 		C333A8B4261C308E002055DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C333A8B3261C308E002055DB /* HomeViewController.swift */; };
 		C333A8C0261C570F002055DB /* SearchTableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C333A8BF261C570F002055DB /* SearchTableViewControllerExtension.swift */; };
 		C333A8C4261C606B002055DB /* SectionHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C333A8C3261C606B002055DB /* SectionHeaderLabel.swift */; };
@@ -47,9 +49,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		004EC43B8BCE11FC293D264B /* Pods-NBAStatsGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBAStatsGoTests.debug.xcconfig"; path = "Target Support Files/Pods-NBAStatsGoTests/Pods-NBAStatsGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1BE4242E261D5184000220D7 /* NBAStatsGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBAStatsGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE42430261D5184000220D7 /* NBAStatsGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStatsGoTests.swift; sourceTree = "<group>"; };
 		1BE42432261D5184000220D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BEABBC57A98719E53426A81 /* Pods_NBAStatsGoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBAStatsGoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EAB030DAF9AFB1C4B80EA02 /* Pods-NBAStatsGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBAStatsGoTests.release.xcconfig"; path = "Target Support Files/Pods-NBAStatsGoTests/Pods-NBAStatsGoTests.release.xcconfig"; sourceTree = "<group>"; };
+		88DBDBE8F2EC94B4889FC0A0 /* Pods_NBAStatsGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBAStatsGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C333A8B3261C308E002055DB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C333A8BF261C570F002055DB /* SearchTableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewControllerExtension.swift; sourceTree = "<group>"; };
 		C333A8C3261C606B002055DB /* SectionHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderLabel.swift; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 		C3730AED260FD2BC00D29E07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3730AF6260FE1C100D29E07 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C3730AFA2612609800D29E07 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		C5A0C36BE8F24BBD6A2AFC8B /* Pods-NBAStatsGo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBAStatsGo.debug.xcconfig"; path = "Target Support Files/Pods-NBAStatsGo/Pods-NBAStatsGo.debug.xcconfig"; sourceTree = "<group>"; };
+		D37E08CC5721A1D59103635C /* Pods-NBAStatsGo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBAStatsGo.release.xcconfig"; path = "Target Support Files/Pods-NBAStatsGo/Pods-NBAStatsGo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944B74B2A6969586ABAF6F8B /* Pods_NBAStatsGoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +101,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451025C0EBD1F00C8AE29DBA /* Pods_NBAStatsGo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A2659A6005DDB1677FA9AD5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5A0C36BE8F24BBD6A2AFC8B /* Pods-NBAStatsGo.debug.xcconfig */,
+				D37E08CC5721A1D59103635C /* Pods-NBAStatsGo.release.xcconfig */,
+				004EC43B8BCE11FC293D264B /* Pods-NBAStatsGoTests.debug.xcconfig */,
+				2EAB030DAF9AFB1C4B80EA02 /* Pods-NBAStatsGoTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		1BE4242F261D5184000220D7 /* NBAStatsGoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +226,8 @@
 				C3730ADE260FD2B800D29E07 /* NBAStatsGo */,
 				1BE4242F261D5184000220D7 /* NBAStatsGoTests */,
 				C3730ADD260FD2B800D29E07 /* Products */,
+				0A2659A6005DDB1677FA9AD5 /* Pods */,
+				EB280BFBC3B6F74D0925A683 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -247,6 +271,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		EB280BFBC3B6F74D0925A683 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88DBDBE8F2EC94B4889FC0A0 /* Pods_NBAStatsGo.framework */,
+				2BEABBC57A98719E53426A81 /* Pods_NBAStatsGoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +287,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BE42435261D5184000220D7 /* Build configuration list for PBXNativeTarget "NBAStatsGoTests" */;
 			buildPhases = (
+				92D901A02FDDDEA3723CAE85 /* [CP] Check Pods Manifest.lock */,
 				1BE4242A261D5184000220D7 /* Sources */,
 				1BE4242B261D5184000220D7 /* Frameworks */,
 				1BE4242C261D5184000220D7 /* Resources */,
@@ -272,9 +306,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3730AF0260FD2BC00D29E07 /* Build configuration list for PBXNativeTarget "NBAStatsGo" */;
 			buildPhases = (
+				917D35A721E93CDBDDC5C295 /* [CP] Check Pods Manifest.lock */,
 				C3730AD8260FD2B800D29E07 /* Sources */,
 				C3730AD9260FD2B800D29E07 /* Frameworks */,
 				C3730ADA260FD2B800D29E07 /* Resources */,
+				917E9AA52ED2A9B4352B2C4D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -342,6 +378,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		917D35A721E93CDBDDC5C295 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NBAStatsGo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		917E9AA52ED2A9B4352B2C4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NBAStatsGo/Pods-NBAStatsGo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NBAStatsGo/Pods-NBAStatsGo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NBAStatsGo/Pods-NBAStatsGo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92D901A02FDDDEA3723CAE85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NBAStatsGoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BE4242A261D5184000220D7 /* Sources */ = {
@@ -413,6 +513,7 @@
 /* Begin XCBuildConfiguration section */
 		1BE42436261D5184000220D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 004EC43B8BCE11FC293D264B /* Pods-NBAStatsGoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -433,6 +534,7 @@
 		};
 		1BE42437261D5184000220D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EAB030DAF9AFB1C4B80EA02 /* Pods-NBAStatsGoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -569,6 +671,7 @@
 		};
 		C3730AF1260FD2BC00D29E07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5A0C36BE8F24BBD6A2AFC8B /* Pods-NBAStatsGo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -587,6 +690,7 @@
 		};
 		C3730AF2260FD2BC00D29E07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D37E08CC5721A1D59103635C /* Pods-NBAStatsGo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
