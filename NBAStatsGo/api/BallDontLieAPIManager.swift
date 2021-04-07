@@ -10,10 +10,13 @@ import SwiftyJSON
 
 class BallDontLieAPIManager: APIManager {
     let apiPath = "https://balldontlie.io/api/v1/"
+    let minimumYear = 1979
+    let maximumYear = Calendar.current.component(.year, from: Date())
     
     func getPlayers(filters: [String : String]) throws -> [Player] {
+        let path = apiPath + "players"
         let name = filters["name"]!
-        let json = try callAPI(path: apiPath + "players", queryParameters: ["search": name])
+        let json = try callAPI(path: path, queryParameters: ["search": name])
         
         let currentPage = try json["meta"]["current_page"]
         let totalPages = try json["meta"]["total_pages"]
@@ -26,7 +29,19 @@ class BallDontLieAPIManager: APIManager {
     }
     
     func getCareerStats(for player: Player) throws -> [PlayerSeasonAverageStats] {
-        return []
+        let path = apiPath + "season_averages"
+        var seasons = [PlayerSeasonAverageStats]()
+        
+        for year in minimumYear...maximumYear {
+            let json = try callAPI(path: path, queryParameters: [
+                                    "season": String(year),
+                                    "player_ids[]": String(player.id)])
+            if !json["data"].isEmpty && json["data"].count != 0 {
+                seasons.append(try PlayerSeasonAverageStats(json: json["data"][0]))
+            }
+        }
+        
+        return seasons
     }
     
     func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> [String] {

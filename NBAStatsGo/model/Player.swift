@@ -9,6 +9,7 @@ import Foundation
 import SwiftyJSON
 
 struct Player {
+    let id: Int
     let firstName: String
     let lastName: String
     let position: String?
@@ -16,7 +17,8 @@ struct Player {
     let weight: Int?
     let team: Team
     
-    init(firstName: String, lastName: String, position: String?, height: String?, weight: Int?, team: Team) {
+    init(id: Int, firstName: String, lastName: String, position: String?, height: String?, weight: Int?, team: Team) {
+        self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.position = position
@@ -26,7 +28,9 @@ struct Player {
     }
     
     init(json: JSON) throws {
-        self.init(firstName: json["first_name"].string!,
+        self.init(
+            id: json["id"].int!,
+            firstName: json["first_name"].string!,
             lastName: json["last_name"].string!,
             position: json["position"].string,
             height: json["height"].string,

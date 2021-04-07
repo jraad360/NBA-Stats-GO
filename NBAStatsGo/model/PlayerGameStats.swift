@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 
 struct PlayerGameStats {
-    let player: Player
+    let playerId: Int
     let team: Team
     let game: Game
 
@@ -34,7 +34,7 @@ struct PlayerGameStats {
     let pf: Int
     
     init(
-        player: Player,
+        playerId: Int,
         team: Team,
         game: Game,
         min: Int,
@@ -57,7 +57,7 @@ struct PlayerGameStats {
         turnover: Int,
         pf: Int) {
         
-        self.player = player
+        self.playerId = playerId
         self.team = team
         self.game = game
 
@@ -84,7 +84,7 @@ struct PlayerGameStats {
     
     init(json: JSON) throws {
         self.init(
-            player: try Player(json: json["player"]),
+            playerId: json["player_id"].int!,
             team: try Team(json: json["team"]),
             game: try Game(json: json["game"]),
             min: json["min"].int!,

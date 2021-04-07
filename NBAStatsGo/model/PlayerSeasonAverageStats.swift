@@ -9,8 +9,8 @@ import Foundation
 import SwiftyJSON
 
 struct PlayerSeasonAverageStats {
-    let player: Player
-    let team: Team
+    let playerId: Int
+//    let team: Team
     let season: String
     let gp: Int
 
@@ -35,8 +35,8 @@ struct PlayerSeasonAverageStats {
     let pf: Double
     
     init(
-        player: Player,
-        team: Team,
+        playerId: Int,
+//        team: Team,
         season: String,
         gp: Int,
         min: Double,
@@ -59,8 +59,8 @@ struct PlayerSeasonAverageStats {
         turnover: Double,
         pf: Double) {
         
-        self.player = player
-        self.team = team
+        self.playerId = playerId
+//        self.team = team
         self.season = season
         self.gp = gp
 
@@ -86,16 +86,16 @@ struct PlayerSeasonAverageStats {
     }
     
     init(json: JSON) throws {
-        var season = json["season"].string!
+        var season = String(json["season"].int!)
         let nextYear = Int(season)! + 1
         season += "-\(nextYear)"
         
         self.init(
-            player: try Player(json: json["player"]),
-            team: try Team(json: json["team"]),
+            playerId: json["player_id"].int!,
+//            team: try Team(json: json["team"]),
             season: season,
             gp: json["games_played"].int!,
-            min: json["min"].double!,
+            min: PlayerSeasonAverageStats.convertMinutesToDouble(json["min"].string!),
             pts: json["pts"].double!,
             ast: json["ast"].double!,
             reb: json["reb"].double!,
@@ -114,5 +114,15 @@ struct PlayerSeasonAverageStats {
             ftpct: json["ft_pct"].double!,
             turnover: json["turnover"].double!,
             pf: json["pf"].double!)
+    }
+    
+    // TODO: move somewhere else
+    static func convertMinutesToDouble(_ minuteString: String) -> Double {
+        let components = minuteString.components(separatedBy: ":")
+        
+        let minutes = Int(components[0])!
+        let seconds = Int(components[1])!
+        
+        return Double(minutes) + Double(seconds)/60
     }
 }
