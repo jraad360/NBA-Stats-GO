@@ -13,23 +13,23 @@ struct PlayerSeasonAverageStats {
     let season: String
     let gp: Int
 
-    let min: TimeInterval
-    let pts: Int
-    let ast: Int
-    let reb: Int
-    let dreb: Int
-    let oreb: Int
-    let stl: Int
-    let blk: Int
-    let fga: Int
-    let fgm: Int
+    let min: Double
+    let pts: Double
+    let ast: Double
+    let reb: Double
+    let dreb: Double
+    let oreb: Double
+    let stl: Double
+    let blk: Double
+    let fga: Double
+    let fgm: Double
     let fgpct: Double
-    let fg3a: Int
-    let fg3m: Int
+    let fg3a: Double
+    let fg3m: Double
     let fg3pct: Double
-    let fta: Int
-    let ftm: Int
+    let fta: Double
+    let ftm: Double
     let ftpct: Double
-    let turnover: Int
-    let pf: Int
+    let turnover: Double
+    let pf: Double
 }

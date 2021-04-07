@@ -12,7 +12,7 @@ struct PlayerGameStats {
     let team: Team
     let game: Game
 
-    let min: TimeInterval
+    let min: Int
     let pts: Int
     let ast: Int
     let reb: Int
