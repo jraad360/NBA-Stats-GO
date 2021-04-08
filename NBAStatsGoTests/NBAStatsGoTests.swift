@@ -32,7 +32,7 @@ class NBAStatsGoTests: XCTestCase {
     
     func testGetPlayers() throws {
         let apiManager = BallDontLieAPIManager()
-        let players = try apiManager.getPlayers(filters: ["name": "LeBron"])
+        let players = try apiManager.getPlayers(filters: ["name": ""])
         print(players)
     }
     

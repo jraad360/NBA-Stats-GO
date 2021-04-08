@@ -16,16 +16,25 @@ class BallDontLieAPIManager: APIManager {
     
     func getPlayers(filters: [String : String]) throws -> [Player] {
         let path = apiPath + "players"
+        var totalCount = 0
+        var currentPage = 0
+        var players = [Player]()
+        
+        
         let name = filters["name"]!
-        let json = try callAPI(path: path, queryParameters: ["search": name])
         
-        let currentPage = try json["meta"]["current_page"].int!
-        let totalPages = try json["meta"]["total_pages"].int!
-        let perPage = try json["meta"]["per_page"].int!
-        let totalCount = try json["meta"]["total_count"].int!
-        
-        let players = try json["data"].map { try Player(json: $1) }
-        
+        repeat {
+            let json = try callAPI(path: path, queryParameters: [
+                                    "per_page": String(pageSize),
+                                    "page": String(currentPage),
+                                    "search": name])
+            let retrievedPlayers = try json["data"].map { try Player(json: $1) }
+            players.append(contentsOf: retrievedPlayers
+            )
+            totalCount = json["meta"]["total_count"].int!
+            currentPage += 1
+        } while (currentPage)*pageSize < totalCount
+
         return players
     }
     
