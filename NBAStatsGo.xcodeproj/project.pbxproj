@@ -12,6 +12,7 @@
 		C333A8C4261C606B002055DB /* SectionHeaderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C333A8C3261C606B002055DB /* SectionHeaderLabel.swift */; };
 		C333A8C9261C717E002055DB /* StatlinesViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C333A8C8261C717E002055DB /* StatlinesViewControllerExtension.swift */; };
 		C333A8CE261CC1F9002055DB /* ComparisonViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C333A8CD261CC1F9002055DB /* ComparisonViewControllerExtension.swift */; };
+		C333A8D1261EBFDD002055DB /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C333A8D0261EBFDC002055DB /* Alert.swift */; };
 		C334ED4A26127A2600F38E32 /* StatlinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334ED4926127A2600F38E32 /* StatlinesViewController.swift */; };
 		C334ED4D26127A7A00F38E32 /* ComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334ED4C26127A7A00F38E32 /* ComparisonViewController.swift */; };
 		C334ED502612873B00F38E32 /* PlayerStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C334ED4F2612873B00F38E32 /* PlayerStatsViewController.swift */; };
@@ -41,6 +42,7 @@
 		C333A8C3261C606B002055DB /* SectionHeaderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderLabel.swift; sourceTree = "<group>"; };
 		C333A8C8261C717E002055DB /* StatlinesViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatlinesViewControllerExtension.swift; sourceTree = "<group>"; };
 		C333A8CD261CC1F9002055DB /* ComparisonViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonViewControllerExtension.swift; sourceTree = "<group>"; };
+		C333A8D0261EBFDC002055DB /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C334ED4926127A2600F38E32 /* StatlinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatlinesViewController.swift; sourceTree = "<group>"; };
 		C334ED4C26127A7A00F38E32 /* ComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonViewController.swift; sourceTree = "<group>"; };
 		C334ED4F2612873B00F38E32 /* PlayerStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				C333A8C3261C606B002055DB /* SectionHeaderLabel.swift */,
+				C333A8D0261EBFDC002055DB /* Alert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				C333A8C0261C570F002055DB /* SearchTableViewControllerExtension.swift in Sources */,
 				C3730AE0260FD2B800D29E07 /* AppDelegate.swift in Sources */,
 				C334ED502612873B00F38E32 /* PlayerStatsViewController.swift in Sources */,
+				C333A8D1261EBFDD002055DB /* Alert.swift in Sources */,
 				C333A8CE261CC1F9002055DB /* ComparisonViewControllerExtension.swift in Sources */,
 				C333A8C9261C717E002055DB /* StatlinesViewControllerExtension.swift in Sources */,
 				C334ED692613953D00F38E32 /* APIManager.swift in Sources */,
