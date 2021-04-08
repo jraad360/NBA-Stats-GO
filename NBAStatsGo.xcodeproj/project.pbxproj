@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1BE42431261D5184000220D7 /* NBAStatsGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE42430261D5184000220D7 /* NBAStatsGoTests.swift */; };
+		1BE42449261E985A000220D7 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BE42448261E985A000220D7 /* teams.json */; };
 		451025C0EBD1F00C8AE29DBA /* Pods_NBAStatsGo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88DBDBE8F2EC94B4889FC0A0 /* Pods_NBAStatsGo.framework */; };
 		944B74B2A6969586ABAF6F8B /* Pods_NBAStatsGoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BEABBC57A98719E53426A81 /* Pods_NBAStatsGoTests.framework */; };
 		C333A8B4261C308E002055DB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C333A8B3261C308E002055DB /* HomeViewController.swift */; };
@@ -53,6 +54,7 @@
 		1BE4242E261D5184000220D7 /* NBAStatsGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBAStatsGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE42430261D5184000220D7 /* NBAStatsGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStatsGoTests.swift; sourceTree = "<group>"; };
 		1BE42432261D5184000220D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BE42448261E985A000220D7 /* teams.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = teams.json; sourceTree = "<group>"; };
 		2BEABBC57A98719E53426A81 /* Pods_NBAStatsGoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBAStatsGoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAB030DAF9AFB1C4B80EA02 /* Pods-NBAStatsGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBAStatsGoTests.release.xcconfig"; path = "Target Support Files/Pods-NBAStatsGoTests/Pods-NBAStatsGoTests.release.xcconfig"; sourceTree = "<group>"; };
 		88DBDBE8F2EC94B4889FC0A0 /* Pods_NBAStatsGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBAStatsGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +118,6 @@
 				004EC43B8BCE11FC293D264B /* Pods-NBAStatsGoTests.debug.xcconfig */,
 				2EAB030DAF9AFB1C4B80EA02 /* Pods-NBAStatsGoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -215,6 +216,7 @@
 				C334ED652613953D00F38E32 /* Team.swift */,
 				C334ED662613953D00F38E32 /* StatCategory.swift */,
 				C334ED672613953D00F38E32 /* Player.swift */,
+				1BE42448261E985A000220D7 /* teams.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,6 +376,7 @@
 				C3730AE9260FD2BC00D29E07 /* Assets.xcassets in Resources */,
 				C3730AF7260FE1C100D29E07 /* README.md in Resources */,
 				C3730AE7260FD2B800D29E07 /* Main.storyboard in Resources */,
+				1BE42449261E985A000220D7 /* teams.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

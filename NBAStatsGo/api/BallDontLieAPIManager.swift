@@ -12,16 +12,17 @@ class BallDontLieAPIManager: APIManager {
     let apiPath = "https://balldontlie.io/api/v1/"
     let minimumYear = 1979
     let maximumYear = Calendar.current.component(.year, from: Date())
+    let pageSize = 100
     
     func getPlayers(filters: [String : String]) throws -> [Player] {
         let path = apiPath + "players"
         let name = filters["name"]!
         let json = try callAPI(path: path, queryParameters: ["search": name])
         
-        let currentPage = try json["meta"]["current_page"]
-        let totalPages = try json["meta"]["total_pages"]
-        let perPage = try json["meta"]["per_page"]
-        let totalCount = try json["meta"]["total_count"]
+        let currentPage = try json["meta"]["current_page"].int!
+        let totalPages = try json["meta"]["total_pages"].int!
+        let perPage = try json["meta"]["per_page"].int!
+        let totalCount = try json["meta"]["total_count"].int!
         
         let players = try json["data"].map { try Player(json: $1) }
         
@@ -45,6 +46,24 @@ class BallDontLieAPIManager: APIManager {
     }
     
     func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> [String] {
+        var gameStats = [PlayerGameStats]()
+        let path = apiPath + "stats"
+        var totalCount = 0
+        var currentPage = 0
+        repeat {
+            let json = try callAPI(path: path, queryParameters: [
+                                    "per_page": String(pageSize),
+                                    "page": String(currentPage),
+                                    "player_ids[]": String(player.id)])
+            let games = json["data"]
+            for game in games {
+                gameStats.append(try PlayerGameStats(json: game.1))
+            }
+            totalCount = json["meta"]["total_count"].int!
+            currentPage += 1
+        } while (currentPage)*pageSize < totalCount
+        print(gameStats.count)
+        print(totalCount)
         return []
     }
     

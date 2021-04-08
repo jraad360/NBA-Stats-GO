@@ -20,9 +20,10 @@ struct Game {
     }
     
     init(json: JSON) throws {
+        let dateString = json["date"].string!.split(separator: ".")
         self.init(
-            date: ISO8601DateFormatter().date(from: json["date"].string!)!,
-            homeTeam: try Team(json: json["city"]),
-            playoffs: json["conference"].bool!)
+            date: ISO8601DateFormatter().date(from: String(dateString[0]) + "Z")!,
+            homeTeam: try Team(id: json["home_team_id"].int!),
+            playoffs: json["postseason"].bool!)
     }
 }

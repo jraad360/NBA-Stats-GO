@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 
 struct PlayerGameStats {
-    let playerId: Int
+    let player: Player
     let team: Team
     let game: Game
 
@@ -34,7 +34,7 @@ struct PlayerGameStats {
     let pf: Int
     
     init(
-        playerId: Int,
+        player: Player,
         team: Team,
         game: Game,
         min: Int,
@@ -57,7 +57,7 @@ struct PlayerGameStats {
         turnover: Int,
         pf: Int) {
         
-        self.playerId = playerId
+        self.player = player
         self.team = team
         self.game = game
 
@@ -83,28 +83,29 @@ struct PlayerGameStats {
     }
     
     init(json: JSON) throws {
+        let min = json["min"].string != nil ? Int(json["min"].string!.split(separator: ":")[0])! : 0
         self.init(
-            playerId: json["player_id"].int!,
+            player: try Player(json: json["player"]),
             team: try Team(json: json["team"]),
             game: try Game(json: json["game"]),
-            min: json["min"].int!,
-            pts: json["pts"].int!,
-            ast: json["ast"].int!,
-            reb: json["reb"].int!,
-            dreb: json["dreb"].int!,
-            oreb: json["oreb"].int!,
-            stl: json["stl"].int!,
-            blk: json["blk"].int!,
-            fga: json["fga"].int!,
-            fgm: json["fgm"].int!,
-            fgpct: json["fg_pct"].double!,
-            fg3a: json["fg3a"].int!,
-            fg3m: json["fg3m"].int!,
-            fg3pct: json["fg3_pct"].double!,
-            fta: json["fta"].int!,
-            ftm: json["ftm"].int!,
-            ftpct: json["ft_pct"].double!,
-            turnover: json["turnover"].int!,
-            pf: json["pf"].int!)
+            min: min,
+            pts: json["pts"].int ?? 0,
+            ast: json["ast"].int ?? 0,
+            reb: json["reb"].int ?? 0,
+            dreb: json["dreb"].int ?? 0,
+            oreb: json["oreb"].int ?? 0,
+            stl: json["stl"].int ?? 0,
+            blk: json["blk"].int ?? 0,
+            fga: json["fga"].int ?? 0,
+            fgm: json["fgm"].int ?? 0,
+            fgpct: json["fg_pct"].double ?? 0.0,
+            fg3a: json["fg3a"].int ?? 0,
+            fg3m: json["fg3m"].int ?? 0,
+            fg3pct: json["fg3_pct"].double ?? 0.0,
+            fta: json["fta"].int ?? 0,
+            ftm: json["ftm"].int ?? 0,
+            ftpct: json["ft_pct"].double ?? 0.0,
+            turnover: json["turnover"].int ?? 0,
+            pf: json["pf"].int ?? 0)
     }
 }

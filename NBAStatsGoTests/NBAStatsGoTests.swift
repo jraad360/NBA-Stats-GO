@@ -42,5 +42,11 @@ class NBAStatsGoTests: XCTestCase {
         let seasons = try apiManager.getCareerStats(for: players[0])
         print(seasons)
     }
+    
+    func testGetCareerHighs() throws {
+        let apiManager = BallDontLieAPIManager()
+        let players = try apiManager.getPlayers(filters: ["name": "LeBron"])
+        let gameStats = try apiManager.getCareerHigh(for: players[0], in: .ast)
+    }
 
 }

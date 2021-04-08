@@ -28,6 +28,7 @@ struct Player {
     }
     
     init(json: JSON) throws {
+        let team = json["team_id"].exists() ? try Team(id: json["team_id"].int!) : try Team(json: json["team"])
         self.init(
             id: json["id"].int!,
             firstName: json["first_name"].string!,
@@ -35,6 +36,6 @@ struct Player {
             position: json["position"].string,
             height: json["height"].string,
             weight: json["weight"].int,
-            team: try Team(json: json["team"]))
+            team: team)
     }
 }
