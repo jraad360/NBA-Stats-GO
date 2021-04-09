@@ -35,7 +35,11 @@ extension ComparisonViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Segue transition to the tableview to select a player
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TO-DO: Go to Player Selection Window
-        performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
+        // Go to Player Selection Window for player 1 or player 2
+        if (indexPath.row == 0) {
+            performSegue(withIdentifier: "comparisonPlayerOne", sender: indexPath)
+        } else {
+            performSegue(withIdentifier: "comparisonPlayerTwo", sender: indexPath)
+        }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum StatCategory: String {
+enum StatCategory: String, CaseIterable {
     case min = "Minutes"
     case pts = "Points"
     case ast = "Assists"
