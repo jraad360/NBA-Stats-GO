@@ -40,8 +40,6 @@ class ComparisonViewController: UIViewController {
         }
     }
     
-    
-    
     // Prepare for either
     // Using the search table (comparisonPlayerOne, comparisonPlayerTwo)
     // Going to chart comparison (viewPlayerComparison)
@@ -59,5 +57,10 @@ class ComparisonViewController: UIViewController {
                 chartComparisonController.secondPlayer = currCompareSecondPlayer
             }
         }
+    }
+    
+    // Reload data when returning from search table
+    @IBAction func comparisonReturnFromSearchTable(segue: UIStoryboardSegue) {
+        compareTableView.reloadData()
     }
 }

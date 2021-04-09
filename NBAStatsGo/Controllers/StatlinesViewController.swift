@@ -53,6 +53,8 @@ class StatlinesViewController: UIViewController {
         }
     }
     
-    @IBAction func returnFromSearchTable(segue: UIStoryboardSegue) {
+    // Reload data when returning from search table
+    @IBAction func statlineReturnFromSearchTable(segue: UIStoryboardSegue) {
+        statlineTableView.reloadData()
     }
 }

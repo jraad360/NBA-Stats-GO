@@ -38,8 +38,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="u4G-4t-yrJ"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="EcF-jc-kf1" kind="unwind" identifier="statlinesSearch" unwindAction="returnFromSearchTableWithSegue:" id="PVD-Zk-ZfH"/>
-                        <segue destination="EcF-jc-kf1" kind="unwind" identifier="comparisonSearch" unwindAction="returnFromSearchTableWithSegue:" id="QL8-OU-ohH"/>
+                        <segue destination="EcF-jc-kf1" kind="unwind" identifier="statlinesSearch" unwindAction="statlineReturnFromSearchTableWithSegue:" id="1Xb-CV-RMc"/>
+                        <segue destination="EcF-jc-kf1" kind="unwind" identifier="comparisonSearch" unwindAction="comparisonReturnFromSearchTableWithSegue:" id="2vW-La-zAs"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9q-gG-gD4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
