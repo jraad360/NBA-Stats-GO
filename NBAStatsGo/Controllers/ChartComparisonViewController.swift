@@ -8,22 +8,26 @@
 import UIKit
 
 class ChartComparisonViewController: UIViewController {
+    
+    // Currently selected player 1 for comparison
+    var firstPlayer: Player?
 
+    // Currently selected player 2 for comparison
+    var secondPlayer: Player?
+
+    @IBOutlet weak var firstPlayerLabel: UILabel!
+    @IBOutlet weak var secondPlayerLabel: UILabel!
+    @IBOutlet weak var chartTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        initLabels()
+        chartTableView.delegate = self
+        chartTableView.dataSource = self
+        chartTableView.tableFooterView = UIView()
+        chartTableView.allowsSelection = false
+        // API Call Here to get stats for both players
+        // Setup Loading Indicator
+        // Display the player comparison
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -8,6 +8,9 @@
 import UIKit
 
 class PlayerStatsViewController: UIViewController {
+    
+    // Currently viewed player
+    var currViewedPlayer: Player?
 
     override func viewDidLoad() {
         super.viewDidLoad()

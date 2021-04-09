@@ -21,3 +21,20 @@ extension SearchTableViewController: UISearchBarDelegate {
         return searchBar
     }
 }
+
+// Initializers for Player Comparison Components including:
+// Player Labels
+extension ChartComparisonViewController {
+    
+    // Initialize Labels
+    func initLabels() {
+        // Replace hardcoded line with the lines below once API call is made
+//        firstPlayerLabel.text = firstPlayer!.firstName + " " + firstPlayer!.lastName
+//        secondPlayerLabel.text = secondPlayer!.firstName + " " + secondPlayer!.lastName
+        firstPlayerLabel.text = "Giannis Antetokounmpo"
+        secondPlayerLabel.text = "Lebron James"
+        
+        firstPlayerLabel.numberOfLines = 0
+        secondPlayerLabel.numberOfLines = 0
+    }
+}
