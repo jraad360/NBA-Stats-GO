@@ -24,9 +24,8 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         playerSearchBar = initSearchBar()
-        print(source)
         // Setup loading indicator
-        // Get all players here
+        // API Call to get all players here
         // Dismiss loading indicator
     }
     

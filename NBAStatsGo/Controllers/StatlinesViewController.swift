@@ -34,12 +34,24 @@ class StatlinesViewController: UIViewController {
         let playerText = playerCell.detailTextLabel?.text
         let statText = statCell.detailTextLabel?.text
         if (playerText != "Select Player" && statText != "Select Stat") {
-            // Insert API Call Here to get statline
+            // API Call Here to get statline
             // Setup Loading Indicator
             // Write the statlineOutput
         }
         else {
-            Alert.alert(title: "Cannot Get Statline", message: "Please make sure you have selected both a player and a stat before proceeding!", on: self)
+            // Apply this to the previous if statement when API Call is ready
+            let regular = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)]
+            let bold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)]
+            // Change this to be Player/Stat/Numeric specific
+            let regularText = NSAttributedString(string: "Giannis Antetokounmpo's career high in rebounds is ", attributes: regular)
+            let boldText = NSAttributedString(string: "35", attributes: bold)
+            let statlineText = NSMutableAttributedString()
+            statlineText.append(regularText)
+            statlineText.append(boldText)
+            statlineOutput.attributedText = statlineText
+            statlineOutput.sizeToFit()
+            // Uncomment this when API is ready
+//            Alert.alert(title: "Cannot Get Statline", message: "Please make sure you have selected both a player and a stat before proceeding!", on: self)
         }
     }
     

@@ -36,7 +36,9 @@ class ComparisonViewController: UIViewController {
             performSegue(withIdentifier: "viewPlayerComparison", sender: self)
         }
         else {
-            Alert.alert(title: "Cannot Get Player Comparison", message: "Please make sure you have selected two players before proceeding!", on: self)
+            // Replace back when API Call is ready
+            performSegue(withIdentifier: "viewPlayerComparison", sender: self)
+//            Alert.alert(title: "Cannot Get Player Comparison", message: "Please make sure you have selected two players before proceeding!", on: self)
         }
     }
     
@@ -52,9 +54,10 @@ class ComparisonViewController: UIViewController {
                 let searchTableController = segue.destination as! SearchTableViewController
                 searchTableController.source = "ComparisonTwo"
             } else if identifier == "viewPlayerComparison" {
-                let chartComparisonController = segue.destination as! ChartComparisonViewController
-                chartComparisonController.firstPlayer = currCompareFirstPlayer
-                chartComparisonController.secondPlayer = currCompareSecondPlayer
+                // Add back when API Call is ready
+//                let chartComparisonController = segue.destination as! ChartComparisonViewController
+//                chartComparisonController.firstPlayer = currCompareFirstPlayer
+//                chartComparisonController.secondPlayer = currCompareSecondPlayer
             }
         }
     }
