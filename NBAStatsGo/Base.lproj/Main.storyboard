@@ -37,10 +37,14 @@
                     <navigationItem key="navigationItem" title="Player Search" id="9mL-67-HjO">
                         <barButtonItem key="backBarButtonItem" title="Back" id="u4G-4t-yrJ"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="EcF-jc-kf1" kind="unwind" identifier="statlinesSearch" unwindAction="returnFromSearchTableWithSegue:" id="PVD-Zk-ZfH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9q-gG-gD4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="EcF-jc-kf1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="65" y="1084"/>
+            <point key="canvasLocation" x="65" y="1207"/>
         </scene>
         <!--Player Search-->
         <scene sceneID="Tup-bz-q2X">
@@ -56,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Eq-vK-T94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="1084"/>
+            <point key="canvasLocation" x="1006" y="1207"/>
         </scene>
         <!--Statlines-->
         <scene sceneID="J2A-1k-uqt">
@@ -113,6 +117,7 @@
                         <outlet property="statlineButton" destination="xk3-N8-Ukq" id="LkC-Kg-pqZ"/>
                         <outlet property="statlineOutput" destination="pmg-yM-Ua5" id="RRr-GQ-k5C"/>
                         <outlet property="statlineTableView" destination="lUk-Fy-oEs" id="PUa-TV-gcM"/>
+                        <segue destination="vdk-5Q-RKt" kind="show" identifier="statlinesPlayer" id="n68-5k-BKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZNF-pX-3Gn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -299,7 +304,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1G2-Lx-TOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-826.39999999999998" y="1083.5082458770617"/>
+            <point key="canvasLocation" x="-825" y="1207"/>
         </scene>
         <!--Home-->
         <scene sceneID="KAH-Zy-MGD">
@@ -321,6 +326,9 @@
             <point key="canvasLocation" x="64.799999999999997" y="-998.05097451274366"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="n68-5k-BKL"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="chart.bar.fill" catalog="system" width="128" height="92"/>
         <image name="homekit" catalog="system" width="128" height="106"/>

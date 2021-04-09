@@ -35,7 +35,10 @@ extension StatlinesViewController: UITableViewDelegate, UITableViewDataSource {
     
     // Segue transition to the tableview to select a player
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TO-DO: Either Select from a Picker Menu or Go to Player Selection Window
-        performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
+        // Go to Player Selection Window
+        if (indexPath.row == 0) {
+            performSegue(withIdentifier: "statlinesPlayer", sender: indexPath)
+        }
+        // TO-DO: Select from a Picker Menu for stat category
     }
 }
