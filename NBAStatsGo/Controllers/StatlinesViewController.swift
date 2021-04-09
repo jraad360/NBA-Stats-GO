@@ -12,6 +12,7 @@ class StatlinesViewController: UIViewController {
     @IBOutlet weak var statlineTableView: UITableView!
     @IBOutlet weak var statlineOutput: UILabel!
     @IBOutlet weak var statlineButton: UIButton!
+    @IBOutlet weak var statPicker: UIPickerView!
     
     // Currently selected player for statlines
     var currStatlinesPlayer: Player?
@@ -24,9 +25,14 @@ class StatlinesViewController: UIViewController {
         statlineTableView.delegate = self
         statlineTableView.dataSource = self
         statlineTableView.tableFooterView = UIView()
+        statPicker.delegate = self
+        statPicker.dataSource = self
+        statPicker?.isHidden = true
+        view.addSubview(statPicker!)
     }
     
     @IBAction func clickStatlinesButton(_ sender: Any) {
+        statPicker?.isHidden = true
         let playerIndex = IndexPath(row: 0, section: 0)
         let statIndex = IndexPath(row: 1, section: 0)
         let playerCell: UITableViewCell = self.statlineTableView.cellForRow(at: playerIndex)!
@@ -40,8 +46,8 @@ class StatlinesViewController: UIViewController {
         }
         else {
             // Apply this to the previous if statement when API Call is ready
-            let regular = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25)]
-            let bold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)]
+            let regular = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
+            let bold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
             // Change this to be Player/Stat/Numeric specific
             let regularText = NSAttributedString(string: "Giannis Antetokounmpo's career high in rebounds is ", attributes: regular)
             let boldText = NSAttributedString(string: "35", attributes: bold)

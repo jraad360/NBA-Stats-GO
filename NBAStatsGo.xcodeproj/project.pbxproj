@@ -36,6 +36,7 @@
 		C3730AFB2612609800D29E07 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3730AFA2612609800D29E07 /* SearchTableViewController.swift */; };
 		C3DAB4F226200BCA0070DD25 /* ChartComparisonViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAB4F126200BCA0070DD25 /* ChartComparisonViewControllerExtension.swift */; };
 		C3DAB4F5262018150070DD25 /* ChartComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAB4F4262018150070DD25 /* ChartComparisonCell.swift */; };
+		C3DAB4F82620382B0070DD25 /* StatlinesViewPickerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAB4F72620382B0070DD25 /* StatlinesViewPickerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		C3730AFA2612609800D29E07 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		C3DAB4F126200BCA0070DD25 /* ChartComparisonViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComparisonViewControllerExtension.swift; sourceTree = "<group>"; };
 		C3DAB4F4262018150070DD25 /* ChartComparisonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComparisonCell.swift; sourceTree = "<group>"; };
+		C3DAB4F72620382B0070DD25 /* StatlinesViewPickerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatlinesViewPickerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				C333A8C8261C717E002055DB /* StatlinesViewControllerExtension.swift */,
+				C3DAB4F72620382B0070DD25 /* StatlinesViewPickerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				C3DAB4F5262018150070DD25 /* ChartComparisonCell.swift in Sources */,
 				C334ED532612890800F38E32 /* ChartComparisonViewController.swift in Sources */,
 				C334ED6D2613953D00F38E32 /* Game.swift in Sources */,
+				C3DAB4F82620382B0070DD25 /* StatlinesViewPickerExtension.swift in Sources */,
 				C3730AFB2612609800D29E07 /* SearchTableViewController.swift in Sources */,
 				C334ED6B2613953D00F38E32 /* PlayerGameStats.swift in Sources */,
 				C334ED682613953D00F38E32 /* APIError.swift in Sources */,
