@@ -39,12 +39,17 @@ class SearchTableViewController: UITableViewController {
             if identifier == "viewPlayerStats" {
                 let playerStatsViewController = segue.destination as! PlayerStatsViewController
                 playerStatsViewController.currViewedPlayer = selectedPlayer
-            }
-            else if identifier == "statlinesSearch" {
+            } else if identifier == "statlinesSearch" {
                 let statlinesViewController = segue.destination as! StatlinesViewController
                 statlinesViewController.currStatlinesPlayer = selectedPlayer
+            } else if identifier == "comparisonSearch" {
+                let comparisonViewController = segue.destination as! ComparisonViewController
+                if (source == "ComparisonOne") {
+                    comparisonViewController.currCompareFirstPlayer = selectedPlayer
+                } else if (source == "ComparisonTwo") {
+                    comparisonViewController.currCompareSecondPlayer = selectedPlayer
+                }
             }
-            // TO-DO: Comparison Case
         }
     }
 }

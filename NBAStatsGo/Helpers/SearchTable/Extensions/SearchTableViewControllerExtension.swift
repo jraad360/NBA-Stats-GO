@@ -46,7 +46,8 @@ extension SearchTableViewController {
             performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
         } else if (source == "Statlines") {
             performSegue(withIdentifier: "statlinesSearch", sender: indexPath)
+        } else if (source == "ComparisonOne" || source == "ComparisonTwo") {
+            performSegue(withIdentifier: "comparisonSearch", sender: indexPath)
         }
-        // TO-DO: Comparison View Case
     }
 }

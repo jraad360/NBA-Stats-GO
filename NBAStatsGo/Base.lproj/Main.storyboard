@@ -39,12 +39,13 @@
                     </navigationItem>
                     <connections>
                         <segue destination="EcF-jc-kf1" kind="unwind" identifier="statlinesSearch" unwindAction="returnFromSearchTableWithSegue:" id="PVD-Zk-ZfH"/>
+                        <segue destination="EcF-jc-kf1" kind="unwind" identifier="comparisonSearch" unwindAction="returnFromSearchTableWithSegue:" id="QL8-OU-ohH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9q-gG-gD4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="EcF-jc-kf1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="65" y="1207"/>
+            <point key="canvasLocation" x="1684" y="1207"/>
         </scene>
         <!--Player Search-->
         <scene sceneID="Tup-bz-q2X">
@@ -60,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Eq-vK-T94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="1207"/>
+            <point key="canvasLocation" x="2743" y="1207"/>
         </scene>
         <!--Statlines-->
         <scene sceneID="J2A-1k-uqt">
@@ -112,7 +113,9 @@
                         <viewLayoutGuide key="safeArea" id="IB5-Zz-Y20"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Statlines" id="YOa-z0-OKX"/>
+                    <navigationItem key="navigationItem" title="Statlines" id="YOa-z0-OKX">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="gyC-KJ-sYW"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="statlineButton" destination="xk3-N8-Ukq" id="LkC-Kg-pqZ"/>
                         <outlet property="statlineOutput" destination="pmg-yM-Ua5" id="RRr-GQ-k5C"/>
@@ -159,6 +162,9 @@
                                         <real key="value" value="37.5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickCompareButton:" destination="p3Q-u8-BAE" eventType="touchUpInside" id="qwk-Dy-z0T"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TsX-cE-RZI"/>
@@ -168,13 +174,16 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Kr7-sg-7c3"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="compareButton" destination="jYq-5F-WRA" id="w3q-7O-oCr"/>
                         <outlet property="compareTableView" destination="mGa-yi-6Sj" id="5Pc-el-Mdq"/>
-                        <segue destination="AUG-tH-XkC" kind="show" id="RwP-Qb-HKV"/>
+                        <segue destination="AUG-tH-XkC" kind="show" identifier="viewPlayerComparison" id="RwP-Qb-HKV"/>
+                        <segue destination="vdk-5Q-RKt" kind="show" identifier="comparisonPlayerOne" id="HaO-mD-Fcn"/>
+                        <segue destination="vdk-5Q-RKt" kind="show" identifier="comparisonPlayerTwo" id="25w-ou-0TN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBq-j0-Zrk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005.6" y="-242.42878560719643"/>
+            <point key="canvasLocation" x="1684" y="-242"/>
         </scene>
         <!--Player Comparison-->
         <scene sceneID="RdJ-Q1-Opl">
@@ -190,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WzT-HY-XtT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924" y="-242"/>
+            <point key="canvasLocation" x="2742" y="-242"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LiW-Ws-EhJ">

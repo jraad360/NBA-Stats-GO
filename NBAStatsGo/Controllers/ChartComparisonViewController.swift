@@ -8,11 +8,19 @@
 import UIKit
 
 class ChartComparisonViewController: UIViewController {
+    
+    // Currently selected player 1 for comparison
+    var firstPlayer: Player?
+
+    // Currently selected player 2 for comparison
+    var secondPlayer: Player?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Insert API Call Here to get stats for both players
+        // Setup Loading Indicator
+        // Display the player comparison
     }
     
 
