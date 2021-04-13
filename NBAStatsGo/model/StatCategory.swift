@@ -8,23 +8,66 @@
 import Foundation
 
 enum StatCategory: String, CaseIterable {
-    case min = "Minutes"
-    case pts = "Points"
-    case ast = "Assists"
-    case reb = "Rebounds"
-    case dreb = "Defensive Rebounds"
-    case oreb = "Offensive Rebounds"
-    case stl = "Steals"
-    case blk = "Block"
-    case fga = "Field Goals Attempted"
-    case fgm = "Field Goals Made"
-    case fgpct = "Field Goal Percentage"
-    case fg3a = "3-Point Field Goals Attempted"
-    case fg3m = "3-Point Field Goals Made"
-    case fg3pct = "3-Point Field Goal Percentage"
-    case fta = "Free Throws Attempted"
-    case ftm = "Free Throws Made"
-    case ftpct = "Free Throw Percentage"
-    case turnover = "Turnovers"
-    case pf = "Personal Fouls"
+    case min
+    case pts
+    case ast
+    case reb
+    case dreb
+    case oreb
+    case stl
+    case blk
+    case fga
+    case fgm
+    case fgpct = "fg_pct"
+    case fg3a
+    case fg3m
+    case fg3pct = "fg3_pct"
+    case fta
+    case ftm
+    case ftpct = "ft_pct"
+    case turnover
+    case pf
+    
+    var label: String {
+        switch self {
+        case .min:
+            return "Minutes"
+        case .pts:
+            return "Points"
+        case .ast:
+            return "Assists"
+        case .reb:
+            return "Rebounds"
+        case .dreb:
+            return "Defensive Rebounds"
+        case .oreb:
+            return "Offensive Rebounds"
+        case .stl:
+            return "Steals"
+        case .blk:
+            return "Block"
+        case .fga:
+            return "Field Goals Attempted"
+        case .fgm:
+            return "Field Goals Made"
+        case .fgpct:
+            return "Field Goal Percentage"
+        case .fg3a:
+            return "3-Point Field Goals Attempted"
+        case .fg3m:
+            return "3-Point Field Goals Made"
+        case .fg3pct:
+            return "3-Point Field Goal Percentage"
+        case .fta:
+            return "Free Throws Attempted"
+        case .ftm:
+            return "Free Throws Made"
+        case .ftpct:
+            return "Free Throw Percentage"
+        case .turnover:
+            return "Turnovers"
+        case .pf:
+            return "Personal Fouls"
+        }
+    }
 }
