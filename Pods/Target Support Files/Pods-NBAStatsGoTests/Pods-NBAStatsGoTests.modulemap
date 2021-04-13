@@ -1,0 +1,6 @@
+framework module Pods_NBAStatsGoTests {
+  umbrella header "Pods-NBAStatsGoTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
