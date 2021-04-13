@@ -36,10 +36,18 @@ extension SearchTableViewController {
         return sectionHeader
     }
     
-    // Segue transition when selecting a table cell at a specific row
-    // TO-DO: Handle case where you only want to "select" someone for statlines/player comparison
+    // Segue transition when selecting a table cell at a specific row in three cases
+    // Segue to Player Stats View (PlayerStatsViewController)
+    // Unwind to Statlines View (StatlinesViewController)
+    // Unwind to Comparison View (ComparisonViewController)
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currViewedPlayer = players[indexPath.section][indexPath.row]
-        performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
+        selectedPlayer = players[indexPath.section][indexPath.row]
+        if (source == "Tab") {
+            performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
+        } else if (source == "Statlines") {
+            performSegue(withIdentifier: "statlinesSearch", sender: indexPath)
+        } else if (source == "ComparisonOne" || source == "ComparisonTwo") {
+            performSegue(withIdentifier: "comparisonSearch", sender: indexPath)
+        }
     }
 }
