@@ -54,7 +54,6 @@ class StatlinesViewController: UIViewController {
                     // TODO: Check to see if they have a last name
                     let regular = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
                     let bold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
-                    // Change this to be Player/Stat/Numeric specific
                     let regularText = NSAttributedString(string: self.currStatlinesPlayer!.firstName + " " + self.currStatlinesPlayer!.lastName + "\'s career high in " + self.currStat!.label + " is ", attributes: regular)
                     let boldText = NSAttributedString(string: careerHighValue, attributes: bold)
                     let statlineText = NSMutableAttributedString()
@@ -70,6 +69,10 @@ class StatlinesViewController: UIViewController {
                 } catch {
                     print(error)
                     Alert.alert(title: "Error Getting Statline", message: error.localizedDescription, on: self)
+                    DispatchQueue.main.async {
+                        currViewSpinner!.removeFromSuperview()
+                        currViewSpinner = nil
+                    }
                 }
     
             }

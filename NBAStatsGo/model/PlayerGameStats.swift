@@ -83,7 +83,7 @@ struct PlayerGameStats {
     }
     
     init(json: JSON) throws {
-        let min = json["min"].string != nil ? Int(json["min"].string!.split(separator: ":")[0])! : 0
+        let min = json["min"].string != nil && json["min"].string != "" ? Int(json["min"].string!.split(separator: ":")[0])! : 0
         self.init(
             player: try Player(json: json["player"]),
             team: try Team(json: json["team"]),
