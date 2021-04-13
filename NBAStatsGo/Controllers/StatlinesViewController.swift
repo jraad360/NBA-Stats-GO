@@ -46,7 +46,9 @@ class StatlinesViewController: UIViewController {
             DispatchQueue.global(qos: .utility).async {
                 do {
     
-                    // TODO: start loading icon
+                    DispatchQueue.main.async {
+                        self.displaySpinner(currView: self.view)
+                    }
                     
                     let careerHighValue = try self.apiManager.getCareerHigh(for: self.currStatlinesPlayer!, in: self.currStat!)
                     // TODO: Check to see if they have a last name
@@ -60,9 +62,10 @@ class StatlinesViewController: UIViewController {
                     statlineText.append(boldText)
     
                     DispatchQueue.main.async {
+                        currViewSpinner!.removeFromSuperview()
+                        currViewSpinner = nil
                         self.statlineOutput.attributedText = statlineText
                         self.statlineOutput.sizeToFit()
-                        // TODO: stop loading icon
                     }
                 } catch {
                     print(error)
