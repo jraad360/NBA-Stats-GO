@@ -9,9 +9,6 @@ import UIKit
 
 class ChartComparisonViewController: UIViewController {
     
-    // Initialize API Manager
-    let apiManager: APIManager = BallDontLieAPIManager()
-    
     // Currently selected player 1 for comparison
     var firstPlayer: Player?
 
@@ -29,23 +26,6 @@ class ChartComparisonViewController: UIViewController {
         chartTableView.dataSource = self
         chartTableView.tableFooterView = UIView()
         chartTableView.allowsSelection = false
-//        DispatchQueue.global(qos: .utility).async {
-//            do {
-//
-//                // TODO: start loading icon
-//                self.allPlayers = try self.apiManager.getPlayers(filters:["name": ""])
-//                self.transformData(transformingPlayers: self.allPlayers)
-//
-//                DispatchQueue.main.async {
-//                    // TODO: stop loading icon
-//                    self.tableView.reloadData()
-//                }
-//            } catch {
-//                // TODO: display error message to user
-//                print(error)
-//            }
-//
-//        }
         // API Call Here to get stats for both players
         // Setup Loading Indicator
         // Display the player comparison
