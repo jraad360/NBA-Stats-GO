@@ -54,7 +54,45 @@ class BallDontLieAPIManager: APIManager {
         return seasons
     }
     
-    func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> [String] {
+    func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> String {
+        var careerHigh: Double = 0
+        
+        var gameStats = [PlayerGameStats]()
+        let path = apiPath + "stats"
+        var totalCount = 0
+        var currentPage = 0
+        repeat {
+            let json = try callAPI(path: path, queryParameters: [
+                                    "per_page": String(pageSize),
+                                    "page": String(currentPage),
+                                    "player_ids[]": String(player.id)])
+            let games = json["data"]
+            for game in games {
+                let valueJSON = game.1[statCategory.rawValue]
+                if !valueJSON.exists() || valueJSON.double == nil {
+                    continue
+                }
+                let value = valueJSON.double!
+                if value > careerHigh {
+                    careerHigh = value
+                }
+                gameStats.append(try PlayerGameStats(json: game.1))
+            }
+            totalCount = json["meta"]["total_count"].int!
+            currentPage += 1
+        } while (currentPage)*pageSize < totalCount
+        print(gameStats.count)
+        print(totalCount)
+        
+        switch statCategory {
+            case .fgpct, .fg3pct, .ftpct:
+                return careerHigh.description
+            default:
+                return Int(careerHigh).description
+        }
+    }
+    
+    func getAllGames(for player: Player) throws -> [PlayerGameStats] {
         var gameStats = [PlayerGameStats]()
         let path = apiPath + "stats"
         var totalCount = 0
@@ -71,9 +109,8 @@ class BallDontLieAPIManager: APIManager {
             totalCount = json["meta"]["total_count"].int!
             currentPage += 1
         } while (currentPage)*pageSize < totalCount
-        print(gameStats.count)
-        print(totalCount)
-        return []
+        
+        return gameStats
     }
     
     func callAPI(path: String, queryParameters: [String: String]) throws -> JSON {

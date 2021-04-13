@@ -13,5 +13,5 @@ protocol APIManager {
     
     func getCareerStats(for player: Player) throws -> [PlayerSeasonAverageStats]
     
-    func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> [String]
+    func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> String
 }
