@@ -43,14 +43,17 @@ class NBAStatsGoTests: XCTestCase {
         print(seasons)
     }
     
-    func testGetCareerHighs() throws {
+    func testGetCareerHigh() throws {
         let apiManager = BallDontLieAPIManager()
         let players = try apiManager.getPlayers(filters: ["name": "LeBron"])
         let careerHigh = try apiManager.getCareerHigh(for: players[0], in: .pts)
     }
     
-    func testCallingApiAsync() {
-
+    func testCareerAverages() throws {
+        let apiManager = BallDontLieAPIManager()
+        let players = try apiManager.getPlayers(filters: ["name": "LeBron"])
+        let seasons = try apiManager.getCareerStats(for: players[0])
+        let careerAverages = PlayerSeasonAverageStats(seasons: seasons)
     }
     
     
