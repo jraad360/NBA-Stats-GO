@@ -8,7 +8,26 @@
 import Foundation
 import SwiftyJSON
 
-struct Player {
+struct Player: Comparable {
+    static func < (lhs: Player, rhs: Player) -> Bool {
+        return lhs.getLastFirstNames() < rhs.getLastFirstNames()
+    }
+    
+    func getLastFirstNames() -> String {
+        // based on assumption that player will have at least one name
+        if lastName == "" {
+            return firstName
+        } else if firstName == "" {
+            return lastName
+        } else {
+            return "\(lastName), \(firstName)"
+        }
+    }
+    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.lastName == rhs.lastName && lhs.firstName == rhs.firstName
+    }
+    
     let id: Int
     let firstName: String
     let lastName: String

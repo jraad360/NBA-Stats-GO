@@ -35,7 +35,7 @@ class BallDontLieAPIManager: APIManager {
             currentPage += 1
         } while (currentPage)*pageSize < totalCount
 
-        return players
+        return players.sorted()
     }
     
     func getCareerStats(for player: Player) throws -> [PlayerSeasonAverageStats] {
