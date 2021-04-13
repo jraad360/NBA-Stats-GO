@@ -27,7 +27,7 @@ extension StatlinesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.accessoryType = .disclosureIndicator
         } else {
             cell.textLabel?.text = "Stat"
-            cell.detailTextLabel?.text = (currStat == nil ? "Select Stat" : currStat!.rawValue)
+            cell.detailTextLabel?.text = (currStat == nil ? "Select Stat" : currStat!.label)
             cell.accessoryType = .disclosureIndicator
         }
         return cell
