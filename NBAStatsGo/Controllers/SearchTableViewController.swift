@@ -7,6 +7,8 @@
 
 import UIKit
 
+var APICaller: BallDontLieAPIManager = BallDontLieAPIManager()
+
 class SearchTableViewController: UITableViewController {
     
     // Search Bar
@@ -14,6 +16,9 @@ class SearchTableViewController: UITableViewController {
 
     // NBA Players
     var players = [[Player]]()
+    
+    // Global Player List
+    var allPlayers = [Player]()
     
     // Selected Player from table
     var selectedPlayer: Player?
@@ -24,6 +29,8 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         playerSearchBar = initSearchBar()
+        allPlayers = try! APICaller.getPlayers(filters: ["name": ""])
+        transformData(transformingPlayers: allPlayers)
         // Setup loading indicator
         // API Call to get all players here
         // Dismiss loading indicator
@@ -49,6 +56,13 @@ class SearchTableViewController: UITableViewController {
                     comparisonViewController.currCompareSecondPlayer = selectedPlayer
                 }
             }
+        }
+    }
+    
+    func transformData(transformingPlayers: [Player]) {
+        for player in transformingPlayers {
+            let lastNameInitial = player.lastName.prefix(1)
+            print(lastNameInitial)
         }
     }
 }
