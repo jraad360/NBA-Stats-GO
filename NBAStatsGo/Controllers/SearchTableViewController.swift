@@ -76,10 +76,35 @@ class SearchTableViewController: UITableViewController {
         }
     }
     
+//    func fetchPlayers() {
+//           let apiManager = BallDontLieAPIManager()
+//
+//           DispatchQueue.global(qos: .utility).async {
+//               do {
+//
+//                   // TODO: start loading icon
+//                   let players = try apiManager.getPlayers(filters:["name": ""])
+//
+//                   DispatchQueue.main.async {
+//                       // TODO: stop loading icon
+//                       // TODO: load data into view
+//                   }
+//               } catch error is Error {
+//                   // TODO: display error message to user
+//                   print(error)
+//               }
+//
+//           }
+//       }
+
+    
     func transformData(transformingPlayers: [Player]) {
         for player in transformingPlayers {
-            let lastNameInitial = player.lastName.prefix(1)
+            // Handle case where player does not have last name
+            let lastNameInitial = player.lastName.prefix(1).isEmpty ? "Z" : player.lastName.prefix(1)
+            let lastNameInitialInt = Character(String(lastNameInitial)).asciiValue! - 65
             print(lastNameInitial)
+            print(lastNameInitialInt)
         }
     }
 }
