@@ -11,6 +11,8 @@ var APICaller: BallDontLieAPIManager = BallDontLieAPIManager()
 
 class SearchTableViewController: UITableViewController {
     
+    let apiManager: APIManager = BallDontLieAPIManager()
+    
     // Search Bar
     var playerSearchBar: UISearchBar?
 
@@ -29,7 +31,22 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         playerSearchBar = initSearchBar()
-        allPlayers = try! APICaller.getPlayers(filters: ["name": ""])
+        DispatchQueue.global(qos: .utility).async {
+            do {
+                
+                // TODO: start loading icon
+                self.allPlayers = try self.apiManager.getPlayers(filters:["name": ""])
+               
+                DispatchQueue.main.async {
+                    // TODO: stop loading icon
+                    // TODO: load data into view
+                }
+            } catch {
+                // TODO: display error message to user
+                print(error)
+            }
+            
+        }
         transformData(transformingPlayers: allPlayers)
         // Setup loading indicator
         // API Call to get all players here
