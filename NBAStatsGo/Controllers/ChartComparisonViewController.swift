@@ -9,14 +9,23 @@ import UIKit
 
 class ChartComparisonViewController: UIViewController {
     
-    // Initialize API Manager
-    let apiManager: APIManager = BallDontLieAPIManager()
-    
     // Currently selected player 1 for comparison
     var firstPlayer: Player?
 
     // Currently selected player 2 for comparison
     var secondPlayer: Player?
+    
+    // Currently selected player 1 career averages
+    var firstPlayerCareerStats: PlayerSeasonAverageStats?
+    
+    // Currently selected player 2 career averages
+    var secondPlayerCareerStats: PlayerSeasonAverageStats?
+    
+    // Adjusted Frame Width Boolean Array
+    var tableCellAdjustedBoolean = [Bool](repeating: false, count:19)
+    
+    // Adjusted Frame Width Double Array
+    var tableCellAdjustedWidth = [CGFloat](repeating: 0.0, count:19)
 
     @IBOutlet weak var firstPlayerLabel: UILabel!
     @IBOutlet weak var secondPlayerLabel: UILabel!
@@ -29,25 +38,5 @@ class ChartComparisonViewController: UIViewController {
         chartTableView.dataSource = self
         chartTableView.tableFooterView = UIView()
         chartTableView.allowsSelection = false
-//        DispatchQueue.global(qos: .utility).async {
-//            do {
-//
-//                // TODO: start loading icon
-//                self.allPlayers = try self.apiManager.getPlayers(filters:["name": ""])
-//                self.transformData(transformingPlayers: self.allPlayers)
-//
-//                DispatchQueue.main.async {
-//                    // TODO: stop loading icon
-//                    self.tableView.reloadData()
-//                }
-//            } catch {
-//                // TODO: display error message to user
-//                print(error)
-//            }
-//
-//        }
-        // API Call Here to get stats for both players
-        // Setup Loading Indicator
-        // Display the player comparison
     }
 }

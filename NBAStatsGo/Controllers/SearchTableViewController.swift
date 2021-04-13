@@ -47,6 +47,10 @@ class SearchTableViewController: UITableViewController {
             } catch {
                 print(error)
                 Alert.alert(title: "Error Getting Players", message: error.localizedDescription, on: self)
+                DispatchQueue.main.async {
+                    currViewSpinner!.removeFromSuperview()
+                    currViewSpinner = nil
+                }
             }
             
         }

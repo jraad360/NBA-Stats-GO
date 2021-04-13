@@ -9,11 +9,20 @@ import UIKit
 
 class ComparisonViewController: UIViewController {
     
+    // Initialize API Manager
+    let apiManager: APIManager = BallDontLieAPIManager()
+    
     // Currently selected player 1 for comparison
     var currCompareFirstPlayer: Player?
 
     // Currently selected player 2 for comparison
     var currCompareSecondPlayer: Player?
+    
+    // Currently selected player 1 career averages
+    var firstPlayerCareerStats: PlayerSeasonAverageStats?
+    
+    // Currently selected player 2 career averages
+    var secondPlayerCareerStats: PlayerSeasonAverageStats?
 
     @IBOutlet weak var compareTableView: UITableView!
     @IBOutlet weak var compareButton: UIButton!
@@ -33,12 +42,50 @@ class ComparisonViewController: UIViewController {
         let playerOneText = playerOneCell.detailTextLabel?.text
         let playerTwoText = playerTwoCell.detailTextLabel?.text
         if (playerOneText != "Select Player" && playerTwoText != "Select Player") {
-            performSegue(withIdentifier: "viewPlayerComparison", sender: self)
+            DispatchQueue.global(qos: .utility).async {
+                do {
+
+                    DispatchQueue.main.async {
+                        self.displaySpinner(currView: self.view)
+                    }
+                    let firstPlayerStats = try self.apiManager.getCareerStats(for: self.currCompareFirstPlayer!)
+                    self.firstPlayerCareerStats = PlayerSeasonAverageStats(seasons: firstPlayerStats)
+                    
+                } catch {
+                    print(error)
+                    Alert.alert(title: "Error Getting Career Stats for Comparison", message: error.localizedDescription, on: self)
+                    DispatchQueue.main.async {
+                        currViewSpinner!.removeFromSuperview()
+                        currViewSpinner = nil
+                    }
+                }
+
+            }
+            
+            DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 50.0) {
+                do {
+                    
+                    let secondPlayerStats = try self.apiManager.getCareerStats(for: self.currCompareSecondPlayer!)
+                    self.secondPlayerCareerStats = PlayerSeasonAverageStats(seasons: secondPlayerStats)
+                    
+                    DispatchQueue.main.async {
+                        currViewSpinner!.removeFromSuperview()
+                        currViewSpinner = nil
+                        self.performSegue(withIdentifier: "viewPlayerComparison", sender: self)
+                    }
+                    
+                } catch {
+                    print(error)
+                    Alert.alert(title: "Error Getting Career Stats for Comparison", message: error.localizedDescription, on: self)
+                    DispatchQueue.main.async {
+                        currViewSpinner!.removeFromSuperview()
+                        currViewSpinner = nil
+                    }
+                }
+            }
         }
         else {
-            // Replace back when API Call is ready
-            performSegue(withIdentifier: "viewPlayerComparison", sender: self)
-//            Alert.alert(title: "Cannot Get Player Comparison", message: "Please make sure you have selected two players before proceeding!", on: self)
+            Alert.alert(title: "Cannot Get Player Comparison", message: "Please make sure you have selected two players before proceeding!", on: self)
         }
     }
     
@@ -54,10 +101,11 @@ class ComparisonViewController: UIViewController {
                 let searchTableController = segue.destination as! SearchTableViewController
                 searchTableController.source = "ComparisonTwo"
             } else if identifier == "viewPlayerComparison" {
-                // Add back when API Call is ready
-//                let chartComparisonController = segue.destination as! ChartComparisonViewController
-//                chartComparisonController.firstPlayer = currCompareFirstPlayer
-//                chartComparisonController.secondPlayer = currCompareSecondPlayer
+                let chartComparisonController = segue.destination as! ChartComparisonViewController
+                chartComparisonController.firstPlayer = currCompareFirstPlayer
+                chartComparisonController.secondPlayer = currCompareSecondPlayer
+                chartComparisonController.firstPlayerCareerStats = firstPlayerCareerStats
+                chartComparisonController.secondPlayerCareerStats = secondPlayerCareerStats
             }
         }
     }
