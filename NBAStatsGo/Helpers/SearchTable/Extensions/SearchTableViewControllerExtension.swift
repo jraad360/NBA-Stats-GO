@@ -36,6 +36,11 @@ extension SearchTableViewController {
         return sectionHeader
     }
     
+    // Alphabetical index to navigate between sections
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+       return ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+   }
+    
     // Segue transition when selecting a table cell at a specific row in three cases
     // Segue to Player Stats View (PlayerStatsViewController)
     // Unwind to Statlines View (StatlinesViewController)
