@@ -33,17 +33,20 @@ class SearchTableViewController: UITableViewController {
         DispatchQueue.global(qos: .utility).async {
             do {
                 
-                // TODO: start loading icon
+                DispatchQueue.main.async {
+                    self.displaySpinner(currView: self.view)
+                }
                 self.allPlayers = try self.apiManager.getPlayers(filters:["name": ""])
                 self.transformData(transformingPlayers: self.allPlayers)
                
                 DispatchQueue.main.async {
-                    // TODO: stop loading icon
+                    currViewSpinner!.removeFromSuperview()
+                    currViewSpinner = nil
                     self.tableView.reloadData()
                 }
             } catch {
-                // TODO: display error message to user
                 print(error)
+                Alert.alert(title: "Error Getting Players", message: error.localizedDescription, on: self)
             }
             
         }

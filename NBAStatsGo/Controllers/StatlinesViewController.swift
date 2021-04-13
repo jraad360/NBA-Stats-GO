@@ -14,6 +14,9 @@ class StatlinesViewController: UIViewController {
     @IBOutlet weak var statlineButton: UIButton!
     @IBOutlet weak var statPicker: UIPickerView!
     
+    // Initialize API Manager
+    let apiManager: APIManager = BallDontLieAPIManager()
+    
     // Currently selected player for statlines
     var currStatlinesPlayer: Player?
 
@@ -40,24 +43,39 @@ class StatlinesViewController: UIViewController {
         let playerText = playerCell.detailTextLabel?.text
         let statText = statCell.detailTextLabel?.text
         if (playerText != "Select Player" && statText != "Select Stat") {
-            // API Call Here to get statline
-            // Setup Loading Indicator
-            // Write the statlineOutput
+            DispatchQueue.global(qos: .utility).async {
+                do {
+    
+                    DispatchQueue.main.async {
+                        self.displaySpinner(currView: self.view)
+                    }
+                    
+                    let careerHighValue = try self.apiManager.getCareerHigh(for: self.currStatlinesPlayer!, in: self.currStat!)
+                    // TODO: Check to see if they have a last name
+                    let regular = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
+                    let bold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
+                    // Change this to be Player/Stat/Numeric specific
+                    let regularText = NSAttributedString(string: self.currStatlinesPlayer!.firstName + " " + self.currStatlinesPlayer!.lastName + "\'s career high in " + self.currStat!.label + " is ", attributes: regular)
+                    let boldText = NSAttributedString(string: careerHighValue, attributes: bold)
+                    let statlineText = NSMutableAttributedString()
+                    statlineText.append(regularText)
+                    statlineText.append(boldText)
+    
+                    DispatchQueue.main.async {
+                        currViewSpinner!.removeFromSuperview()
+                        currViewSpinner = nil
+                        self.statlineOutput.attributedText = statlineText
+                        self.statlineOutput.sizeToFit()
+                    }
+                } catch {
+                    print(error)
+                    Alert.alert(title: "Error Getting Statline", message: error.localizedDescription, on: self)
+                }
+    
+            }
         }
         else {
-            // Apply this to the previous if statement when API Call is ready
-            let regular = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
-            let bold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
-            // Change this to be Player/Stat/Numeric specific
-            let regularText = NSAttributedString(string: "Giannis Antetokounmpo's career high in rebounds is ", attributes: regular)
-            let boldText = NSAttributedString(string: "35", attributes: bold)
-            let statlineText = NSMutableAttributedString()
-            statlineText.append(regularText)
-            statlineText.append(boldText)
-            statlineOutput.attributedText = statlineText
-            statlineOutput.sizeToFit()
-            // Uncomment this when API is ready
-//            Alert.alert(title: "Cannot Get Statline", message: "Please make sure you have selected both a player and a stat before proceeding!", on: self)
+            Alert.alert(title: "Cannot Get Statline", message: "Please make sure you have selected both a player and a stat before proceeding!", on: self)
         }
     }
     
