@@ -42,8 +42,8 @@ class SearchTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             } catch {
-                // TODO: display error message to user
                 print(error)
+                Alert.alert(title: "Error Getting Players", message: error.localizedDescription, on: self)
             }
             
         }
