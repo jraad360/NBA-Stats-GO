@@ -48,7 +48,29 @@ extension SearchTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPlayer = players[indexPath.section][indexPath.row]
         if (source == "Tab") {
-            performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
+            DispatchQueue.global(qos: .utility).async {
+                do {
+                    DispatchQueue.main.async {
+                        self.displaySpinner(currView: self.view)
+                    }
+                    
+                    self.selectedPlayerSeasonAvgs = try self.apiManager.getCareerStats(for: self.players[indexPath.section][indexPath.row])
+                    self.selectedPlayerCareerAvgs = PlayerSeasonAverageStats(seasons: self.selectedPlayerSeasonAvgs!)
+
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
+                    }
+                    
+                } catch {
+                    print(error)
+                    Alert.alert(title: "Error Getting Player Stats", message: error.localizedDescription, on: self)
+                    DispatchQueue.main.async {
+                        currViewSpinner!.removeFromSuperview()
+                        currViewSpinner = nil
+                    }
+                }
+
+            }
         } else if (source == "Statlines") {
             performSegue(withIdentifier: "statlinesSearch", sender: indexPath)
         } else if (source == "ComparisonOne" || source == "ComparisonTwo") {
