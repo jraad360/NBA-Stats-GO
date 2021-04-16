@@ -18,8 +18,10 @@ class PlayerStatsCell: Cell {
         label.text = text
         if (header) {
             label.font = UIFont.boldSystemFont(ofSize: 16.0)
+            self.backgroundColor = .systemGray5
         } else {
             label.font = UIFont.systemFont(ofSize: 14.0)
+            self.backgroundColor = .white
         }
         label.textAlignment = .center
         contentView.addSubview(label)

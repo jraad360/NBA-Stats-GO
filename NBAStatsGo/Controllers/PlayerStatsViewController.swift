@@ -45,6 +45,10 @@ class PlayerStatsViewController: UIViewController {
         seasonSpreadsheet.register(PlayerStatsCell.self, forCellWithReuseIdentifier: PlayerStatsCell.identifier)
         seasonSpreadsheet.delegate = self
         seasonSpreadsheet.dataSource = self
+        let spreadsheetHeight = seasonSpreadsheet.frame.height
+        if (spreadsheetHeight > CGFloat((currViewedSeasonAvgs!.count + 1) * 32)) {
+            seasonSpreadsheet.frame = CGRect(x: seasonSpreadsheet.frame.origin.x, y: seasonSpreadsheet.frame.origin.y, width: seasonSpreadsheet.frame.width, height: CGFloat((currViewedSeasonAvgs!.count + 1) * 32))
+        }
     }
     
 

@@ -58,6 +58,8 @@ extension SearchTableViewController {
                     self.selectedPlayerCareerAvgs = PlayerSeasonAverageStats(seasons: self.selectedPlayerSeasonAvgs!)
 
                     DispatchQueue.main.async {
+                        currViewSpinner!.removeFromSuperview()
+                        currViewSpinner = nil
                         self.performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
                     }
                     
