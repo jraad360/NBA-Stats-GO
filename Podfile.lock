@@ -1,16 +1,20 @@
 PODS:
+  - SpreadsheetView (0.9.1)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - SpreadsheetView
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
+    - SpreadsheetView
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  SpreadsheetView: 688dbd19f2b355df0eb09e486266fd913a013449
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: f7c66c439ef23e6935584860dd32b487d3ce3d53
+PODFILE CHECKSUM: 772d69e1d83111ef666f32e6de47136224692be4
 
 COCOAPODS: 1.10.1

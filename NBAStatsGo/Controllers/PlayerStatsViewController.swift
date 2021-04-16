@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SpreadsheetView
 
 class PlayerStatsViewController: UIViewController {
     
@@ -30,6 +31,7 @@ class PlayerStatsViewController: UIViewController {
     @IBOutlet weak var careerAvgAsts: UILabel!
     @IBOutlet weak var careerAvgBlks: UILabel!
     @IBOutlet weak var careerAvgStls: UILabel!
+    @IBOutlet weak var seasonSpreadsheet: SpreadsheetView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,9 @@ class PlayerStatsViewController: UIViewController {
         careerStatsHeader.layer.borderWidth = 1
         careerStatsHeader.layer.borderColor = UIColor.black.cgColor
         initCareerLabels()
-        // Do any additional setup after loading the view.
+        seasonSpreadsheet.register(PlayerStatsCell.self, forCellWithReuseIdentifier: PlayerStatsCell.identifier)
+        seasonSpreadsheet.delegate = self
+        seasonSpreadsheet.dataSource = self
     }
     
 

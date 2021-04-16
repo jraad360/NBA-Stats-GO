@@ -174,6 +174,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vao-eh-opd" customClass="SpreadsheetView" customModule="SpreadsheetView">
+                                <rect key="frame" x="29" y="340" width="317" height="252"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Hl-5w-ymk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -192,6 +197,7 @@
                         <outlet property="playerName" destination="KuQ-a9-xL6" id="CvW-2k-CJA"/>
                         <outlet property="playerPosition" destination="Imh-VK-imW" id="5Zd-LA-eNC"/>
                         <outlet property="playerWeight" destination="Gc2-WE-HbG" id="A53-qo-ESo"/>
+                        <outlet property="seasonSpreadsheet" destination="vao-eh-opd" id="Tc5-fZ-RBk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Eq-vK-T94" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
