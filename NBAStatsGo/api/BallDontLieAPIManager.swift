@@ -86,7 +86,7 @@ class BallDontLieAPIManager: APIManager {
         
         switch statCategory {
             case .fgpct, .fg3pct, .ftpct:
-                return careerHigh.description
+                return "\(careerHigh*100)%"
             default:
                 return Int(careerHigh).description
         }
