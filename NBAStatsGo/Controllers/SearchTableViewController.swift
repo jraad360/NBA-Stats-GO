@@ -7,10 +7,13 @@
 
 import UIKit
 
+// Global Player List
+var allPlayers = [Player]()
+
 class SearchTableViewController: UITableViewController {
     
-    // Initialize API Manager
-    let apiManager: APIManager = BallDontLieAPIManager()
+    // Initialize Stats Manager
+    let statsManager = StatsManager()
     
     // Search Bar
     var playerSearchBar: UISearchBar?
@@ -18,8 +21,8 @@ class SearchTableViewController: UITableViewController {
     // NBA Players
     var players = [[Player]]()
     
-    // Global Player List
-    var allPlayers = [Player]()
+    // Filtered NBA Players
+    var filteredPlayers = [Player]()
     
     // Selected Player from table
     var selectedPlayer: Player?
@@ -40,22 +43,27 @@ class SearchTableViewController: UITableViewController {
             do {
                 
                 DispatchQueue.main.async {
-                    self.displaySpinner(currView: self.view)
+                    self.displayProgressView(currView: self.view)
                 }
-                self.allPlayers = try self.apiManager.getPlayers(filters:["name": ""])
-                self.transformData(transformingPlayers: self.allPlayers)
-               
+                
+                if (allPlayers.count > 0) {
+                    self.transformData(transformingPlayers: allPlayers)
+                } else {
+                    allPlayers = try self.statsManager.getPlayers(filters:["name": ""])
+                    self.transformData(transformingPlayers: allPlayers)
+                }
+                
                 DispatchQueue.main.async {
-                    currViewSpinner!.removeFromSuperview()
-                    currViewSpinner = nil
+                    currViewProgress!.removeFromSuperview()
+                    currViewProgress = nil
                     self.tableView.reloadData()
                 }
             } catch {
                 print(error)
                 Alert.alert(title: "Error Getting Players", message: error.localizedDescription, on: self)
                 DispatchQueue.main.async {
-                    currViewSpinner!.removeFromSuperview()
-                    currViewSpinner = nil
+                    currViewProgress!.removeFromSuperview()
+                    currViewProgress = nil
                 }
             }
             
@@ -99,8 +107,7 @@ class SearchTableViewController: UITableViewController {
             v_list = [Player](), w_list = [Player](), x_list = [Player](),
             y_list = [Player](), z_list = [Player]()
         for player in transformingPlayers {
-            // Handle case where player does not have last name
-            let lastNameInitial = player.lastName.prefix(1).isEmpty ? "Z" : player.lastName.prefix(1)
+            let lastNameInitial = player.getLastFirstNames().prefix(1)
             let lastNameInitialInt = Character(String(lastNameInitial)).asciiValue! - 65
             switch lastNameInitialInt {
             case 0:

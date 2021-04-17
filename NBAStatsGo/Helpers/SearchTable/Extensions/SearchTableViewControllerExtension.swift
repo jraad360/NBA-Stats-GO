@@ -22,12 +22,15 @@ extension SearchTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let player: Player = players[indexPath.section][indexPath.row]
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-        cell.textLabel?.text = player.lastName + ", " + player.firstName
+        cell.textLabel?.text = player.getLastFirstNames()
         return cell
     }
     
     // Headers for each section within the table view
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (players[section].count == 0) {
+            return nil
+        }
         let sectionHeader = SectionHeaderLabel()
         let startingValue = Int(("A" as UnicodeScalar).value) // 65
         sectionHeader.text = String(UnicodeScalar(section + startingValue)!)
@@ -51,15 +54,15 @@ extension SearchTableViewController {
             DispatchQueue.global(qos: .utility).async {
                 do {
                     DispatchQueue.main.async {
-                        self.displaySpinner(currView: self.view)
+                        self.displayProgressView(currView: self.view)
                     }
                     
-                    self.selectedPlayerSeasonAvgs = try self.apiManager.getCareerStats(for: self.players[indexPath.section][indexPath.row])
+                    self.selectedPlayerSeasonAvgs = try self.statsManager.getCareerStats(for: self.players[indexPath.section][indexPath.row])
                     self.selectedPlayerCareerAvgs = PlayerSeasonAverageStats(seasons: self.selectedPlayerSeasonAvgs!)
 
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
                         self.performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
                     }
                     
@@ -67,8 +70,8 @@ extension SearchTableViewController {
                     print(error)
                     Alert.alert(title: "Error Getting Player Stats", message: error.localizedDescription, on: self)
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
                     }
                 }
 
@@ -78,5 +81,12 @@ extension SearchTableViewController {
         } else if (source == "ComparisonOne" || source == "ComparisonTwo") {
             performSegue(withIdentifier: "comparisonSearch", sender: indexPath)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (players[section].count == 0) {
+            return 0
+        }
+        return 30
     }
 }

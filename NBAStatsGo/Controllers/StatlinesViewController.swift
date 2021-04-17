@@ -15,7 +15,7 @@ class StatlinesViewController: UIViewController {
     @IBOutlet weak var statPicker: UIPickerView!
     
     // Initialize API Manager
-    let apiManager: APIManager = BallDontLieAPIManager()
+    let statsManager = StatsManager()
     
     // Currently selected player for statlines
     var currStatlinesPlayer: Player?
@@ -47,22 +47,21 @@ class StatlinesViewController: UIViewController {
                 do {
     
                     DispatchQueue.main.async {
-                        self.displaySpinner(currView: self.view)
+                        self.displayProgressView(currView: self.view)
                     }
                     
-                    let careerHighValue = try self.apiManager.getCareerHigh(for: self.currStatlinesPlayer!, in: self.currStat!)
-                    // TODO: Check to see if they have a last name
+                    let careerHighValue = try self.statsManager.getCareerHigh(for: self.currStatlinesPlayer!, in: self.currStat!)
                     let regular = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
                     let bold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
-                    let regularText = NSAttributedString(string: self.currStatlinesPlayer!.firstName + " " + self.currStatlinesPlayer!.lastName + "\'s career high in " + self.currStat!.label + " is ", attributes: regular)
+                    let regularText = NSAttributedString(string: self.currStatlinesPlayer!.getFirstLastNames() + "\'s career high in " + self.currStat!.label + " is ", attributes: regular)
                     let boldText = NSAttributedString(string: careerHighValue, attributes: bold)
                     let statlineText = NSMutableAttributedString()
                     statlineText.append(regularText)
                     statlineText.append(boldText)
     
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
                         self.statlineOutput.attributedText = statlineText
                         self.statlineOutput.sizeToFit()
                     }
@@ -70,8 +69,8 @@ class StatlinesViewController: UIViewController {
                     print(error)
                     Alert.alert(title: "Error Getting Statline", message: error.localizedDescription, on: self)
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
                     }
                 }
     

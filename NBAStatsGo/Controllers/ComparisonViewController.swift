@@ -10,7 +10,7 @@ import UIKit
 class ComparisonViewController: UIViewController {
     
     // Initialize API Manager
-    let apiManager: APIManager = BallDontLieAPIManager()
+    let statsManager = StatsManager()
     
     // Currently selected player 1 for comparison
     var currCompareFirstPlayer: Player?
@@ -46,17 +46,17 @@ class ComparisonViewController: UIViewController {
                 do {
 
                     DispatchQueue.main.async {
-                        self.displaySpinner(currView: self.view)
+                        self.displayProgressView(currView: self.view)
                     }
-                    let firstPlayerStats = try self.apiManager.getCareerStats(for: self.currCompareFirstPlayer!)
+                    let firstPlayerStats = try self.statsManager.getCareerStats(for: self.currCompareFirstPlayer!)
                     self.firstPlayerCareerStats = PlayerSeasonAverageStats(seasons: firstPlayerStats)
                     
                 } catch {
                     print(error)
                     Alert.alert(title: "Error Getting Career Stats for Comparison", message: error.localizedDescription, on: self)
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
                     }
                 }
 
@@ -65,12 +65,12 @@ class ComparisonViewController: UIViewController {
             DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 50.0) {
                 do {
                     
-                    let secondPlayerStats = try self.apiManager.getCareerStats(for: self.currCompareSecondPlayer!)
+                    let secondPlayerStats = try self.statsManager.getCareerStats(for: self.currCompareSecondPlayer!)
                     self.secondPlayerCareerStats = PlayerSeasonAverageStats(seasons: secondPlayerStats)
                     
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
                         self.performSegue(withIdentifier: "viewPlayerComparison", sender: self)
                     }
                     
@@ -78,8 +78,8 @@ class ComparisonViewController: UIViewController {
                     print(error)
                     Alert.alert(title: "Error Getting Career Stats for Comparison", message: error.localizedDescription, on: self)
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
                     }
                 }
             }
