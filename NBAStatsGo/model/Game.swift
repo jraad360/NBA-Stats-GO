@@ -10,11 +10,13 @@ import SwiftyJSON
 
 struct Game {
     let date: Date
+    let season: String
     let homeTeam: Team
     let playoffs: Bool
     
-    init(date: Date, homeTeam: Team, playoffs: Bool) {
+    init(date: Date, season: String, homeTeam: Team, playoffs: Bool) {
         self.date = date
+        self.season = season
         self.homeTeam = homeTeam
         self.playoffs = playoffs
     }
@@ -22,8 +24,9 @@ struct Game {
     init(json: JSON) throws {
         let dateString = json["date"].string!.split(separator: ".")
         self.init(
-            date: ISO8601DateFormatter().date(from: String(dateString[0]) + "Z")!,
-            homeTeam: try Team(id: json["home_team_id"].int!),
-            playoffs: json["postseason"].bool!)
+            date: ISO8601DateFormatter().date(from: String(dateString[0]) + "Z") ?? Date(),
+            season: String(json["season"].int ?? 0),
+            homeTeam: try Team(id: json["home_team_id"].int ?? 0),
+            playoffs: json["postseason"].bool ?? false)
     }
 }
