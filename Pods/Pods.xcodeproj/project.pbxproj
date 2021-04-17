@@ -86,11 +86,8 @@
 		2E56DC09FFDF339B409131C23F7D5BDB /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		2EA83F3D8ED0E306B5EA20042D439E79 /* Pods-NBAStatsGoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NBAStatsGoTests-Info.plist"; sourceTree = "<group>"; };
 		3305AF662863909B67725CC49CC35946 /* Pods_NBAStatsGoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBAStatsGoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-<<<<<<< HEAD
-=======
 		33B6440397559A8F2FD84562D8E9AF72 /* Borders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Borders.swift; path = Framework/Sources/Borders.swift; sourceTree = "<group>"; };
 		36B1FFCCB937E96F3AEFFE0FE49E89A9 /* SpreadsheetView+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+UIScrollView.swift"; path = "Framework/Sources/SpreadsheetView+UIScrollView.swift"; sourceTree = "<group>"; };
->>>>>>> 83d2a3451b01e0efefd30e3036a9829d3fe33978
 		3809B54FD5816DCE569183ADB9656B67 /* Pods-NBAStatsGo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NBAStatsGo-acknowledgements.plist"; sourceTree = "<group>"; };
 		3B6BC73DA24B75033281C993E4C95AF5 /* SpreadsheetView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SpreadsheetView.release.xcconfig; sourceTree = "<group>"; };
 		3C5996DD775A0FA04B5BB4331051FB9D /* Pods-NBAStatsGo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NBAStatsGo-frameworks.sh"; sourceTree = "<group>"; };
