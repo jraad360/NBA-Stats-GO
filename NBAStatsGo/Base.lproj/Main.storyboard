@@ -36,6 +36,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Player Search" id="9mL-67-HjO">
                         <barButtonItem key="backBarButtonItem" title="Back" id="u4G-4t-yrJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MCO-ZV-OJb">
+                            <connections>
+                                <action selector="refreshPlayerData:" destination="vdk-5Q-RKt" id="88P-qB-Lqy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="EcF-jc-kf1" kind="unwind" identifier="statlinesSearch" unwindAction="statlineReturnFromSearchTableWithSegue:" id="1Xb-CV-RMc"/>

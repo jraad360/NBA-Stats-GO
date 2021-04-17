@@ -15,6 +15,7 @@ extension SearchTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         // If search text is empty, just return all NBA Players
         // Otherwise, check if search text applies to the relevant fields
+        searchString = searchText
         if searchText == "" {
             filteredPlayers = [Player]()
             transformData(transformingPlayers: allPlayers)

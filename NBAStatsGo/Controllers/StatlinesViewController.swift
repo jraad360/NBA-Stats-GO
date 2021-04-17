@@ -48,6 +48,7 @@ class StatlinesViewController: UIViewController {
     
                     DispatchQueue.main.async {
                         self.displayProgressView(currView: self.view)
+                        self.statlineTableView.isUserInteractionEnabled = false
                     }
                     
                     let careerHighValue = try self.statsManager.getCareerHigh(for: self.currStatlinesPlayer!, in: self.currStat!)
@@ -64,6 +65,7 @@ class StatlinesViewController: UIViewController {
                         currViewProgress = nil
                         self.statlineOutput.attributedText = statlineText
                         self.statlineOutput.sizeToFit()
+                        self.statlineTableView.isUserInteractionEnabled = true
                     }
                 } catch {
                     print(error)
@@ -71,6 +73,7 @@ class StatlinesViewController: UIViewController {
                     DispatchQueue.main.async {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
+                        self.statlineTableView.isUserInteractionEnabled = true
                     }
                 }
     

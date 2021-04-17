@@ -47,6 +47,7 @@ class ComparisonViewController: UIViewController {
 
                     DispatchQueue.main.async {
                         self.displayProgressView(currView: self.view)
+                        self.compareTableView.isUserInteractionEnabled = false
                     }
                     let firstPlayerStats = try self.statsManager.getCareerStats(for: self.currCompareFirstPlayer!)
                     self.firstPlayerCareerStats = PlayerSeasonAverageStats(seasons: firstPlayerStats)
@@ -57,6 +58,7 @@ class ComparisonViewController: UIViewController {
                     DispatchQueue.main.async {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
+                        self.compareTableView.isUserInteractionEnabled = true
                     }
                 }
 
@@ -71,6 +73,7 @@ class ComparisonViewController: UIViewController {
                     DispatchQueue.main.async {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
+                        self.compareTableView.isUserInteractionEnabled = true
                         self.performSegue(withIdentifier: "viewPlayerComparison", sender: self)
                     }
                     
@@ -80,6 +83,7 @@ class ComparisonViewController: UIViewController {
                     DispatchQueue.main.async {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
+                        self.compareTableView.isUserInteractionEnabled = true
                     }
                 }
             }

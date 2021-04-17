@@ -35,39 +35,14 @@ class SearchTableViewController: UITableViewController {
     
     // How Search Table was called - default (tab bar is "Tab"), "Statlines", "Comparison"
     var source: String? = "Tab"
+    
+    // Search Text in the Search Bar
+    var searchString: String? = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         playerSearchBar = initSearchBar()
-        DispatchQueue.global(qos: .utility).async {
-            do {
-                
-                DispatchQueue.main.async {
-                    self.displayProgressView(currView: self.view)
-                }
-                
-                if (allPlayers.count > 0) {
-                    self.transformData(transformingPlayers: allPlayers)
-                } else {
-                    allPlayers = try self.statsManager.getPlayers(filters:["name": ""])
-                    self.transformData(transformingPlayers: allPlayers)
-                }
-                
-                DispatchQueue.main.async {
-                    currViewProgress!.removeFromSuperview()
-                    currViewProgress = nil
-                    self.tableView.reloadData()
-                }
-            } catch {
-                print(error)
-                Alert.alert(title: "Error Getting Players", message: error.localizedDescription, on: self)
-                DispatchQueue.main.async {
-                    currViewProgress!.removeFromSuperview()
-                    currViewProgress = nil
-                }
-            }
-            
-        }
+        initialLoadData()
     }
     
     // Prepare for various segue options including:
@@ -93,6 +68,94 @@ class SearchTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    
+    @IBAction func refreshPlayerData(_ sender: UIBarButtonItem) {
+        loadDataFromAPI(searchParams: searchString ?? "")
+    }
+    
+    func loadDataFromAPI(searchParams: String) {
+        DispatchQueue.global(qos: .utility).async {
+            do {
+                
+                DispatchQueue.main.async {
+                    self.displayProgressView(currView: self.view)
+                    self.tableView.isUserInteractionEnabled = false
+                    self.playerSearchBar!.isUserInteractionEnabled = false
+                }
+                
+                allPlayers = try self.statsManager.getPlayers(filters:["name": ""])
+                if (searchParams == "") {
+                    self.transformData(transformingPlayers: allPlayers)
+                } else {
+                    self.transformIntermediateStep(searchParams: searchParams)
+                }
+                
+                DispatchQueue.main.async {
+                    currViewProgress!.removeFromSuperview()
+                    currViewProgress = nil
+                    self.tableView.reloadData()
+                    self.tableView.isUserInteractionEnabled = true
+                    self.playerSearchBar!.isUserInteractionEnabled = true
+                }
+            } catch {
+                print(error)
+                Alert.alert(title: "Error Getting Players", message: error.localizedDescription, on: self)
+                DispatchQueue.main.async {
+                    currViewProgress!.removeFromSuperview()
+                    currViewProgress = nil
+                    self.tableView.isUserInteractionEnabled = true
+                    self.playerSearchBar!.isUserInteractionEnabled = true
+                }
+            }
+        }
+    }
+    
+    func initialLoadData() {
+        DispatchQueue.global(qos: .utility).async {
+            do {
+                DispatchQueue.main.async {
+                    self.displayProgressView(currView: self.view)
+                    self.tableView.isUserInteractionEnabled = false
+                    self.playerSearchBar!.isUserInteractionEnabled = false
+                }
+                
+                if (allPlayers.count > 0) {
+                    self.transformData(transformingPlayers: allPlayers)
+                } else {
+                    allPlayers = try self.statsManager.getPlayersFromFile()
+                    self.transformData(transformingPlayers: allPlayers)
+                }
+                
+                DispatchQueue.main.async {
+                    currViewProgress!.removeFromSuperview()
+                    currViewProgress = nil
+                    self.tableView.reloadData()
+                    self.tableView.isUserInteractionEnabled = true
+                    self.playerSearchBar!.isUserInteractionEnabled = true
+                }
+            } catch {
+                print(error)
+                Alert.alert(title: "Error Getting Players", message: error.localizedDescription, on: self)
+                DispatchQueue.main.async {
+                    currViewProgress!.removeFromSuperview()
+                    currViewProgress = nil
+                    self.tableView.isUserInteractionEnabled = true
+                    self.playerSearchBar!.isUserInteractionEnabled = true
+                }
+            }
+        }
+    }
+    
+    func transformIntermediateStep(searchParams: String) {
+        filteredPlayers = [Player]()
+        for player in allPlayers {
+            if player.getFirstLastNames().lowercased().contains(searchParams.lowercased()) || player.getLastFirstNames().lowercased().contains(searchParams.lowercased()) {
+                filteredPlayers.append(player)
+            }
+        }
+        transformData(transformingPlayers: filteredPlayers)
     }
     
     func transformData(transformingPlayers: [Player]) {
