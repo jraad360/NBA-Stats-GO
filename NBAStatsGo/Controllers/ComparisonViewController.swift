@@ -48,6 +48,8 @@ class ComparisonViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.displayProgressView(currView: self.view)
                         self.compareTableView.isUserInteractionEnabled = false
+                        self.compareButton.isUserInteractionEnabled = false
+                        self.tabBarController?.tabBar.isUserInteractionEnabled = false
                     }
                     let firstPlayerStats = try self.statsManager.getCareerStats(for: self.currCompareFirstPlayer!)
                     self.firstPlayerCareerStats = PlayerSeasonAverageStats(seasons: firstPlayerStats)
@@ -59,6 +61,8 @@ class ComparisonViewController: UIViewController {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
                         self.compareTableView.isUserInteractionEnabled = true
+                        self.tabBarController?.tabBar.isUserInteractionEnabled = true
+                        self.compareButton.isUserInteractionEnabled = true
                     }
                 }
 
@@ -74,6 +78,8 @@ class ComparisonViewController: UIViewController {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
                         self.compareTableView.isUserInteractionEnabled = true
+                        self.tabBarController?.tabBar.isUserInteractionEnabled = true
+                        self.compareButton.isUserInteractionEnabled = true
                         self.performSegue(withIdentifier: "viewPlayerComparison", sender: self)
                     }
                     
@@ -84,6 +90,8 @@ class ComparisonViewController: UIViewController {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
                         self.compareTableView.isUserInteractionEnabled = true
+                        self.tabBarController?.tabBar.isUserInteractionEnabled = true
+                        self.compareButton.isUserInteractionEnabled = true
                     }
                 }
             }

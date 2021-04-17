@@ -83,6 +83,7 @@ class SearchTableViewController: UITableViewController {
                     self.displayProgressView(currView: self.view)
                     self.tableView.isUserInteractionEnabled = false
                     self.playerSearchBar!.isUserInteractionEnabled = false
+                    self.tabBarController?.tabBar.isUserInteractionEnabled = false
                 }
                 
                 allPlayers = try self.statsManager.getPlayers(filters:["name": ""])
@@ -98,6 +99,7 @@ class SearchTableViewController: UITableViewController {
                     self.tableView.reloadData()
                     self.tableView.isUserInteractionEnabled = true
                     self.playerSearchBar!.isUserInteractionEnabled = true
+                    self.tabBarController?.tabBar.isUserInteractionEnabled = true
                 }
             } catch {
                 print(error)
@@ -107,6 +109,7 @@ class SearchTableViewController: UITableViewController {
                     currViewProgress = nil
                     self.tableView.isUserInteractionEnabled = true
                     self.playerSearchBar!.isUserInteractionEnabled = true
+                    self.tabBarController?.tabBar.isUserInteractionEnabled = true
                 }
             }
         }
@@ -119,6 +122,7 @@ class SearchTableViewController: UITableViewController {
                     self.displayProgressView(currView: self.view)
                     self.tableView.isUserInteractionEnabled = false
                     self.playerSearchBar!.isUserInteractionEnabled = false
+                    self.tabBarController?.tabBar.isUserInteractionEnabled = false
                 }
                 
                 if (allPlayers.count > 0) {
@@ -134,6 +138,7 @@ class SearchTableViewController: UITableViewController {
                     self.tableView.reloadData()
                     self.tableView.isUserInteractionEnabled = true
                     self.playerSearchBar!.isUserInteractionEnabled = true
+                    self.tabBarController?.tabBar.isUserInteractionEnabled = true
                 }
             } catch {
                 print(error)
@@ -143,6 +148,7 @@ class SearchTableViewController: UITableViewController {
                     currViewProgress = nil
                     self.tableView.isUserInteractionEnabled = true
                     self.playerSearchBar!.isUserInteractionEnabled = true
+                    self.tabBarController?.tabBar.isUserInteractionEnabled = true
                 }
             }
         }

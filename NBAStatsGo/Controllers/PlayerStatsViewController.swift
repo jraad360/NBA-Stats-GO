@@ -50,16 +50,5 @@ class PlayerStatsViewController: UIViewController {
             seasonSpreadsheet.frame = CGRect(x: seasonSpreadsheet.frame.origin.x, y: seasonSpreadsheet.frame.origin.y, width: seasonSpreadsheet.frame.width, height: CGFloat((currViewedSeasonAvgs!.count + 1) * 32))
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
