@@ -44,6 +44,15 @@ class NBAStatsGoTests: XCTestCase {
         let players = try statsManager.getPlayersFromFile()
         assert(players.count >= 3454)
     }
+    
+    func testRoundingExtension() {
+        let number = 5.07657
+        let number2 = number.rounded2()
+        XCTAssertEqual(number2, 5.1)
+        XCTAssertFalse(number2 == number)
+        XCTAssertEqual(number2.description, "5.1")
+        print(number2)
+    }
 
 
 }
