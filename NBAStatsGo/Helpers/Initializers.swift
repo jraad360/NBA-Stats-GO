@@ -34,3 +34,30 @@ extension ChartComparisonViewController {
         secondPlayerLabel.numberOfLines = 0
     }
 }
+
+// Initializers for Individual Player Stats Components including:
+// Player Labels
+extension PlayerStatsViewController {
+    
+    // Initialize Labels
+    func initPlayerLabels() {
+        playerName.text = currViewedPlayer!.firstName + " " + currViewedPlayer!.lastName
+        playerName.numberOfLines = 0
+        playerHeight.text = "Height: " + (currViewedPlayer!.height ?? "N/A")
+        playerPosition.text = "Position: " + (currViewedPlayer!.position ?? "N/A")
+        let weight = currViewedPlayer!.weight ?? 0
+        if (weight == 0) {
+            playerWeight.text = "Weight: N/A"
+        } else {
+            playerWeight.text = "Weight: " + String(weight)
+        }
+    }
+    
+    func initCareerLabels() {
+        careerAvgPts.text = String(currViewedCareerAvgs!.pts)
+        careerAvgRebs.text = String(currViewedCareerAvgs!.reb)
+        careerAvgAsts.text = String(currViewedCareerAvgs!.ast)
+        careerAvgBlks.text = String(currViewedCareerAvgs!.blk)
+        careerAvgStls.text = String(currViewedCareerAvgs!.stl)
+    }
+}

@@ -7,6 +7,7 @@ target 'NBAStatsGo' do
 
     # Pods for NBAStatsGo
     pod 'SwiftyJSON', '~> 4.0'
+    pod 'SpreadsheetView'
 
     target 'NBAStatsGoTests' do
         inherit! :search_paths

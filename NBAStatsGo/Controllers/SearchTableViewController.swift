@@ -24,6 +24,12 @@ class SearchTableViewController: UITableViewController {
     // Selected Player from table
     var selectedPlayer: Player?
     
+    // Selected Player season-by-season averages
+    var selectedPlayerSeasonAvgs: [PlayerSeasonAverageStats]?
+    
+    // Selected Player career averages
+    var selectedPlayerCareerAvgs: PlayerSeasonAverageStats?
+    
     // How Search Table was called - default (tab bar is "Tab"), "Statlines", "Comparison"
     var source: String? = "Tab"
 
@@ -65,6 +71,8 @@ class SearchTableViewController: UITableViewController {
             if identifier == "viewPlayerStats" {
                 let playerStatsViewController = segue.destination as! PlayerStatsViewController
                 playerStatsViewController.currViewedPlayer = selectedPlayer
+                playerStatsViewController.currViewedSeasonAvgs = selectedPlayerSeasonAvgs
+                playerStatsViewController.currViewedCareerAvgs = selectedPlayerCareerAvgs
             } else if identifier == "statlinesSearch" {
                 let statlinesViewController = segue.destination as! StatlinesViewController
                 statlinesViewController.currStatlinesPlayer = selectedPlayer
