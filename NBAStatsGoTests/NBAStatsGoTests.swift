@@ -9,44 +9,25 @@ import XCTest
 @testable import NBAStatsGo
 
 class NBAStatsGoTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
     
     func testGetPlayers() throws {
         let apiManager = BallDontLieAPIManager()
         let players = try apiManager.getPlayers(filters: ["name": ""])
-        print(players)
+        assert(players.count >= 3454)
     }
     
     func testGetCareerStats() throws {
         let apiManager = BallDontLieAPIManager()
         let players = try apiManager.getPlayers(filters: ["name": "LeBron"])
         let seasons = try apiManager.getCareerStats(for: players[0])
-        print(seasons)
+        assert(seasons.count >= 18)
     }
     
     func testGetCareerHigh() throws {
         let apiManager = BallDontLieAPIManager()
         let players = try apiManager.getPlayers(filters: ["name": "LeBron"])
         let careerHigh = try apiManager.getCareerHigh(for: players[0], in: .pts)
+        assert(Int(careerHigh) ?? 0 > 60)
     }
     
     func testCareerAverages() throws {
@@ -54,11 +35,14 @@ class NBAStatsGoTests: XCTestCase {
         let players = try apiManager.getPlayers(filters: ["name": "LeBron"])
         let seasons = try apiManager.getCareerStats(for: players[0])
         let careerAverages = PlayerSeasonAverageStats(seasons: seasons)
+        assert(careerAverages.pts > 20)
     }
     
     
-    func load() {
-
+    func testGetAllPlayers() throws {
+        let statsManager = StatsManager()
+        let players = try statsManager.getAllPlayers()
+        assert(players.count >= 3454)
     }
 
 
