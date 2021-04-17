@@ -9,6 +9,7 @@ import Foundation
 
 enum APIError: Error {
     case notFound
+    case tooManyRequests
     case failedConnection
     case unknown
 }

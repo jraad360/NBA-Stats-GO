@@ -86,34 +86,34 @@ struct PlayerSeasonAverageStats {
     }
     
     init(json: JSON) throws {
-        var season = String(json["season"].int!)
-        let nextYear = Int(season)! + 1
+        var season = String(json["season"].int ?? 0)
+        let nextYear = (Int(season) ?? 0) + 1
         season += "-\(nextYear)"
         
         self.init(
-            playerId: json["player_id"].int!,
+            playerId: json["player_id"].int ?? 0,
 //            team: try Team(json: json["team"]),
             season: season,
-            gp: json["games_played"].int!,
-            min: PlayerSeasonAverageStats.convertMinutesToDouble(json["min"].string!),
-            pts: json["pts"].double!,
-            ast: json["ast"].double!,
-            reb: json["reb"].double!,
-            dreb: json["dreb"].double!,
-            oreb: json["oreb"].double!,
-            stl: json["stl"].double!,
-            blk: json["blk"].double!,
-            fga: json["fga"].double!,
-            fgm: json["fgm"].double!,
-            fgpct: json["fg_pct"].double!,
-            fg3a: json["fg3a"].double!,
-            fg3m: json["fg3m"].double!,
-            fg3pct: json["fg3_pct"].double!,
-            fta: json["fta"].double!,
-            ftm: json["ftm"].double!,
-            ftpct: json["ft_pct"].double!,
-            turnover: json["turnover"].double!,
-            pf: json["pf"].double!)
+            gp: json["games_played"].int ?? 0,
+            min: PlayerSeasonAverageStats.convertMinutesToDouble(json["min"].string ?? "0:0"),
+            pts: json["pts"].double ?? 0.0,
+            ast: json["ast"].double ?? 0.0,
+            reb: json["reb"].double ?? 0.0,
+            dreb: json["dreb"].double ?? 0.0,
+            oreb: json["oreb"].double ?? 0.0,
+            stl: json["stl"].double ?? 0.0,
+            blk: json["blk"].double ?? 0.0,
+            fga: json["fga"].double ?? 0.0,
+            fgm: json["fgm"].double ?? 0.0,
+            fgpct: json["fg_pct"].double ?? 0.0,
+            fg3a: json["fg3a"].double ?? 0.0,
+            fg3m: json["fg3m"].double ?? 0.0,
+            fg3pct: json["fg3_pct"].double ?? 0.0,
+            fta: json["fta"].double ?? 0.0,
+            ftm: json["ftm"].double ?? 0.0,
+            ftpct: json["ft_pct"].double ?? 0.0,
+            turnover: json["turnover"].double ?? 0.0,
+            pf: json["pf"].double ?? 0.0)
     }
     
     init(seasons: [PlayerSeasonAverageStats]) {
@@ -188,8 +188,8 @@ struct PlayerSeasonAverageStats {
     static func convertMinutesToDouble(_ minuteString: String) -> Double {
         let components = minuteString.components(separatedBy: ":")
         
-        let minutes = Int(components[0])!
-        let seconds = Int(components[1])!
+        let minutes = Int(components[0]) ?? 0
+        let seconds = Int(components[1]) ?? 0
         
         return Double(minutes) + Double(seconds)/60
     }
