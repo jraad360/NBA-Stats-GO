@@ -41,7 +41,7 @@ class NBAStatsGoTests: XCTestCase {
     
     func testGetAllPlayers() throws {
         let statsManager = StatsManager()
-        let players = try statsManager.getAllPlayers()
+        let players = try statsManager.getPlayersFromFile()
         assert(players.count >= 3454)
     }
 

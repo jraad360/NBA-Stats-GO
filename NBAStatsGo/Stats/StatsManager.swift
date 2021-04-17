@@ -11,10 +11,23 @@ import SwiftyJSON
 class StatsManager {
     let apiManager: APIManager = BallDontLieAPIManager()
     
+    
+    func getPlayers(filters: [String:String]) throws -> [Player] {
+        return try apiManager.getPlayers(filters: filters)
+    }
+    
+    func getCareerStats(for player: Player) throws -> [PlayerSeasonAverageStats] {
+        return try apiManager.getCareerStats(for: player)
+    }
+    
+    func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> String {
+        return try apiManager.getCareerHigh(for: player, in: statCategory)
+    }
+    
     /**
      Retrieves all players from locally saved JSON file
      */
-    func getAllPlayers() throws -> [Player] {
+    func getPlayersFromFile() throws -> [Player] {
         var players = [Player]()
         
         let jsonData = readLocalJSONFile(forName: "players")
