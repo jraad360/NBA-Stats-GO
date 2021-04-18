@@ -43,6 +43,11 @@
 		C3730AFB2612609800D29E07 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3730AFA2612609800D29E07 /* SearchTableViewController.swift */; };
 		C37B3BC7262A08A4008242B8 /* PlayerStatsSpreadsheetViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B3BC6262A08A4008242B8 /* PlayerStatsSpreadsheetViewExtension.swift */; };
 		C37B3BCB262A120A008242B8 /* PlayerStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B3BCA262A120A008242B8 /* PlayerStatsCell.swift */; };
+		C37B3BDD262B6C28008242B8 /* SearchTableViewSearchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B3BDC262B6C28008242B8 /* SearchTableViewSearchExtension.swift */; };
+		C37B3BE1262BB36B008242B8 /* SearchTableViewLoadingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B3BE0262BB36B008242B8 /* SearchTableViewLoadingExtension.swift */; };
+		C37B3BE5262BB8B4008242B8 /* SearchTableViewTransformExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B3BE4262BB8B4008242B8 /* SearchTableViewTransformExtension.swift */; };
+		C37B3BE9262BC2A0008242B8 /* StatlinesViewDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B3BE8262BC2A0008242B8 /* StatlinesViewDataExtension.swift */; };
+		C37B3BED262BC308008242B8 /* ComparisonViewDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B3BEC262BC308008242B8 /* ComparisonViewDataExtension.swift */; };
 		C3DA7FE22625AD02000CB062 /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DA7FE12625AD02000CB062 /* GeneralExtensions.swift */; };
 		C3DAB4F226200BCA0070DD25 /* ChartComparisonViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAB4F126200BCA0070DD25 /* ChartComparisonViewControllerExtension.swift */; };
 		C3DAB4F5262018150070DD25 /* ChartComparisonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DAB4F4262018150070DD25 /* ChartComparisonCell.swift */; };
@@ -102,6 +107,11 @@
 		C3730AFA2612609800D29E07 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		C37B3BC6262A08A4008242B8 /* PlayerStatsSpreadsheetViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsSpreadsheetViewExtension.swift; sourceTree = "<group>"; };
 		C37B3BCA262A120A008242B8 /* PlayerStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsCell.swift; sourceTree = "<group>"; };
+		C37B3BDC262B6C28008242B8 /* SearchTableViewSearchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewSearchExtension.swift; sourceTree = "<group>"; };
+		C37B3BE0262BB36B008242B8 /* SearchTableViewLoadingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewLoadingExtension.swift; sourceTree = "<group>"; };
+		C37B3BE4262BB8B4008242B8 /* SearchTableViewTransformExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewTransformExtension.swift; sourceTree = "<group>"; };
+		C37B3BE8262BC2A0008242B8 /* StatlinesViewDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatlinesViewDataExtension.swift; sourceTree = "<group>"; };
+		C37B3BEC262BC308008242B8 /* ComparisonViewDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonViewDataExtension.swift; sourceTree = "<group>"; };
 		C3DA7FE12625AD02000CB062 /* GeneralExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GeneralExtensions.swift; path = NBAStatsGo/Helpers/GeneralExtensions.swift; sourceTree = SOURCE_ROOT; };
 		C3DAB4F126200BCA0070DD25 /* ChartComparisonViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComparisonViewControllerExtension.swift; sourceTree = "<group>"; };
 		C3DAB4F4262018150070DD25 /* ChartComparisonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartComparisonCell.swift; sourceTree = "<group>"; };
@@ -178,6 +188,9 @@
 			isa = PBXGroup;
 			children = (
 				C333A8BF261C570F002055DB /* SearchTableViewControllerExtension.swift */,
+				C37B3BDC262B6C28008242B8 /* SearchTableViewSearchExtension.swift */,
+				C37B3BE0262BB36B008242B8 /* SearchTableViewLoadingExtension.swift */,
+				C37B3BE4262BB8B4008242B8 /* SearchTableViewTransformExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -206,6 +219,7 @@
 			children = (
 				C333A8C8261C717E002055DB /* StatlinesViewControllerExtension.swift */,
 				C3DAB4F72620382B0070DD25 /* StatlinesViewPickerExtension.swift */,
+				C37B3BE8262BC2A0008242B8 /* StatlinesViewDataExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				C333A8CD261CC1F9002055DB /* ComparisonViewControllerExtension.swift */,
+				C37B3BEC262BC308008242B8 /* ComparisonViewDataExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,6 +289,7 @@
 				C3730ADD260FD2B800D29E07 /* Products */,
 				0A2659A6005DDB1677FA9AD5 /* Pods */,
 				EB280BFBC3B6F74D0925A683 /* Frameworks */,
+				C37B3BD5262B501D008242B8 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,6 +348,14 @@
 				C37B3BC6262A08A4008242B8 /* PlayerStatsSpreadsheetViewExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C37B3BD5262B501D008242B8 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				C3DA7FE12625AD02000CB062 /* GeneralExtensions.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		C3DAB4EF26200BA30070DD25 /* ChartComparison */ = {
@@ -537,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37B3BE1262BB36B008242B8 /* SearchTableViewLoadingExtension.swift in Sources */,
 				C333A8C0261C570F002055DB /* SearchTableViewControllerExtension.swift in Sources */,
 				C3DA7FE22625AD02000CB062 /* GeneralExtensions.swift in Sources */,
 				C3730AE0260FD2B800D29E07 /* AppDelegate.swift in Sources */,
@@ -548,12 +573,14 @@
 				C334ED692613953D00F38E32 /* APIManager.swift in Sources */,
 				1B8E89C72625F14E0007C892 /* GeneralExtensions.swift in Sources */,
 				C334ED6E2613953D00F38E32 /* Team.swift in Sources */,
+				C37B3BE5262BB8B4008242B8 /* SearchTableViewTransformExtension.swift in Sources */,
 				C3DAB4F226200BCA0070DD25 /* ChartComparisonViewControllerExtension.swift in Sources */,
 				C333A8C4261C606B002055DB /* SectionHeaderLabel.swift in Sources */,
 				C3730AE2260FD2B800D29E07 /* SceneDelegate.swift in Sources */,
 				C333A8B4261C308E002055DB /* HomeViewController.swift in Sources */,
 				C334ED4D26127A7A00F38E32 /* ComparisonViewController.swift in Sources */,
 				C334ED5926138BB000F38E32 /* Initializers.swift in Sources */,
+				C37B3BED262BC308008242B8 /* ComparisonViewDataExtension.swift in Sources */,
 				C334ED6F2613953D00F38E32 /* StatCategory.swift in Sources */,
 				C334ED4A26127A2600F38E32 /* StatlinesViewController.swift in Sources */,
 				C334ED6A2613953D00F38E32 /* BallDontLieAPIManager.swift in Sources */,
@@ -564,6 +591,8 @@
 				C3DAB4F82620382B0070DD25 /* StatlinesViewPickerExtension.swift in Sources */,
 				C37B3BCB262A120A008242B8 /* PlayerStatsCell.swift in Sources */,
 				C3730AFB2612609800D29E07 /* SearchTableViewController.swift in Sources */,
+				C37B3BE9262BC2A0008242B8 /* StatlinesViewDataExtension.swift in Sources */,
+				C37B3BDD262B6C28008242B8 /* SearchTableViewSearchExtension.swift in Sources */,
 				C334ED6B2613953D00F38E32 /* PlayerGameStats.swift in Sources */,
 				C334ED682613953D00F38E32 /* APIError.swift in Sources */,
 				C334ED702613953D00F38E32 /* Player.swift in Sources */,
