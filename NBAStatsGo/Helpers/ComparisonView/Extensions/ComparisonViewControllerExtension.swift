@@ -23,11 +23,11 @@ extension ComparisonViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
         if (indexPath.row == 0) {
             cell.textLabel?.text = "Player 1"
-            cell.detailTextLabel?.text = (currCompareFirstPlayer == nil ? "Select Player" : currCompareFirstPlayer!.lastName + ", " + currCompareFirstPlayer!.firstName)
+            cell.detailTextLabel?.text = (currCompareFirstPlayer == nil ? "Select Player" : currCompareFirstPlayer!.getLastFirstNames())
             cell.accessoryType = .disclosureIndicator
         } else {
             cell.textLabel?.text = "Player 2"
-            cell.detailTextLabel?.text = (currCompareSecondPlayer == nil ? "Select Player" : currCompareSecondPlayer!.lastName + ", " + currCompareSecondPlayer!.firstName)
+            cell.detailTextLabel?.text = (currCompareSecondPlayer == nil ? "Select Player" : currCompareSecondPlayer!.getLastFirstNames())
             cell.accessoryType = .disclosureIndicator
         }
         return cell

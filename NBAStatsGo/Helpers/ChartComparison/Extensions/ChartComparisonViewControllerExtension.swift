@@ -38,10 +38,12 @@ extension ChartComparisonViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
+    // Sets the height for each row at 55
     func tableView(_ tableView: UITableView, heightForRowAt indexPath:  IndexPath) -> CGFloat {
         return 55
     }
     
+    // Gets the stat value corresponding to the label displayed for each stat category
     func comparisonStatTranslation(careerAverages: PlayerSeasonAverageStats, category: StatCategory) -> Double  {
         switch (category.label) {
         case "Minutes":

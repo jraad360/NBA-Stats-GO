@@ -8,6 +8,10 @@
 import UIKit
 import SpreadsheetView
 
+// Subclass of Cell (concept from SpreadsheetView) used to represent a single season player stat in the player stats view which contains one label
+// Background color + Bold + Font Size changes based on if the cell corresponds to a header cell
+// Layout label to fill the entire cell
+// Identifier used for reusing cells purpose
 class PlayerStatsCell: Cell {
     
     private let label = UILabel()

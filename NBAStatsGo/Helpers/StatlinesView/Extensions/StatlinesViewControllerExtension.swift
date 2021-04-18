@@ -23,7 +23,7 @@ extension StatlinesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
         if (indexPath.row == 0) {
             cell.textLabel?.text = "Player"
-            cell.detailTextLabel?.text = (currStatlinesPlayer == nil ? "Select Player" : currStatlinesPlayer!.lastName + ", " + currStatlinesPlayer!.firstName)
+            cell.detailTextLabel?.text = (currStatlinesPlayer == nil ? "Select Player" : currStatlinesPlayer!.getLastFirstNames())
             cell.accessoryType = .disclosureIndicator
         } else {
             cell.textLabel?.text = "Stat"
