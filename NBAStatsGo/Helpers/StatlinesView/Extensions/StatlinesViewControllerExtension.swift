@@ -30,6 +30,7 @@ extension StatlinesViewController: UITableViewDelegate, UITableViewDataSource {
             cell.detailTextLabel?.text = (currStat == nil ? "Select Stat" : currStat!.label)
             cell.accessoryType = .disclosureIndicator
         }
+        cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 237/255, alpha: 1.0)
         return cell
     }
     
