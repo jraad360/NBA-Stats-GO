@@ -35,6 +35,7 @@ class ComparisonViewController: UIViewController {
         super.viewDidLoad()
         compareTableView.delegate = self
         compareTableView.dataSource = self
+        compareTableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 237/255, alpha: 1.0)
         compareTableView.tableFooterView = UIView()
     }
     
