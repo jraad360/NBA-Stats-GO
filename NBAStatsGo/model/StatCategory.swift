@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum StatCategory: String, CaseIterable {
+enum StatCategory: String, CaseIterable, Codable {
     case min
     case pts
     case ast

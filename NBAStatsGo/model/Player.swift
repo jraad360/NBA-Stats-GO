@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Player: Comparable {
+struct Player: Comparable, Codable {
     static func < (lhs: Player, rhs: Player) -> Bool {
         return lhs.getLastFirstNames() < rhs.getLastFirstNames()
     }
