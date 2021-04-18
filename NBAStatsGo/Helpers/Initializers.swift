@@ -56,10 +56,10 @@ extension PlayerStatsViewController {
     
     // Initialize Career Stats View Labels
     func initCareerLabels() {
-        careerAvgPts.text = String(currViewedCareerAvgs!.pts)
-        careerAvgRebs.text = String(currViewedCareerAvgs!.reb)
-        careerAvgAsts.text = String(currViewedCareerAvgs!.ast)
-        careerAvgBlks.text = String(currViewedCareerAvgs!.blk)
-        careerAvgStls.text = String(currViewedCareerAvgs!.stl)
+        careerAvgPts.text = String(currViewedCareerAvgs!.pts.rounded2())
+        careerAvgRebs.text = String(currViewedCareerAvgs!.reb.rounded2())
+        careerAvgAsts.text = String(currViewedCareerAvgs!.ast.rounded2())
+        careerAvgBlks.text = String(currViewedCareerAvgs!.blk.rounded2())
+        careerAvgStls.text = String(currViewedCareerAvgs!.stl.rounded2())
     }
 }
