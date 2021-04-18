@@ -43,6 +43,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="refreshButton" destination="MCO-ZV-OJb" id="4Ny-Ea-ezm"/>
                         <segue destination="EcF-jc-kf1" kind="unwind" identifier="statlinesSearch" unwindAction="statlineReturnFromSearchTableWithSegue:" id="1Xb-CV-RMc"/>
                         <segue destination="EcF-jc-kf1" kind="unwind" identifier="comparisonSearch" unwindAction="comparisonReturnFromSearchTableWithSegue:" id="2vW-La-zAs"/>
                     </connections>

@@ -19,6 +19,7 @@ class PlayerStatsViewController: UIViewController {
     // Currently viewed player career averages
     var currViewedCareerAvgs: PlayerSeasonAverageStats?
 
+    // Labels displaying a piece of info in the player stats view
     @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var playerHeight: UILabel!
     @IBOutlet weak var playerPosition: UILabel!
@@ -31,8 +32,12 @@ class PlayerStatsViewController: UIViewController {
     @IBOutlet weak var careerAvgAsts: UILabel!
     @IBOutlet weak var careerAvgBlks: UILabel!
     @IBOutlet weak var careerAvgStls: UILabel!
+    
+    // SpreadsheetView that displays season-by-season averages
     @IBOutlet weak var seasonSpreadsheet: SpreadsheetView!
     
+    // Setup includes:
+    // Player labels, Career Stats labels, Career Stats View, Spreadsheet View
     override func viewDidLoad() {
         super.viewDidLoad()
         initPlayerLabels()

@@ -53,6 +53,7 @@ extension PlayerStatsViewController {
         }
     }
     
+    // Initialize Career Stats View Labels
     func initCareerLabels() {
         careerAvgPts.text = String(currViewedCareerAvgs!.pts)
         careerAvgRebs.text = String(currViewedCareerAvgs!.reb)

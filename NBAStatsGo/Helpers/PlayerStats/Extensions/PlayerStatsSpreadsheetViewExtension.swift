@@ -9,6 +9,10 @@ import UIKit
 import SpreadsheetView
 
 extension PlayerStatsViewController: SpreadsheetViewDataSource, SpreadsheetViewDelegate {
+    
+    // Set the cell to be a PlayerStatsCell with text based on whether cell is...
+    // A header cell - predefined column names
+    // A data cell - based on the appropriate season and stat category
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, cellForItemAt indexPath: IndexPath) -> Cell? {
         let cell = spreadsheetView.dequeueReusableCell(withReuseIdentifier: PlayerStatsCell.identifier, for: indexPath) as! PlayerStatsCell
         var text = ""
@@ -21,6 +25,8 @@ extension PlayerStatsViewController: SpreadsheetViewDataSource, SpreadsheetViewD
         return cell
     }
     
+    // Make the first column (season) slightly wider (80) to accomodate more text
+    // All other columns are data so width only needs to be 50
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, widthForColumn column: Int) -> CGFloat {
         if (column == 0) {
             return 80
@@ -28,22 +34,27 @@ extension PlayerStatsViewController: SpreadsheetViewDataSource, SpreadsheetViewD
         return 50
     }
     
+    // Each row has a height of 30
     func spreadsheetView(_ spreadsheetView: SpreadsheetView, heightForRow column: Int) -> CGFloat {
         30
     }
     
+    // Total of 21 columns corresponding to each of the appropriate 21 stat categories
     func numberOfColumns(in spreadsheetView: SpreadsheetView) -> Int {
         21
     }
     
+    // Number of rows based on number of seasons played + header row
     func numberOfRows(in spreadsheetView: SpreadsheetView) -> Int {
         currViewedSeasonAvgs!.count + 1
     }
     
+    // Season column is frozen
     func frozenColumns(in spreadsheetView: SpreadsheetView) -> Int {
         return 1
     }
     
+    // Return the appropriate column name based on column number
     func getHeaderText(column: Int) -> String {
         switch (column) {
         case 0:
@@ -93,6 +104,7 @@ extension PlayerStatsViewController: SpreadsheetViewDataSource, SpreadsheetViewD
         }
     }
     
+    // Return the appropriate data stat based on row and column number
     func getStatText(column: Int, row: Int) -> String {
         switch (column) {
         case 0:

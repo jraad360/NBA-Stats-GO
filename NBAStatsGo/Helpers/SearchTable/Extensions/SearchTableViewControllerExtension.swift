@@ -46,8 +46,14 @@ extension SearchTableViewController {
     
     // Segue transition when selecting a table cell at a specific row in three cases
     // Segue to Player Stats View (PlayerStatsViewController)
+    // Renabling the other components + Removing the progress view
     // Unwind to Statlines View (StatlinesViewController)
     // Unwind to Comparison View (ComparisonViewController)
+    
+    // Steps to Player Stats View include:
+    // Displaying progress view + Disabling other components in the view while loading
+    // Getting player stats data from the API
+    // Renabling the other components + Removing the progress view
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPlayer = players[indexPath.section][indexPath.row]
         if (source == "Tab") {
@@ -55,6 +61,7 @@ extension SearchTableViewController {
                 do {
                     DispatchQueue.main.async {
                         self.displayProgressView(currView: self.view)
+                        self.changeEnabledSettings(enabled: false)
                     }
                     
                     self.selectedPlayerSeasonAvgs = try self.statsManager.getCareerStats(for: self.players[indexPath.section][indexPath.row])
@@ -63,6 +70,7 @@ extension SearchTableViewController {
                     DispatchQueue.main.async {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
+                        self.changeEnabledSettings(enabled: true)
                         self.performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
                     }
                     
@@ -72,6 +80,7 @@ extension SearchTableViewController {
                     DispatchQueue.main.async {
                         currViewProgress!.removeFromSuperview()
                         currViewProgress = nil
+                        self.changeEnabledSettings(enabled: true)
                     }
                 }
 
@@ -83,6 +92,7 @@ extension SearchTableViewController {
         }
     }
     
+    // Set height of a section header to 0 if there are no players for that section, otherwise set it to 30
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (players[section].count == 0) {
             return 0

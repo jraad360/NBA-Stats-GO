@@ -16,6 +16,7 @@ var currProgress: UIProgressView?
 extension UIViewController {
     
     // Show Progress View Function when loading data from API requests
+    // Progress View includes progress bar + loading label in the center of the screen
     func displayProgressView(currView: UIView) {
         let overlay = UIView(frame: CGRect(x: currView.bounds.origin.x + 20, y: currView.frame.size.height / 2 - 80, width: currView.bounds.width - 40, height: 80))
         overlay.backgroundColor = .systemGray5
