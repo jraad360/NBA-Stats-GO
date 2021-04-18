@@ -9,7 +9,7 @@ import UIKit
 
 // Initializers for Table Components including:
 // Search Bar
-extension SearchTableViewController: UISearchBarDelegate {
+extension SearchTableViewController {
     
     // Initialize Search Bar
     func initSearchBar() -> (UISearchBar) {
@@ -28,8 +28,8 @@ extension ChartComparisonViewController {
     
     // Initialize Labels
     func initLabels() {
-        firstPlayerLabel.text = firstPlayer!.firstName + " " + firstPlayer!.lastName
-        secondPlayerLabel.text = secondPlayer!.firstName + " " + secondPlayer!.lastName
+        firstPlayerLabel.text = firstPlayer!.getFirstLastNames()
+        secondPlayerLabel.text = secondPlayer!.getFirstLastNames()
         firstPlayerLabel.numberOfLines = 0
         secondPlayerLabel.numberOfLines = 0
     }
@@ -41,7 +41,7 @@ extension PlayerStatsViewController {
     
     // Initialize Labels
     func initPlayerLabels() {
-        playerName.text = currViewedPlayer!.firstName + " " + currViewedPlayer!.lastName
+        playerName.text = currViewedPlayer!.getFirstLastNames()
         playerName.numberOfLines = 0
         playerHeight.text = "Height: " + (currViewedPlayer!.height ?? "N/A")
         playerPosition.text = "Position: " + (currViewedPlayer!.position ?? "N/A")
@@ -53,6 +53,7 @@ extension PlayerStatsViewController {
         }
     }
     
+    // Initialize Career Stats View Labels
     func initCareerLabels() {
         careerAvgPts.text = String(currViewedCareerAvgs!.pts)
         careerAvgRebs.text = String(currViewedCareerAvgs!.reb)

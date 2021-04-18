@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Alert used throughout the app that is shown to the user whenever an error occurs
 struct Alert {
     static func alert(title: String, message: String, on vc: UIViewController) {
         let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)

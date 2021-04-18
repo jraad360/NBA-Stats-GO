@@ -19,6 +19,7 @@ class PlayerStatsViewController: UIViewController {
     // Currently viewed player career averages
     var currViewedCareerAvgs: PlayerSeasonAverageStats?
 
+    // Labels displaying a piece of info in the player stats view
     @IBOutlet weak var playerName: UILabel!
     @IBOutlet weak var playerHeight: UILabel!
     @IBOutlet weak var playerPosition: UILabel!
@@ -31,8 +32,12 @@ class PlayerStatsViewController: UIViewController {
     @IBOutlet weak var careerAvgAsts: UILabel!
     @IBOutlet weak var careerAvgBlks: UILabel!
     @IBOutlet weak var careerAvgStls: UILabel!
+    
+    // SpreadsheetView that displays season-by-season averages
     @IBOutlet weak var seasonSpreadsheet: SpreadsheetView!
     
+    // Setup includes:
+    // Player labels, Career Stats labels, Career Stats View, Spreadsheet View
     override func viewDidLoad() {
         super.viewDidLoad()
         initPlayerLabels()
@@ -50,16 +55,5 @@ class PlayerStatsViewController: UIViewController {
             seasonSpreadsheet.frame = CGRect(x: seasonSpreadsheet.frame.origin.x, y: seasonSpreadsheet.frame.origin.y, width: seasonSpreadsheet.frame.width, height: CGFloat((currViewedSeasonAvgs!.count + 1) * 32))
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

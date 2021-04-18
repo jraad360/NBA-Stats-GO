@@ -9,13 +9,20 @@ import UIKit
 
 class StatlinesViewController: UIViewController {
 
+    // Statline Table View
     @IBOutlet weak var statlineTableView: UITableView!
+    
+    // Statline Output Text
     @IBOutlet weak var statlineOutput: UILabel!
+    
+    // Statline Action Button
     @IBOutlet weak var statlineButton: UIButton!
+    
+    // Statline Picker View for stat categories
     @IBOutlet weak var statPicker: UIPickerView!
     
-    // Initialize API Manager
-    let apiManager: APIManager = BallDontLieAPIManager()
+    // Initialize Stats Manager
+    let statsManager = StatsManager()
     
     // Currently selected player for statlines
     var currStatlinesPlayer: Player?
@@ -23,6 +30,7 @@ class StatlinesViewController: UIViewController {
     // Currently selected stat for statlines
     var currStat: StatCategory?
     
+    // Setup statline table view and statline picker
     override func viewDidLoad() {
         super.viewDidLoad()
         statlineTableView.delegate = self
@@ -34,6 +42,9 @@ class StatlinesViewController: UIViewController {
         view.addSubview(statPicker!)
     }
     
+    // Action to find the career high based on a player and stat category
+    // Only find the career high if both a valid player and stat category is selected
+    // Otherwise display an alert
     @IBAction func clickStatlinesButton(_ sender: Any) {
         statPicker?.isHidden = true
         let playerIndex = IndexPath(row: 0, section: 0)
@@ -43,39 +54,7 @@ class StatlinesViewController: UIViewController {
         let playerText = playerCell.detailTextLabel?.text
         let statText = statCell.detailTextLabel?.text
         if (playerText != "Select Player" && statText != "Select Stat") {
-            DispatchQueue.global(qos: .utility).async {
-                do {
-    
-                    DispatchQueue.main.async {
-                        self.displaySpinner(currView: self.view)
-                    }
-                    
-                    let careerHighValue = try self.apiManager.getCareerHigh(for: self.currStatlinesPlayer!, in: self.currStat!)
-                    // TODO: Check to see if they have a last name
-                    let regular = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)]
-                    let bold = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)]
-                    let regularText = NSAttributedString(string: self.currStatlinesPlayer!.firstName + " " + self.currStatlinesPlayer!.lastName + "\'s career high in " + self.currStat!.label + " is ", attributes: regular)
-                    let boldText = NSAttributedString(string: careerHighValue, attributes: bold)
-                    let statlineText = NSMutableAttributedString()
-                    statlineText.append(regularText)
-                    statlineText.append(boldText)
-    
-                    DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
-                        self.statlineOutput.attributedText = statlineText
-                        self.statlineOutput.sizeToFit()
-                    }
-                } catch {
-                    print(error)
-                    Alert.alert(title: "Error Getting Statline", message: error.localizedDescription, on: self)
-                    DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
-                    }
-                }
-    
-            }
+            getStatlinesData()
         }
         else {
             Alert.alert(title: "Cannot Get Statline", message: "Please make sure you have selected both a player and a stat before proceeding!", on: self)

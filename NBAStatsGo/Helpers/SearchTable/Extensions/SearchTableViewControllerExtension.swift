@@ -22,16 +22,19 @@ extension SearchTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let player: Player = players[indexPath.section][indexPath.row]
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
-        cell.textLabel?.text = player.lastName + ", " + player.firstName
+        cell.textLabel?.text = player.getLastFirstNames()
         return cell
     }
     
     // Headers for each section within the table view
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (players[section].count == 0) {
+            return nil
+        }
         let sectionHeader = SectionHeaderLabel()
         let startingValue = Int(("A" as UnicodeScalar).value) // 65
         sectionHeader.text = String(UnicodeScalar(section + startingValue)!)
-        sectionHeader.backgroundColor = UIColor.systemGray2
+        sectionHeader.backgroundColor = UIColor.systemYellow
         sectionHeader.font = UIFont(name: "Courier", size: 16)
         return sectionHeader
     }
@@ -43,23 +46,31 @@ extension SearchTableViewController {
     
     // Segue transition when selecting a table cell at a specific row in three cases
     // Segue to Player Stats View (PlayerStatsViewController)
+    // Renabling the other components + Removing the progress view
     // Unwind to Statlines View (StatlinesViewController)
     // Unwind to Comparison View (ComparisonViewController)
+    
+    // Steps to Player Stats View include:
+    // Displaying progress view + Disabling other components in the view while loading
+    // Getting player stats data from the API
+    // Renabling the other components + Removing the progress view
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPlayer = players[indexPath.section][indexPath.row]
         if (source == "Tab") {
             DispatchQueue.global(qos: .utility).async {
                 do {
                     DispatchQueue.main.async {
-                        self.displaySpinner(currView: self.view)
+                        self.displayProgressView(currView: self.view)
+                        self.changeEnabledSettings(enabled: false)
                     }
                     
-                    self.selectedPlayerSeasonAvgs = try self.apiManager.getCareerStats(for: self.players[indexPath.section][indexPath.row])
+                    self.selectedPlayerSeasonAvgs = try self.statsManager.getCareerStats(for: self.players[indexPath.section][indexPath.row])
                     self.selectedPlayerCareerAvgs = PlayerSeasonAverageStats(seasons: self.selectedPlayerSeasonAvgs!)
 
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
+                        self.changeEnabledSettings(enabled: true)
                         self.performSegue(withIdentifier: "viewPlayerStats", sender: indexPath)
                     }
                     
@@ -67,8 +78,9 @@ extension SearchTableViewController {
                     print(error)
                     Alert.alert(title: "Error Getting Player Stats", message: error.localizedDescription, on: self)
                     DispatchQueue.main.async {
-                        currViewSpinner!.removeFromSuperview()
-                        currViewSpinner = nil
+                        currViewProgress!.removeFromSuperview()
+                        currViewProgress = nil
+                        self.changeEnabledSettings(enabled: true)
                     }
                 }
 
@@ -78,5 +90,13 @@ extension SearchTableViewController {
         } else if (source == "ComparisonOne" || source == "ComparisonTwo") {
             performSegue(withIdentifier: "comparisonSearch", sender: indexPath)
         }
+    }
+    
+    // Set height of a section header to 0 if there are no players for that section, otherwise set it to 30
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (players[section].count == 0) {
+            return 0
+        }
+        return 30
     }
 }

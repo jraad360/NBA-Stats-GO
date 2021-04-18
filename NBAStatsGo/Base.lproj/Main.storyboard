@@ -15,7 +15,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BdC-sY-1Dn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="playerCell" id="7cX-yz-AbA">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
@@ -23,6 +23,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7cX-yz-AbA" id="UkG-fz-HLd">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="BKx-FW-WVd" kind="show" identifier="viewPlayerStats" id="RNO-b3-PVo"/>
@@ -36,8 +37,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Player Search" id="9mL-67-HjO">
                         <barButtonItem key="backBarButtonItem" title="Back" id="u4G-4t-yrJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="MCO-ZV-OJb">
+                            <connections>
+                                <action selector="refreshPlayerData:" destination="vdk-5Q-RKt" id="88P-qB-Lqy"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="refreshButton" destination="MCO-ZV-OJb" id="4Ny-Ea-ezm"/>
                         <segue destination="EcF-jc-kf1" kind="unwind" identifier="statlinesSearch" unwindAction="statlineReturnFromSearchTableWithSegue:" id="1Xb-CV-RMc"/>
                         <segue destination="EcF-jc-kf1" kind="unwind" identifier="comparisonSearch" unwindAction="comparisonReturnFromSearchTableWithSegue:" id="2vW-La-zAs"/>
                     </connections>
@@ -172,16 +179,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vao-eh-opd" customClass="SpreadsheetView" customModule="SpreadsheetView">
                                 <rect key="frame" x="29" y="340" width="317" height="252"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Hl-5w-ymk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Player Search" id="uw5-sm-Kbf"/>
                     <connections>
@@ -216,6 +223,8 @@
                                 <rect key="frame" x="0.0" y="94" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="xP5-gG-k8u">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
@@ -223,7 +232,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xP5-gG-k8u" id="U2p-bt-WMi">
                                             <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -256,7 +267,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IB5-Zz-Y20"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Statlines" id="YOa-z0-OKX">
                         <barButtonItem key="backBarButtonItem" title="Back" id="gyC-KJ-sYW"/>
@@ -285,6 +296,8 @@
                                 <rect key="frame" x="0.0" y="94" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="nhZ-sB-CWZ">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
@@ -292,7 +305,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nhZ-sB-CWZ" id="dQU-rX-BRD">
                                             <rect key="frame" x="0.0" y="0.0" width="348" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -314,7 +329,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TsX-cE-RZI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Player Comparison" id="0Je-I6-Ydj">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Kr7-sg-7c3"/>
@@ -357,6 +372,8 @@
                                 <rect key="frame" x="0.0" y="124" width="383" height="494"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChartStatCell" rowHeight="78" id="Yjg-td-9Sv" customClass="ChartComparisonCell" customModule="NBAStatsGo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="383" height="78"/>
@@ -399,6 +416,7 @@
                                                     <color key="backgroundColor" systemColor="labelColor"/>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="adjustedStatBar" destination="oyT-hj-M8t" id="Dyf-8z-9YI"/>
@@ -412,7 +430,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DcO-1W-m0F"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Player Comparison" id="1y8-Ne-1hU"/>
                     <connections>
@@ -432,7 +450,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jO3-dq-eu2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="y7Y-Vh-iUU" kind="relationship" relationship="viewControllers" id="KQh-yD-dNw"/>
@@ -453,28 +472,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to NBA Stats Go!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0k-pa-qpD">
-                                <rect key="frame" x="48" y="74" width="279" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to NBA Stats Go!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0k-pa-qpD">
+                                <rect key="frame" x="16" y="74" width="343" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-ux-Hm2">
-                                <rect key="frame" x="16" y="150" width="343" height="84"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="EAi-BU-GFN">
+                                <rect key="frame" x="40" y="172" width="295" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">NBA Stats Go is your one-stop app for searching player stats, comparing players' season stats, and finding any player's career high. </string>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nba_logo" translatesAutoresizingMaskIntoConstraints="NO" id="EAi-BU-GFN">
-                                <rect key="frame" x="6" y="258" width="362" height="202"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="One-Stop App For: searching player stats, comparing players' season stats, and finding any player's career high. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVD-ux-Hm2">
+                                <rect key="frame" x="16" y="388" width="343" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0In-4L-a4j"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="NBA Stats Go" id="fNC-Il-GMp"/>
                 </viewController>
@@ -491,6 +510,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6yQ-d1-8zc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -510,6 +530,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="305-4j-ouP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -529,6 +550,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="x8I-PK-ASr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -548,6 +570,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DeZ-py-Tlm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -565,8 +588,8 @@
     <resources>
         <image name="chart.bar.fill" catalog="system" width="128" height="92"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="logo" width="500" height="500"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="nba_logo" width="500" height="500"/>
         <image name="person.and.person.fill" catalog="system" width="128" height="80"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
