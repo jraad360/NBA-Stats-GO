@@ -54,6 +54,11 @@ extension PlayerStatsViewController: SpreadsheetViewDataSource, SpreadsheetViewD
         return 1
     }
     
+    // Header Row is frozen
+    func frozenRows(in spreadsheetView: SpreadsheetView) -> Int {
+        return 1
+    }
+    
     // Return the appropriate column name based on column number
     func getHeaderText(column: Int) -> String {
         switch (column) {
