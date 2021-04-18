@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-struct Game {
+struct Game: Codable {
     let date: Date
     let season: String
     let homeTeam: Team

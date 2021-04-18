@@ -281,7 +281,7 @@ let teams: JSON = [
     ]
 ]
 
-struct Team {
+struct Team: Codable {
     
     let abbreviation: String
     let city: String

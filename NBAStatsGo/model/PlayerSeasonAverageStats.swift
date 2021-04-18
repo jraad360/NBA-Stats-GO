@@ -8,7 +8,7 @@
 import Foundation
 import SwiftyJSON
 
-struct PlayerSeasonAverageStats {
+struct PlayerSeasonAverageStats: Codable {
     let playerId: Int
 //    let team: Team
     let season: String

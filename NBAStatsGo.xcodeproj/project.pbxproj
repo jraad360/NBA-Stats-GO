@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B301328262B1BDF00A89D1F /* players.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B301327262B1BDF00A89D1F /* players.json */; };
 		1B30132D262B1D6600A89D1F /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30132C262B1D6600A89D1F /* StatsManager.swift */; };
+		1B4B78FE262BD49500523067 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B78FD262BD49500523067 /* JSONReader.swift */; };
 		1B8E89C72625F14E0007C892 /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8E89C62625F14E0007C892 /* GeneralExtensions.swift */; };
 		1BE42431261D5184000220D7 /* NBAStatsGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE42430261D5184000220D7 /* NBAStatsGoTests.swift */; };
 		1BE42449261E985A000220D7 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BE42448261E985A000220D7 /* teams.json */; };
@@ -68,6 +69,7 @@
 		004EC43B8BCE11FC293D264B /* Pods-NBAStatsGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBAStatsGoTests.debug.xcconfig"; path = "Target Support Files/Pods-NBAStatsGoTests/Pods-NBAStatsGoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B301327262B1BDF00A89D1F /* players.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = players.json; sourceTree = "<group>"; };
 		1B30132C262B1D6600A89D1F /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
+		1B4B78FD262BD49500523067 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
 		1B8E89C62625F14E0007C892 /* GeneralExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
 		1BE4242E261D5184000220D7 /* NBAStatsGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBAStatsGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE42430261D5184000220D7 /* NBAStatsGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStatsGoTests.swift; sourceTree = "<group>"; };
@@ -167,6 +169,14 @@
 			path = Stats;
 			sourceTree = "<group>";
 		};
+		1B4B78FC262BD31E00523067 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				C3DA7FE12625AD02000CB062 /* GeneralExtensions.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		1BE4242F261D5184000220D7 /* NBAStatsGoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +261,7 @@
 				C333A8BD261C56C1002055DB /* SearchTable */,
 				C334ED5826138BB000F38E32 /* Initializers.swift */,
 				1B8E89C62625F14E0007C892 /* GeneralExtensions.swift */,
+				1B4B78FD262BD49500523067 /* JSONReader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -588,6 +599,7 @@
 				1B30132D262B1D6600A89D1F /* StatsManager.swift in Sources */,
 				C334ED532612890800F38E32 /* ChartComparisonViewController.swift in Sources */,
 				C334ED6D2613953D00F38E32 /* Game.swift in Sources */,
+				1B4B78FE262BD49500523067 /* JSONReader.swift in Sources */,
 				C3DAB4F82620382B0070DD25 /* StatlinesViewPickerExtension.swift in Sources */,
 				C37B3BCB262A120A008242B8 /* PlayerStatsCell.swift in Sources */,
 				C3730AFB2612609800D29E07 /* SearchTableViewController.swift in Sources */,

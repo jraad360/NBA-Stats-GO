@@ -24,22 +24,8 @@ extension ComparisonViewController {
                     self.changeEnabledSettings(enabled: false)
                 }
                 let firstPlayerStats = try self.statsManager.getCareerStats(for: self.currCompareFirstPlayer!)
+                print(firstPlayerStats)
                 self.firstPlayerCareerStats = PlayerSeasonAverageStats(seasons: firstPlayerStats)
-                
-            } catch {
-                print(error)
-                Alert.alert(title: "Error Getting Career Stats for Comparison", message: error.localizedDescription, on: self)
-                DispatchQueue.main.async {
-                    currViewProgress!.removeFromSuperview()
-                    currViewProgress = nil
-                    self.changeEnabledSettings(enabled: true)
-                }
-            }
-
-        }
-        
-        DispatchQueue.global(qos: .utility).asyncAfter(deadline: .now() + 40.0) {
-            do {
                 
                 let secondPlayerStats = try self.statsManager.getCareerStats(for: self.currCompareSecondPlayer!)
                 self.secondPlayerCareerStats = PlayerSeasonAverageStats(seasons: secondPlayerStats)
