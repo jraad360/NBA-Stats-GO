@@ -46,8 +46,14 @@ class BallDontLieAPIManager: APIManager {
                         ids.insert(player.id)
                     }
                 }
-                totalCount = json["meta"]["total_count"].int ?? 0
                 currentPage += 1
+                totalCount = json["meta"]["total_count"].int ?? 0
+                let totalPages = json["meta"]["total_pages"].int ?? currentPage
+                DispatchQueue.main.async {
+                    if (currProgress?.progress != 1) {
+                        currProgress?.setProgress(Float(currentPage)/Float(totalPages), animated: true)
+                    }
+                }
             } catch APIError.tooManyRequests {
                 do {
                     print("Sleeping to avoid getting rate-limited")
@@ -68,6 +74,7 @@ class BallDontLieAPIManager: APIManager {
         
         let careerRange = try getCareerRange(for: player)
         
+        var currentYear = careerRange.lowerBound
         for year in careerRange {
             do {
                 print(year)
@@ -77,6 +84,13 @@ class BallDontLieAPIManager: APIManager {
                 if !json["data"].isEmpty && json["data"].count != 0 {
                     seasons.append(try PlayerSeasonAverageStats(json: json["data"][0]))
                 }
+                currentYear += 1
+                DispatchQueue.main.async {
+                    if (currProgress?.progress != 1) {
+                        currProgress?.setProgress(Float(currentYear)/Float(careerRange.count), animated: true)
+                    }
+                }
+
             } catch APIError.tooManyRequests {
                 do {
                     print("Sleeping to avoid getting rate-limited")
@@ -116,8 +130,14 @@ class BallDontLieAPIManager: APIManager {
                     }
                     gameStats.append(try PlayerGameStats(json: game.1))
                 }
-                totalCount = json["meta"]["total_count"].int ?? 0
                 currentPage += 1
+                totalCount = json["meta"]["total_count"].int ?? 0
+                let totalPages = json["meta"]["total_pages"].int ?? currentPage
+                DispatchQueue.main.async {
+                    if (currProgress?.progress != 1) {
+                        currProgress?.setProgress(Float(currentPage)/Float(totalPages), animated: true)
+                    }
+                }
             } catch APIError.tooManyRequests {
                 do {
                     print("Sleeping to avoid getting rate-limited")
@@ -128,7 +148,7 @@ class BallDontLieAPIManager: APIManager {
         
         switch statCategory {
             case .fgpct, .fg3pct, .ftpct:
-                return "\(careerHigh*100)%"
+                return "\(careerHigh)%"
             default:
                 return Int(careerHigh).description
         }
@@ -144,8 +164,14 @@ class BallDontLieAPIManager: APIManager {
                                         "page": String(currentPage),
                                         "player_ids[]": String(player.id)])
             gameStats.append(contentsOf: games.gameStats)
-            totalCount = games.meta["total_count"].int ?? 0
             currentPage += 1
+            totalCount = games.meta["total_count"].int ?? 0
+            let totalPages = games.meta["total_pages"].int ?? currentPage
+            DispatchQueue.main.async {
+                if (currProgress?.progress != 1) {
+                    currProgress?.setProgress(Float(currentPage)/Float(totalPages), animated: true)
+                }
+            }
         } while (currentPage)*pageSize < totalCount
         
         return gameStats
@@ -238,7 +264,10 @@ class BallDontLieAPIManager: APIManager {
             break
         }
         
-
+        if lastSeason < firstSeason {
+            return minimumYear...maximumYear
+        }
+        
         return (Int(firstSeason) ?? minimumYear)...(Int(lastSeason) ?? maximumYear)
     }
     

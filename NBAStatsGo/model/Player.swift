@@ -59,13 +59,19 @@ struct Player: Comparable, Codable {
     
     init(json: JSON) throws {
         let team = json["team_id"].exists() ? try Team(id: json["team_id"].int!) : try Team(json: json["team"])
+        var height: String? = nil
+        let heightFeet = json["height_feet"].int
+        let heightInches = json["height_inches"].int
+        if heightFeet != nil && heightFeet != nil {
+            height = "\(heightFeet!)'\(heightInches!)\""
+        }
         self.init(
             id: json["id"].int!,
             firstName: json["first_name"].string!,
             lastName: json["last_name"].string!,
             position: json["position"].string,
-            height: json["height"].string,
-            weight: json["weight"].int,
+            height: height,
+            weight: json["weight_pounds"].int,
             team: team)
     }
 }
