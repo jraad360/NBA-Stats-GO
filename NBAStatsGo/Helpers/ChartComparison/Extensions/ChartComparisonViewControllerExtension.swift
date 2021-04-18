@@ -57,45 +57,45 @@ extension ChartComparisonViewController: UITableViewDelegate, UITableViewDataSou
     func comparisonStatTranslation(careerAverages: PlayerSeasonAverageStats, category: StatCategory) -> Double  {
         switch (category.label) {
         case "Minutes":
-            return careerAverages.min
+            return careerAverages.min.rounded2()
         case "Points":
-            return careerAverages.pts
+            return careerAverages.pts.rounded2()
         case "Assists":
-            return careerAverages.ast
+            return careerAverages.ast.rounded2()
         case "Rebounds":
-            return careerAverages.reb
+            return careerAverages.reb.rounded2()
         case "Defensive Rebounds":
-            return careerAverages.dreb
+            return careerAverages.dreb.rounded2()
         case "Offensive Rebounds":
-            return careerAverages.oreb
+            return careerAverages.oreb.rounded2()
         case "Steals":
-            return careerAverages.stl
+            return careerAverages.stl.rounded2()
         case "Block":
-            return careerAverages.blk
+            return careerAverages.blk.rounded2()
         case "Field Goals Attempted":
-            return careerAverages.fga
+            return careerAverages.fga.rounded2()
         case "Field Goals Made":
-            return careerAverages.fgm
+            return careerAverages.fgm.rounded2()
         case "Field Goal Percentage":
-            return careerAverages.fgpct
+            return careerAverages.fgpct.rounded2(toPlaces: 3)
         case "3-Point Field Goals Attempted":
-            return careerAverages.fg3a
+            return careerAverages.fg3a.rounded2()
         case "3-Point Field Goals Made":
-            return careerAverages.fg3m
+            return careerAverages.fg3m.rounded2()
         case "3-Point Field Goal Percentage":
-            return careerAverages.fg3pct
+            return careerAverages.fg3pct.rounded2(toPlaces: 3)
         case "Free Throws Attempted":
-            return careerAverages.fta
+            return careerAverages.fta.rounded2()
         case "Free Throws Made":
-            return careerAverages.ftm
+            return careerAverages.ftm.rounded2()
         case "Free Throw Percentage":
-            return careerAverages.ftpct
+            return careerAverages.ftpct.rounded2(toPlaces: 3)
         case "Turnovers":
-            return careerAverages.turnover
+            return careerAverages.turnover.rounded2()
         case "Personal Fouls":
-            return careerAverages.pf
+            return careerAverages.pf.rounded2()
         default:
-            return careerAverages.pf
+            return careerAverages.pf.rounded2()
         }
     }
 }

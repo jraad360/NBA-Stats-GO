@@ -117,43 +117,43 @@ extension PlayerStatsViewController: SpreadsheetViewDataSource, SpreadsheetViewD
         case 1:
             return String(currViewedSeasonAvgs![row].gp)
         case 2:
-            return String(currViewedSeasonAvgs![row].min)
+            return String(currViewedSeasonAvgs![row].min.rounded2())
         case 3:
-            return String(currViewedSeasonAvgs![row].pts)
+            return String(currViewedSeasonAvgs![row].pts.rounded2())
         case 4:
-            return String(currViewedSeasonAvgs![row].oreb)
+            return String(currViewedSeasonAvgs![row].oreb.rounded2())
         case 5:
-            return String(currViewedSeasonAvgs![row].dreb)
+            return String(currViewedSeasonAvgs![row].dreb.rounded2())
         case 6:
-            return String(currViewedSeasonAvgs![row].reb)
+            return String(currViewedSeasonAvgs![row].reb.rounded2())
         case 7:
-            return String(currViewedSeasonAvgs![row].ast)
+            return String(currViewedSeasonAvgs![row].ast.rounded2())
         case 8:
-            return String(currViewedSeasonAvgs![row].stl)
+            return String(currViewedSeasonAvgs![row].stl.rounded2())
         case 9:
-            return String(currViewedSeasonAvgs![row].blk)
+            return String(currViewedSeasonAvgs![row].blk.rounded2())
         case 10:
-            return String(currViewedSeasonAvgs![row].fgm)
+            return String(currViewedSeasonAvgs![row].fgm.rounded2())
         case 11:
-            return String(currViewedSeasonAvgs![row].fga)
+            return String(currViewedSeasonAvgs![row].fga.rounded2())
         case 12:
-            return String(currViewedSeasonAvgs![row].fgpct)
+            return String(currViewedSeasonAvgs![row].fgpct.rounded2(toPlaces: 3))
         case 13:
-            return String(currViewedSeasonAvgs![row].fg3m)
+            return String(currViewedSeasonAvgs![row].fg3m.rounded2())
         case 14:
-            return String(currViewedSeasonAvgs![row].fg3a)
+            return String(currViewedSeasonAvgs![row].fg3a.rounded2())
         case 15:
-            return String(currViewedSeasonAvgs![row].fg3pct)
+            return String(currViewedSeasonAvgs![row].fg3pct.rounded2(toPlaces: 3))
         case 16:
-            return String(currViewedSeasonAvgs![row].ftm)
+            return String(currViewedSeasonAvgs![row].ftm.rounded2())
         case 17:
-            return String(currViewedSeasonAvgs![row].fta)
+            return String(currViewedSeasonAvgs![row].fta.rounded2())
         case 18:
-            return String(currViewedSeasonAvgs![row].ftpct)
+            return String(currViewedSeasonAvgs![row].ftpct.rounded2(toPlaces: 3))
         case 19:
-            return String(currViewedSeasonAvgs![row].turnover)
+            return String(currViewedSeasonAvgs![row].turnover.rounded2())
         case 20:
-            return String(currViewedSeasonAvgs![row].pf)
+            return String(currViewedSeasonAvgs![row].pf.rounded2())
         default:
             return "N/A"
         }
