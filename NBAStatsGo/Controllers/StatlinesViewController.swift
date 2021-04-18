@@ -35,6 +35,7 @@ class StatlinesViewController: UIViewController {
         super.viewDidLoad()
         statlineTableView.delegate = self
         statlineTableView.dataSource = self
+        statlineTableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 237/255, alpha: 1.0)
         statlineTableView.tableFooterView = UIView()
         statPicker.delegate = self
         statPicker.dataSource = self

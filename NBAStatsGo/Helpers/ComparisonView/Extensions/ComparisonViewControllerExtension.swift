@@ -30,6 +30,7 @@ extension ComparisonViewController: UITableViewDelegate, UITableViewDataSource {
             cell.detailTextLabel?.text = (currCompareSecondPlayer == nil ? "Select Player" : currCompareSecondPlayer!.getLastFirstNames())
             cell.accessoryType = .disclosureIndicator
         }
+        cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 237/255, alpha: 1.0)
         return cell
     }
     

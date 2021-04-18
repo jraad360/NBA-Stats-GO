@@ -23,12 +23,22 @@ extension ChartComparisonViewController: UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChartStatCell", for: indexPath) as! ChartComparisonCell
         let playerOneStat: Double = comparisonStatTranslation(careerAverages: firstPlayerCareerStats!, category: StatCategory.allCases[indexPath.row])
         let playerTwoStat: Double = comparisonStatTranslation(careerAverages: secondPlayerCareerStats!, category: StatCategory.allCases[indexPath.row])
-        cell.playerOneStatLabel.text = String(playerOneStat)
-        cell.playerTwoStatLabel.text = String(playerTwoStat)
+        cell.playerOneStatLabel.text = playerOneStat.isNaN ? "0.0" : String(playerOneStat)
+        cell.playerTwoStatLabel.text = playerTwoStat.isNaN ? "0.0" : String(playerTwoStat)
         cell.statName.text = StatCategory.allCases[indexPath.row].label
         cell.statBar.backgroundColor = .systemBlue
+        var cellWidth = 0.0
+        if (playerOneStat.isNaN && playerTwoStat.isNaN) {
+            cellWidth = 343 * 1/2
+        } else if (playerOneStat.isNaN) {
+            cellWidth = 0.0
+        } else if (playerTwoStat.isNaN) {
+            cellWidth = 343
+        } else {
+            cellWidth = 343 * playerOneStat / (playerOneStat + playerTwoStat)
+        }
         if (!tableCellAdjustedBoolean[indexPath.row]) {
-            let newFrame = CGRect(x: cell.adjustedStatBar.frame.origin.x, y: cell.adjustedStatBar.frame.origin.y, width: 343 * CGFloat(playerOneStat) / (CGFloat(playerOneStat) + CGFloat(playerTwoStat)), height: cell.adjustedStatBar.frame.size.height)
+            let newFrame = CGRect(x: cell.adjustedStatBar.frame.origin.x, y: cell.adjustedStatBar.frame.origin.y, width: CGFloat(cellWidth), height: cell.adjustedStatBar.frame.size.height)
             tableCellAdjustedBoolean[indexPath.row] = true
             tableCellAdjustedWidth[indexPath.row] = 343 * CGFloat(playerOneStat) / (CGFloat(playerOneStat) + CGFloat(playerTwoStat))
             cell.adjustedStatBar.frame = newFrame

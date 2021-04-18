@@ -46,6 +46,7 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         playerSearchBar = initSearchBar()
+        tableView.tableHeaderView?.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 237/255, alpha: 1.0)
         initialLoadData()
     }
     

@@ -23,6 +23,7 @@ extension SearchTableViewController {
         let player: Player = players[indexPath.section][indexPath.row]
         let cell = UITableViewCell(style: .value1, reuseIdentifier: "Cell")
         cell.textLabel?.text = player.getLastFirstNames()
+        cell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 237/255, alpha: 1.0)
         return cell
     }
     
