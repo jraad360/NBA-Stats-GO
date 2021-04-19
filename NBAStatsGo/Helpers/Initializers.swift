@@ -17,7 +17,8 @@ extension SearchTableViewController {
         searchBar.delegate = self
         searchBar.frame = CGRect(x: 0.0, y: 0.0, width: tableView.frame.width, height: 50.0)
         searchBar.placeholder = "Search NBA Player"
-        searchBar.barTintColor = UIColor(red: 255/255, green: 255/255, blue: 237/255, alpha: 1.0)
+        searchBar.barTintColor = UIColor(red: 255/255, green: 102/255, blue: 0/255, alpha: 1.0)
+        searchBar.searchTextField.backgroundColor = .white
         tableView.tableHeaderView = searchBar
         return searchBar
     }

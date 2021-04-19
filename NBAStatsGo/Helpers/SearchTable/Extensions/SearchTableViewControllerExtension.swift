@@ -35,7 +35,8 @@ extension SearchTableViewController {
         let sectionHeader = SectionHeaderLabel()
         let startingValue = Int(("A" as UnicodeScalar).value) // 65
         sectionHeader.text = String(UnicodeScalar(section + startingValue)!)
-        sectionHeader.backgroundColor = UIColor.systemYellow
+        sectionHeader.backgroundColor = UIColor(red: 68/255, green: 92/255, blue: 124/255, alpha: 1.0)
+        sectionHeader.textColor = .white
         sectionHeader.font = UIFont(name: "Courier", size: 16)
         return sectionHeader
     }

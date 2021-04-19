@@ -22,7 +22,9 @@ class PlayerStatsCell: Cell {
         label.text = text
         if (header) {
             label.font = UIFont.boldSystemFont(ofSize: 16.0)
-            self.backgroundColor = .systemGray5
+            label.textColor = .white
+            self.backgroundColor = UIColor(red: 68/255, green: 92/255, blue: 124/255, alpha: 1.0)
+            
         } else {
             label.font = UIFont.systemFont(ofSize: 14.0)
             self.backgroundColor = .white

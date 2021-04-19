@@ -169,14 +169,6 @@
 			path = Stats;
 			sourceTree = "<group>";
 		};
-		1B4B78FC262BD31E00523067 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				C3DA7FE12625AD02000CB062 /* GeneralExtensions.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		1BE4242F261D5184000220D7 /* NBAStatsGoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -807,13 +799,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6J58C8CJT;
+				DEVELOPMENT_TEAM = PK8SY5QZ6S;
 				INFOPLIST_FILE = NBAStatsGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = NBAStatsGo;
+				PRODUCT_BUNDLE_IDENTIFIER = ECE564.NBAStatsGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -827,13 +819,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6J58C8CJT;
+				DEVELOPMENT_TEAM = PK8SY5QZ6S;
 				INFOPLIST_FILE = NBAStatsGo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = NBAStatsGo;
+				PRODUCT_BUNDLE_IDENTIFIER = ECE564.NBAStatsGo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
