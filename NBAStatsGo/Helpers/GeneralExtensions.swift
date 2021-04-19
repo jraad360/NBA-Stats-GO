@@ -26,8 +26,6 @@ extension UIViewController {
     }
     
     func displayProgressTableView(currView: UITableView) {
-        print(currView.contentOffset.x)
-        print(currView.contentOffset.y)
         let overlay = UIView(frame: CGRect(x: currView.contentOffset.x + currView.bounds.origin.x + 20, y: currView.contentOffset.y + currView.frame.size.height / 2 - 80, width: currView.bounds.width - 40, height: 80))
         let finalOverlay = displayProgressHelper(tempView: overlay)
         currView.addSubview(finalOverlay)
