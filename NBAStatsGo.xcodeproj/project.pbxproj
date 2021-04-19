@@ -157,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				1B301327262B1BDF00A89D1F /* players.json */,
+				1BE42448261E985A000220D7 /* teams.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -277,7 +278,6 @@
 				C334ED652613953D00F38E32 /* Team.swift */,
 				C334ED662613953D00F38E32 /* StatCategory.swift */,
 				C334ED672613953D00F38E32 /* Player.swift */,
-				1BE42448261E985A000220D7 /* teams.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
