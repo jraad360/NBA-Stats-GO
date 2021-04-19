@@ -18,8 +18,6 @@ extension PlayerStatsViewController: SpreadsheetViewDataSource, SpreadsheetViewD
         var text = ""
         if (indexPath.row == 0) {
             text = getHeaderText(column: indexPath.section)
-            cell.backgroundColor = UIColor(red: 252/255, green: 100/255, blue: 4/255, alpha: 1.0)
-            cell.tintColor = UIColor(red: 252/255, green: 100/255, blue: 4/255, alpha: 1.0)
         } else {
             text = getStatText(column: indexPath.section, row: indexPath.row - 1)
         }

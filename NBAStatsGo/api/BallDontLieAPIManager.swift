@@ -87,7 +87,7 @@ class BallDontLieAPIManager: APIManager {
                 currentYear += 1
                 DispatchQueue.main.async {
                     if (currProgress?.progress != 1) {
-                        currProgress?.setProgress(Float(currentYear)/Float(careerRange.count), animated: true)
+                        currProgress?.setProgress(Float(currentYear)/Float(careerRange.upperBound - careerRange.lowerBound), animated: true)
                     }
                 }
 
