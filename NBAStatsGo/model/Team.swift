@@ -283,6 +283,7 @@ let teams: JSON = [
 
 struct Team: Codable {
     
+    let id: Int
     let abbreviation: String
     let city: String
     let conference: String
@@ -290,7 +291,8 @@ struct Team: Codable {
     let fullName: String
     let name: String
     
-    init(abbreviation: String, city: String, conference: String, division: String, fullName: String, name: String) {
+    init(id: Int, abbreviation: String, city: String, conference: String, division: String, fullName: String, name: String) {
+        self.id = id
         self.abbreviation = abbreviation
         self.city = city
         self.conference = conference
@@ -301,22 +303,28 @@ struct Team: Codable {
     
     init(json: JSON) throws {
         self.init(
-            abbreviation: json["abbreviation"].string!,
-            city: json["city"].string!,
-            conference: json["conference"].string!,
-            division: json["division"].string!,
-            fullName: json["full_name"].string!,
-            name: json["name"].string!)
+            id: json["id"].int ?? -1,
+            abbreviation: json["abbreviation"].string ?? "N/A",
+            city: json["city"].string ?? "N/A",
+            conference: json["conference"].string ?? "N/A",
+            division: json["division"].string ?? "N/A",
+            fullName: json["full_name"].string ?? "N/A",
+            name: json["name"].string ?? "N/A")
     }
     
     init(id: Int) throws {
         let index = id - 1
         self.init(
+            id: id,
             abbreviation: teams[index]["abbreviation"].string!,
             city: teams[index]["city"].string!,
             conference: teams[index]["conference"].string!,
             division: teams[index]["division"].string!,
             fullName: teams[index]["full_name"].string!,
             name: teams[index]["name"].string!)
+    }
+    
+    func getTeamImage() -> UIImage? {
+        return UIImage(named: String(self.id))
     }
 }

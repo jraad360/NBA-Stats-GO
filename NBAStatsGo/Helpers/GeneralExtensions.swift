@@ -25,7 +25,7 @@ extension UIViewController {
         overlay.layer.cornerRadius = 10
         let loadingLabel = UILabel()
         loadingLabel.frame = CGRect(x: overlay.frame.size.width, y: 0, width: overlay.frame.size.width - 40, height: 30)
-        loadingLabel.text = "Loading...Please Wait"
+        loadingLabel.text = "Loading... Please Wait"
         // TO-DO: Adjust center based on portrait or landscape view
         loadingLabel.center = CGPoint(x: overlay.frame.size.width / 2 + 70,
                                       y: overlay.frame.size.height / 2 - 10)
