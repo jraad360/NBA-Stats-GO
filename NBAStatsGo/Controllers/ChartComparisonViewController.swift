@@ -31,6 +31,10 @@ class ChartComparisonViewController: UIViewController {
     @IBOutlet weak var firstPlayerLabel: UILabel!
     @IBOutlet weak var secondPlayerLabel: UILabel!
     
+    // ImageViews for the first and second player
+    @IBOutlet weak var firstPlayerImageView: UIImageView!
+    @IBOutlet weak var secondPlayerImageView: UIImageView!
+    
     // Chart table view that facilitates displaying the stat comparison between the first and second player
     @IBOutlet weak var chartTableView: UITableView!
     
@@ -38,6 +42,7 @@ class ChartComparisonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initLabels()
+        initImages()
         chartTableView.delegate = self
         chartTableView.dataSource = self
         chartTableView.tableFooterView = UIView()
