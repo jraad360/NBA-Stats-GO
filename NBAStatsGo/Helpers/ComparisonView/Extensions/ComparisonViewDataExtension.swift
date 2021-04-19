@@ -24,7 +24,6 @@ extension ComparisonViewController {
                     self.changeEnabledSettings(enabled: false)
                 }
                 let firstPlayerStats = try self.statsManager.getCareerStats(for: self.currCompareFirstPlayer!)
-                print(firstPlayerStats)
                 self.firstPlayerCareerStats = PlayerSeasonAverageStats(seasons: firstPlayerStats)
                 
                 let secondPlayerStats = try self.statsManager.getCareerStats(for: self.currCompareSecondPlayer!)

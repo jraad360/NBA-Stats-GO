@@ -18,7 +18,6 @@ class JSONReader {
             let fileURL = try FileManager.default
                 .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 .appendingPathComponent(fileName)
-            print(String(data: try jsonEncoder.encode(object), encoding: .utf8)!)
             try jsonEncoder.encode(object).write(to: fileURL)
         } catch {
             print(error)
