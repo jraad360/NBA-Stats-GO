@@ -17,12 +17,17 @@ class StatsManager {
     var cachedPlayerGameStats = [Int: [PlayerSeasonAverageStats]]()
     
     let playersFileName = "players.json"
-    let playerSeasonAverageStatsFileName = "player_season_stats.json"
+    let playerSeasonAverageStatsFileName = "player_season_average_stats.json"
     
     
     init() {
         do {
-            cachedPlayerSeasonAverageStats = try self.jsonReader.read(from: self.playerSeasonAverageStatsFileName, structType: [Int: [PlayerSeasonAverageStats]].self)
+            do {
+                cachedPlayerSeasonAverageStats = try self.jsonReader.read(from: self.playerSeasonAverageStatsFileName, structType: [Int: [PlayerSeasonAverageStats]].self)
+            } catch {
+                let data = self.jsonReader.readBundledFile(forName: "player_season_average_stats")
+                cachedPlayerSeasonAverageStats = data != nil ? try JSONDecoder().decode([Int: [PlayerSeasonAverageStats]].self, from: data!) : [:]
+            }
         } catch {
             print("Error reading cached player data")
         }
