@@ -13,15 +13,21 @@ class StatsManager {
     let jsonReader: JSONReader = JSONReader()
     
     /// cached dictionary of player id's to their season average stats
-    var cachedPlayerSeasonStats = [Int: [PlayerSeasonAverageStats]]()
+    var cachedPlayerSeasonAverageStats = [Int: [PlayerSeasonAverageStats]]()
+    var cachedPlayerGameStats = [Int: [PlayerSeasonAverageStats]]()
     
     let playersFileName = "players.json"
-    let playerSeasonStatsFileName = "player_season_stats.json"
+    let playerSeasonAverageStatsFileName = "player_season_average_stats.json"
     
     
     init() {
         do {
-            cachedPlayerSeasonStats = try jsonReader.read(from: playerSeasonStatsFileName, structType: [Int: [PlayerSeasonAverageStats]].self)
+            do {
+                cachedPlayerSeasonAverageStats = try self.jsonReader.read(from: self.playerSeasonAverageStatsFileName, structType: [Int: [PlayerSeasonAverageStats]].self)
+            } catch {
+                let data = self.jsonReader.readBundledFile(forName: "player_season_average_stats")
+                cachedPlayerSeasonAverageStats = data != nil ? try JSONDecoder().decode([Int: [PlayerSeasonAverageStats]].self, from: data!) : [:]
+            }
         } catch {
             print("Error reading cached player data")
         }
@@ -29,16 +35,31 @@ class StatsManager {
     
     func getPlayers(filters: [String:String]) throws -> [Player] {
         let players = try apiManager.getPlayers(filters: filters)
-        do {
-            try jsonReader.write(object: players, to: playersFileName)
-        } catch {
-            print("Error writing players to file.")
+        DispatchQueue.global(qos: .utility).async {
+            do {
+                try self.jsonReader.write(object: players, to: self.playersFileName)
+            } catch {
+                print("Error writing players to file.")
+            }
         }
         return players
     }
     
     func getCareerStats(for player: Player) throws -> [PlayerSeasonAverageStats] {
-        return try apiManager.getCareerStats(for: player)
+        if self.cachedPlayerSeasonAverageStats[player.id] != nil {
+            return self.cachedPlayerSeasonAverageStats[player.id]!
+        }
+        let seasons = try apiManager.getCareerStats(for: player)
+        self.cachedPlayerSeasonAverageStats[player.id] = seasons
+        DispatchQueue.global(qos: .utility).async {
+            do {
+                try self.jsonReader.write(object: self.cachedPlayerSeasonAverageStats, to: self.playerSeasonAverageStatsFileName)
+            } catch {
+                print("Error writing player season average stats to file.")
+            }
+        }
+
+        return seasons
     }
     
     func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> String {

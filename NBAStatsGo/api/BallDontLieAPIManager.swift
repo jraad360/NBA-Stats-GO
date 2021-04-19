@@ -197,16 +197,13 @@ class BallDontLieAPIManager: APIManager {
         
         session.dataTask(with: request) { (data, response, error) in
             if let httpResponse = response as? HTTPURLResponse {
-//                print("statusCode: \(httpResponse.statusCode)")
                 httpStatusCode = httpResponse.statusCode
             }
             result = data
             semaphore.signal()
         }.resume()
         
-//        let start = NSDate()
         _ = semaphore.wait(wallTimeout: .distantFuture)
-//        print("time: \(-start.timeIntervalSinceNow)")
         
         if httpStatusCode == 429 {
             throw APIError.tooManyRequests
@@ -234,6 +231,10 @@ class BallDontLieAPIManager: APIManager {
                                             "per_page": String(pageSize),
                                             "page": String(0),
                                             "player_ids[]": String(player.id)])
+        if firstPageOfGames.gameStats.count == 0 {
+            return maximumYear...maximumYear
+        }
+        
         let firstSeason = firstPageOfGames.gameStats[0].game.season
         
         var lastPage = Int(firstPageOfGames.meta["total_pages"].int ?? 1)

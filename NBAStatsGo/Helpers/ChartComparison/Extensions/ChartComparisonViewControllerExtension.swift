@@ -21,14 +21,21 @@ extension ChartComparisonViewController: UITableViewDelegate, UITableViewDataSou
     // Rendering of a generic UITableViewCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChartStatCell", for: indexPath) as! ChartComparisonCell
-        let playerOneStat: Double = comparisonStatTranslation(careerAverages: firstPlayerCareerStats!, category: StatCategory.allCases[indexPath.row])
-        let playerTwoStat: Double = comparisonStatTranslation(careerAverages: secondPlayerCareerStats!, category: StatCategory.allCases[indexPath.row])
+        var playerOneStat: Double = comparisonStatTranslation(careerAverages: firstPlayerCareerStats!, category: StatCategory.allCases[indexPath.row])
+        var playerTwoStat: Double = comparisonStatTranslation(careerAverages: secondPlayerCareerStats!, category: StatCategory.allCases[indexPath.row])
+        // set stats to 0 if they are NaN
+        if playerOneStat.isNaN {
+            playerOneStat = 0
+        }
+        if playerTwoStat.isNaN {
+            playerTwoStat = 0
+        }
         cell.playerOneStatLabel.text = playerOneStat.isNaN ? "0.0" : String(playerOneStat)
         cell.playerTwoStatLabel.text = playerTwoStat.isNaN ? "0.0" : String(playerTwoStat)
         cell.statName.text = StatCategory.allCases[indexPath.row].label
         cell.statBar.backgroundColor = .systemBlue
         var cellWidth = 0.0
-        if (playerOneStat.isNaN && playerTwoStat.isNaN) {
+        if (playerOneStat == 0 && playerTwoStat == 0) {
             cellWidth = 343 * 1/2
         } else if (playerOneStat.isNaN) {
             cellWidth = 0.0
@@ -40,7 +47,9 @@ extension ChartComparisonViewController: UITableViewDelegate, UITableViewDataSou
         if (!tableCellAdjustedBoolean[indexPath.row]) {
             let newFrame = CGRect(x: cell.adjustedStatBar.frame.origin.x, y: cell.adjustedStatBar.frame.origin.y, width: CGFloat(cellWidth), height: cell.adjustedStatBar.frame.size.height)
             tableCellAdjustedBoolean[indexPath.row] = true
-            tableCellAdjustedWidth[indexPath.row] = 343 * CGFloat(playerOneStat) / (CGFloat(playerOneStat) + CGFloat(playerTwoStat))
+            tableCellAdjustedWidth[indexPath.row] = (playerOneStat + playerTwoStat) == 0 ?
+                343 * CGFloat(0.5) :
+                (343 * CGFloat(playerOneStat) / (CGFloat(playerOneStat) + CGFloat(playerTwoStat)))
             cell.adjustedStatBar.frame = newFrame
         } else {
             cell.adjustedStatBar.frame.size.width = tableCellAdjustedWidth[indexPath.row]
