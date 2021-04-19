@@ -19,13 +19,29 @@ extension UIViewController {
     // Progress View includes progress bar + loading label in the center of the screen
     func displayProgressView(currView: UIView) {
         let overlay = UIView(frame: CGRect(x: currView.bounds.origin.x + 20, y: currView.frame.size.height / 2 - 80, width: currView.bounds.width - 40, height: 80))
+        let finalOverlay = displayProgressHelper(tempView: overlay)
+        currView.addSubview(finalOverlay)
+        currView.bringSubviewToFront(finalOverlay)
+        currViewProgress = finalOverlay
+    }
+    
+    func displayProgressTableView(currView: UITableView) {
+        let overlay = UIView(frame: CGRect(x: currView.contentOffset.x + currView.bounds.origin.x + 20, y: currView.contentOffset.y + currView.frame.size.height / 2 - 80, width: currView.bounds.width - 40, height: 80))
+        let finalOverlay = displayProgressHelper(tempView: overlay)
+        currView.addSubview(finalOverlay)
+        currView.bringSubviewToFront(finalOverlay)
+        currViewProgress = finalOverlay
+    }
+    
+    func displayProgressHelper(tempView: UIView) -> UIView {
+        let overlay: UIView = tempView
         overlay.backgroundColor = .systemGray5
         overlay.layer.borderWidth = 1
         overlay.layer.borderColor = UIColor.black.cgColor
         overlay.layer.cornerRadius = 10
         let loadingLabel = UILabel()
         loadingLabel.frame = CGRect(x: overlay.frame.size.width, y: 0, width: overlay.frame.size.width - 40, height: 30)
-        loadingLabel.text = "Loading...Please Wait"
+        loadingLabel.text = "Loading... Please Wait"
         // TO-DO: Adjust center based on portrait or landscape view
         loadingLabel.center = CGPoint(x: overlay.frame.size.width / 2 + 70,
                                       y: overlay.frame.size.height / 2 - 10)
@@ -36,9 +52,7 @@ extension UIViewController {
         currProgress!.progress = 0.0
         overlay.addSubview(loadingLabel)
         overlay.addSubview(currProgress!)
-        currView.addSubview(overlay)
-        currView.bringSubviewToFront(overlay)
-        currViewProgress = overlay
+        return overlay
     }
 }
 

@@ -35,6 +35,12 @@ extension ChartComparisonViewController {
         firstPlayerLabel.numberOfLines = 0
         secondPlayerLabel.numberOfLines = 0
     }
+    
+    // Initialize Images
+    func initImages() {
+        firstPlayerImageView.image = firstPlayer!.team.getTeamImage() ?? UIImage(named: "nba")
+        secondPlayerImageView.image = secondPlayer!.team.getTeamImage() ?? UIImage(named: "nba")
+    }
 }
 
 // Initializers for Individual Player Stats Components including:

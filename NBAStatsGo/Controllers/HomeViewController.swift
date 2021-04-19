@@ -8,9 +8,11 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    @IBOutlet weak var teamLogosView: UIView!
     
     // Setup the home controller
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        view.addSubview(createTeamLogosView())
+        super.viewWillAppear(true)
     }
 }

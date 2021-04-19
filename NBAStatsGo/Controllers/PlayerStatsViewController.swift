@@ -32,6 +32,7 @@ class PlayerStatsViewController: UIViewController {
     @IBOutlet weak var careerAvgAsts: UILabel!
     @IBOutlet weak var careerAvgBlks: UILabel!
     @IBOutlet weak var careerAvgStls: UILabel!
+    @IBOutlet weak var teamImageView: UIImageView!
     
     // SpreadsheetView that displays season-by-season averages
     @IBOutlet weak var seasonSpreadsheet: SpreadsheetView!
@@ -41,6 +42,9 @@ class PlayerStatsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initPlayerLabels()
+        if currViewedPlayer != nil {
+            teamImageView.image = currViewedPlayer!.team.getTeamImage() ?? UIImage(named: "nba")
+        }
         careerStatsLabel.center = careerStatsHeader.center
         careerStats.layer.borderWidth = 1
         careerStats.layer.borderColor = UIColor.black.cgColor

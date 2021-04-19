@@ -31,6 +31,10 @@ extension SearchTableViewController: UISearchBarDelegate {
         }
         tableView.reloadData()
     }
+    
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        playerSearchBar!.endEditing(true)
+    }
         
     // Dismiss the search bar keyboard if "Search" is clicked
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

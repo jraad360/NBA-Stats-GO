@@ -10,6 +10,8 @@
 		1B301328262B1BDF00A89D1F /* players.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B301327262B1BDF00A89D1F /* players.json */; };
 		1B30132D262B1D6600A89D1F /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30132C262B1D6600A89D1F /* StatsManager.swift */; };
 		1B4B78FE262BD49500523067 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B78FD262BD49500523067 /* JSONReader.swift */; };
+		1B6CAC5B262DE77C00802442 /* player_season_average_stats.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B6CAC5A262DE77C00802442 /* player_season_average_stats.json */; };
+		1B6CAC7F262E30FF00802442 /* HomeViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6CAC7E262E30FF00802442 /* HomeViewControllerExtension.swift */; };
 		1B8E89C72625F14E0007C892 /* GeneralExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8E89C62625F14E0007C892 /* GeneralExtensions.swift */; };
 		1BE42431261D5184000220D7 /* NBAStatsGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE42430261D5184000220D7 /* NBAStatsGoTests.swift */; };
 		1BE42449261E985A000220D7 /* teams.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BE42448261E985A000220D7 /* teams.json */; };
@@ -70,6 +72,8 @@
 		1B301327262B1BDF00A89D1F /* players.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = players.json; sourceTree = "<group>"; };
 		1B30132C262B1D6600A89D1F /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
 		1B4B78FD262BD49500523067 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
+		1B6CAC5A262DE77C00802442 /* player_season_average_stats.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = player_season_average_stats.json; sourceTree = "<group>"; };
+		1B6CAC7E262E30FF00802442 /* HomeViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerExtension.swift; sourceTree = "<group>"; };
 		1B8E89C62625F14E0007C892 /* GeneralExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralExtensions.swift; sourceTree = "<group>"; };
 		1BE4242E261D5184000220D7 /* NBAStatsGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NBAStatsGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE42430261D5184000220D7 /* NBAStatsGoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBAStatsGoTests.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				1B301327262B1BDF00A89D1F /* players.json */,
+				1BE42448261E985A000220D7 /* teams.json */,
+				1B6CAC5A262DE77C00802442 /* player_season_average_stats.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -167,6 +173,22 @@
 				1B30132C262B1D6600A89D1F /* StatsManager.swift */,
 			);
 			path = Stats;
+			sourceTree = "<group>";
+		};
+		1B6CAC7C262E30B300802442 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				1B6CAC7D262E30BB00802442 /* Extensions */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		1B6CAC7D262E30BB00802442 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B6CAC7E262E30FF00802442 /* HomeViewControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1BE4242F261D5184000220D7 /* NBAStatsGoTests */ = {
@@ -246,6 +268,7 @@
 		C334ED552613858100F38E32 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1B6CAC7C262E30B300802442 /* HomeView */,
 				C37B3BC4262A0880008242B8 /* PlayerStats */,
 				C3DAB4EF26200BA30070DD25 /* ChartComparison */,
 				C333A8CB261CC1DF002055DB /* ComparisonView */,
@@ -277,7 +300,6 @@
 				C334ED652613953D00F38E32 /* Team.swift */,
 				C334ED662613953D00F38E32 /* StatCategory.swift */,
 				C334ED672613953D00F38E32 /* Player.swift */,
-				1BE42448261E985A000220D7 /* teams.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -481,6 +503,7 @@
 				1B301328262B1BDF00A89D1F /* players.json in Resources */,
 				C3730AF7260FE1C100D29E07 /* README.md in Resources */,
 				C3730AE7260FD2B800D29E07 /* Main.storyboard in Resources */,
+				1B6CAC5B262DE77C00802442 /* player_season_average_stats.json in Resources */,
 				1BE42449261E985A000220D7 /* teams.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +602,7 @@
 				C37B3BE5262BB8B4008242B8 /* SearchTableViewTransformExtension.swift in Sources */,
 				C3DAB4F226200BCA0070DD25 /* ChartComparisonViewControllerExtension.swift in Sources */,
 				C333A8C4261C606B002055DB /* SectionHeaderLabel.swift in Sources */,
+				1B6CAC7F262E30FF00802442 /* HomeViewControllerExtension.swift in Sources */,
 				C3730AE2260FD2B800D29E07 /* SceneDelegate.swift in Sources */,
 				C333A8B4261C308E002055DB /* HomeViewController.swift in Sources */,
 				C334ED4D26127A7A00F38E32 /* ComparisonViewController.swift in Sources */,
