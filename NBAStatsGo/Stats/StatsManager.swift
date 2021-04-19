@@ -71,7 +71,7 @@ class StatsManager {
                 }
             }
         }
-        
+        players.sort()
         return players
     }
 }

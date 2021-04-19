@@ -118,7 +118,7 @@ struct PlayerSeasonAverageStats: Codable {
     
     init(seasons: [PlayerSeasonAverageStats]) {
         
-        self.playerId = seasons[0].playerId
+        self.playerId =  seasons.count == 0 ? 0 : seasons[0].playerId
         self.season = "Career"
 
         var totalGp = 0
@@ -161,26 +161,26 @@ struct PlayerSeasonAverageStats: Codable {
         
         self.gp = totalGp
 
-        self.min = totalMin / Double(totalGp)
-        self.pts = totalPts / Double(totalGp)
-        self.ast = totalAst / Double(totalGp)
-        self.reb = totalReb / Double(totalGp)
-        self.dreb = totalDreb / Double(totalGp)
-        self.oreb = totalOreb / Double(totalGp)
-        self.stl = totalStl / Double(totalGp)
-        self.blk = totalBlk / Double(totalGp)
-        self.fga = totalFga / Double(totalGp)
-        self.fgm = totalFgm / Double(totalGp)
-        self.fg3a = totalFg3a / Double(totalGp)
-        self.fg3m = totalFg3m / Double(totalGp)
-        self.fta = totalFta / Double(totalGp)
-        self.ftm = totalFtm / Double(totalGp)
-        self.turnover = totalTurnover / Double(totalGp)
-        self.pf = totalPf / Double(totalGp)
+        self.min = totalGp == 0 ? 0.0 : totalMin / Double(totalGp)
+        self.pts = totalGp == 0 ? 0.0 : totalPts / Double(totalGp)
+        self.ast = totalGp == 0 ? 0.0 : totalAst / Double(totalGp)
+        self.reb = totalGp == 0 ? 0.0 : totalReb / Double(totalGp)
+        self.dreb = totalGp == 0 ? 0.0 : totalDreb / Double(totalGp)
+        self.oreb = totalGp == 0 ? 0.0 : totalOreb / Double(totalGp)
+        self.stl = totalGp == 0 ? 0.0 : totalStl / Double(totalGp)
+        self.blk = totalGp == 0 ? 0.0 : totalBlk / Double(totalGp)
+        self.fga = totalGp == 0 ? 0.0 : totalFga / Double(totalGp)
+        self.fgm = totalGp == 0 ? 0.0 : totalFgm / Double(totalGp)
+        self.fg3a = totalGp == 0 ? 0.0 : totalFg3a / Double(totalGp)
+        self.fg3m = totalGp == 0 ? 0.0 : totalFg3m / Double(totalGp)
+        self.fta = totalGp == 0 ? 0.0 : totalFta / Double(totalGp)
+        self.ftm = totalGp == 0 ? 0.0 : totalFtm / Double(totalGp)
+        self.turnover = totalGp == 0 ? 0.0 : totalTurnover / Double(totalGp)
+        self.pf = totalGp == 0 ? 0.0 : totalPf / Double(totalGp)
         
-        self.fgpct = totalFgm / totalFga
-        self.fg3pct = totalFg3m / totalFg3a
-        self.ftpct = totalFtm / totalFta
+        self.fgpct = totalFga == 0.0 ? 0.0 : totalFgm / totalFga
+        self.fg3pct = totalFg3a == 0.0 ? 0.0 : totalFg3m / totalFg3a
+        self.ftpct = totalFta == 0.0 ? 0.0 : totalFtm / totalFta
         
     }
     
