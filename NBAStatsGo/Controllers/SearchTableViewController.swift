@@ -47,6 +47,7 @@ class SearchTableViewController: UITableViewController {
         super.viewDidLoad()
         playerSearchBar = initSearchBar()
         tableView.tableHeaderView?.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 237/255, alpha: 1.0)
+        tableView.sectionIndexColor = UIColor(red: 68/255, green: 92/255, blue: 124/255, alpha: 1.0)
         initialLoadData()
     }
     

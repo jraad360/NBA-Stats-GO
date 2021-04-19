@@ -65,11 +65,12 @@ struct Player: Comparable, Codable {
         if heightFeet != nil && heightFeet != nil {
             height = "\(heightFeet!)'\(heightInches!)\""
         }
+        let position = json["position"].string == nil || json["position"].string == "" ? nil : json["position"].string
         self.init(
             id: json["id"].int!,
             firstName: json["first_name"].string!,
             lastName: json["last_name"].string!,
-            position: json["position"].string,
+            position: position,
             height: height,
             weight: json["weight_pounds"].int,
             team: team)
