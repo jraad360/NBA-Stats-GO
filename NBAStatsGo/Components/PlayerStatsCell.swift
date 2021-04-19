@@ -27,6 +27,7 @@ class PlayerStatsCell: Cell {
             
         } else {
             label.font = UIFont.systemFont(ofSize: 14.0)
+            label.textColor = .black
             self.backgroundColor = .white
         }
         label.textAlignment = .center
