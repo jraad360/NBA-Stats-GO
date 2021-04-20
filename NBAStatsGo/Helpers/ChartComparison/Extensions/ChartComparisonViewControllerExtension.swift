@@ -79,7 +79,7 @@ extension ChartComparisonViewController: UITableViewDelegate, UITableViewDataSou
             return careerAverages.oreb.rounded2()
         case "Steals":
             return careerAverages.stl.rounded2()
-        case "Block":
+        case "Blocks":
             return careerAverages.blk.rounded2()
         case "Field Goals Attempted":
             return careerAverages.fga.rounded2()
