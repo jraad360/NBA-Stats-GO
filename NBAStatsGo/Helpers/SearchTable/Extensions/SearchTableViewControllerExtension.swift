@@ -62,7 +62,7 @@ extension SearchTableViewController {
             DispatchQueue.global(qos: .utility).async {
                 do {
                     DispatchQueue.main.async {
-                        self.displayProgressView(currView: self.view)
+                        self.displayProgressTableView(currView: self.tableView)
                         self.changeEnabledSettings(enabled: false)
                     }
                     
