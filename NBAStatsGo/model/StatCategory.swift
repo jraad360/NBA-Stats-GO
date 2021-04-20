@@ -45,7 +45,7 @@ enum StatCategory: String, CaseIterable, Codable {
         case .stl:
             return "Steals"
         case .blk:
-            return "Block"
+            return "Blocks"
         case .fga:
             return "Field Goals Attempted"
         case .fgm:
