@@ -85,10 +85,16 @@ class StatsManager {
             let retrievedPlayers = try json["data"].map { try Player(json: $1) }
             
             // remove repeated players
-            for player in retrievedPlayers {
+            
+            for (index, player) in retrievedPlayers.enumerated() {
                 if !ids.contains(player.id) {
                     players.append(player)
                     ids.insert(player.id)
+                }
+                DispatchQueue.main.async {
+                    if (currProgress?.progress != 1) {
+                        currProgress?.setProgress(Float(index + 1)/Float(retrievedPlayers.count), animated: true)
+                    }
                 }
             }
         }
