@@ -32,6 +32,7 @@ extension SearchTableViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
+    // Dismiss the search bar when table view is being touched/dragged
     override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         playerSearchBar!.endEditing(true)
     }
