@@ -75,7 +75,7 @@ class BallDontLieAPIManager: APIManager {
         let careerRange = try getCareerRange(for: player)
         
         var currentYear = careerRange.lowerBound
-        for year in careerRange {
+        for (index, year) in careerRange.enumerated() {
             do {
                 print(year)
                 let json = try callAPI(path: path, queryParameters: [
@@ -87,7 +87,7 @@ class BallDontLieAPIManager: APIManager {
                 currentYear += 1
                 DispatchQueue.main.async {
                     if (currProgress?.progress != 1) {
-                        currProgress?.setProgress(Float(currentYear)/Float(careerRange.upperBound - careerRange.lowerBound), animated: true)
+                        currProgress?.setProgress(Float(index + 1)/Float(careerRange.upperBound - careerRange.lowerBound), animated: true)
                     }
                 }
 
@@ -111,7 +111,7 @@ class BallDontLieAPIManager: APIManager {
         var gameStats = [PlayerGameStats]()
         let path = apiPath + "stats"
         var totalCount = 0
-        var currentPage = 0
+        var currentPage = 1
         repeat {
             do {
                 let json = try callAPI(path: path, queryParameters: [
@@ -157,7 +157,7 @@ class BallDontLieAPIManager: APIManager {
     func getAllGamesStats(for player: Player) throws -> [PlayerGameStats] {
         var gameStats = [PlayerGameStats]()
         var totalCount = 0
-        var currentPage = 0
+        var currentPage = 1
         repeat {
             let games = try getGamesStats(queryParameters: [
                                         "per_page": String(pageSize),
@@ -229,7 +229,7 @@ class BallDontLieAPIManager: APIManager {
     private func getCareerRange(for player: Player) throws -> ClosedRange<Int> {
         let firstPageOfGames = try getGamesStats(queryParameters: [
                                             "per_page": String(pageSize),
-                                            "page": String(0),
+                                            "page": String(1),
                                             "player_ids[]": String(player.id)])
         if firstPageOfGames.gameStats.count == 0 {
             return maximumYear...maximumYear
