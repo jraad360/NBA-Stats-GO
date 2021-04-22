@@ -8,9 +8,11 @@
 import Foundation
 import SwiftyJSON
 
+/**
+ This struct is used to store averages of a player's statistics. Within the project, it is used to store a player's averages over a season or over their entire career.
+ */
 struct PlayerSeasonAverageStats: Codable {
     let playerId: Int
-//    let team: Team
     let season: String
     let gp: Int
 
@@ -36,7 +38,6 @@ struct PlayerSeasonAverageStats: Codable {
     
     init(
         playerId: Int,
-//        team: Team,
         season: String,
         gp: Int,
         min: Double,
@@ -60,7 +61,6 @@ struct PlayerSeasonAverageStats: Codable {
         pf: Double) {
         
         self.playerId = playerId
-//        self.team = team
         self.season = season
         self.gp = gp
 
@@ -85,6 +85,11 @@ struct PlayerSeasonAverageStats: Codable {
         self.pf = pf
     }
     
+    /**
+     This constructor returns a PlayerSeasonAverageStats struct when given JSON returned by the APIs
+     - Parameter json: JSON object container a player's statistical averages
+     - Returns a PlayerSeasonAverageStats containing averages for a player
+     */
     init(json: JSON) throws {
         var season = String(json["season"].int ?? 0)
         let nextYear = (Int(season) ?? 0) + 1
@@ -92,7 +97,6 @@ struct PlayerSeasonAverageStats: Codable {
         
         self.init(
             playerId: json["player_id"].int ?? 0,
-//            team: try Team(json: json["team"]),
             season: season,
             gp: json["games_played"].int ?? 0,
             min: PlayerSeasonAverageStats.convertMinutesToDouble(json["min"].string ?? "0:0"),
@@ -116,6 +120,11 @@ struct PlayerSeasonAverageStats: Codable {
             pf: json["pf"].double ?? 0.0)
     }
     
+    /**
+     This constructor returns a PlayerSeasonAverageStats struct when given an array of PlayerSeasonAverageStats over which to calculate overall averages
+     - Parameter seasons: an array of PlayerSeasonAverageStats representing seasons in a player's career
+     - Returns a PlayerSeasonAverageStats containing the cumulative averages for a player over the seasons given
+     */
     init(seasons: [PlayerSeasonAverageStats]) {
         
         self.playerId =  seasons.count == 0 ? 0 : seasons[0].playerId
@@ -184,7 +193,13 @@ struct PlayerSeasonAverageStats: Codable {
         
     }
     
-    // TODO: move somewhere else
+    // MARK: Helper Functions
+    
+    /**
+     Given a String containing an amount of times in minutes and seconds, returns a double containing the equivalent amount of minutes
+     - Parameter minuteString: a String containing an a mount of time in the format "minutes:seconds"
+     - Returns a double representing the given amount of time in minutes
+     */
     static func convertMinutesToDouble(_ minuteString: String) -> Double {
         let components = minuteString.components(separatedBy: ":")
         

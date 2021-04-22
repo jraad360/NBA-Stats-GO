@@ -85,7 +85,7 @@
 		26709DFF16F543F9C515272A3A28FDFF /* SwiftyJSON-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-prefix.pch"; sourceTree = "<group>"; };
 		2E56DC09FFDF339B409131C23F7D5BDB /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		2EA83F3D8ED0E306B5EA20042D439E79 /* Pods-NBAStatsGoTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NBAStatsGoTests-Info.plist"; sourceTree = "<group>"; };
-		3305AF662863909B67725CC49CC35946 /* Pods_NBAStatsGoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NBAStatsGoTests.framework; path = "Pods-NBAStatsGoTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3305AF662863909B67725CC49CC35946 /* Pods_NBAStatsGoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBAStatsGoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33B6440397559A8F2FD84562D8E9AF72 /* Borders.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Borders.swift; path = Framework/Sources/Borders.swift; sourceTree = "<group>"; };
 		36B1FFCCB937E96F3AEFFE0FE49E89A9 /* SpreadsheetView+UIScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+UIScrollView.swift"; path = "Framework/Sources/SpreadsheetView+UIScrollView.swift"; sourceTree = "<group>"; };
 		3809B54FD5816DCE569183ADB9656B67 /* Pods-NBAStatsGo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NBAStatsGo-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -113,12 +113,12 @@
 		891BF73F69FD4D6DE76CD5BC3CC55EC3 /* Pods-NBAStatsGoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NBAStatsGoTests.release.xcconfig"; sourceTree = "<group>"; };
 		8960C487898102E8709391ADB2300F39 /* Pods-NBAStatsGoTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NBAStatsGoTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		960C528BD2954429FD8AD75B4ECDC90B /* SpreadsheetView+UISnapshotting.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+UISnapshotting.swift"; path = "Framework/Sources/SpreadsheetView+UISnapshotting.swift"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AC04BE21E7B5763032FC40A4E4F65134 /* Pods-NBAStatsGoTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NBAStatsGoTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		AE9B884EBD08952D3197671321FAA308 /* SpreadsheetView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SpreadsheetView.framework; path = SpreadsheetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9B884EBD08952D3197671321FAA308 /* SpreadsheetView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SpreadsheetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF4460EA6D4D59D67D79029DFC49AD70 /* Pods-NBAStatsGo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NBAStatsGo-dummy.m"; sourceTree = "<group>"; };
 		B499EA162487DBB96C8AE0C69BAC8E81 /* SpreadsheetView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SpreadsheetView.modulemap; sourceTree = "<group>"; };
-		B4AFB0F8FA1E98AEBE304E4F250AE297 /* Pods_NBAStatsGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NBAStatsGo.framework; path = "Pods-NBAStatsGo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4AFB0F8FA1E98AEBE304E4F250AE297 /* Pods_NBAStatsGo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NBAStatsGo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B74484DDAEEF8D068CCBE1FB8B778FEF /* SwiftyJSON-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyJSON-umbrella.h"; sourceTree = "<group>"; };
 		B772A93FEB2B9211B432A828FA4CE2DD /* SwiftyJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyJSON.release.xcconfig; sourceTree = "<group>"; };
 		B89C5554E5CD7B3F023A6B559396D3F7 /* Pods-NBAStatsGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NBAStatsGoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +130,7 @@
 		D0280EC524BE6E83115679DB9B58C691 /* SpreadsheetView+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+UIScrollViewDelegate.swift"; path = "Framework/Sources/SpreadsheetView+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		DC258CCBE64706FC4C3A94DCF25135C2 /* ScrollView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollView.swift; path = Framework/Sources/ScrollView.swift; sourceTree = "<group>"; };
-		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E23C076BA70925415F490FEDB215DA92 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		F062BCB430D288AE526D3C506986EF9C /* SpreadsheetView+CirclularScrolling.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SpreadsheetView+CirclularScrolling.swift"; path = "Framework/Sources/SpreadsheetView+CirclularScrolling.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -212,7 +212,6 @@
 				BFCEBC8D8B8656C6E063F5C9B2A06990 /* SwiftyJSON.swift */,
 				3B0D3F1833A856C73C42FF6CD325362C /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -260,7 +259,6 @@
 				77BCA9D872C15754F8CF7D3E3D36EA9F /* SpreadsheetViewDelegate.swift */,
 				A9DA86BA60C5F2004192267AF0F82BF4 /* Support Files */,
 			);
-			name = SpreadsheetView;
 			path = SpreadsheetView;
 			sourceTree = "<group>";
 		};
@@ -454,7 +452,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -642,7 +640,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -670,7 +668,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SpreadsheetView/SpreadsheetView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SpreadsheetView/SpreadsheetView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -682,6 +680,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -705,7 +704,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-NBAStatsGo/Pods-NBAStatsGo-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -742,7 +741,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-NBAStatsGoTests/Pods-NBAStatsGoTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -778,7 +777,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -813,7 +812,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-NBAStatsGo/Pods-NBAStatsGo-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -849,7 +848,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-NBAStatsGoTests/Pods-NBAStatsGoTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -886,7 +885,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SpreadsheetView/SpreadsheetView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SpreadsheetView/SpreadsheetView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -898,6 +897,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -920,7 +920,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SwiftyJSON/SwiftyJSON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SwiftyJSON/SwiftyJSON-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -989,7 +989,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";

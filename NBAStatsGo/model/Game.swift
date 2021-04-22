@@ -21,6 +21,11 @@ struct Game: Codable {
         self.playoffs = playoffs
     }
     
+    /**
+     This constructor returns a Game struct when given JSON returned by the APIs
+     - Parameter json: JSON object containing general information for an NBA game
+     - Returns a Game struct containing general information for an NBA game
+     */
     init(json: JSON) throws {
         let dateString = json["date"].string!.split(separator: ".")
         self.init(

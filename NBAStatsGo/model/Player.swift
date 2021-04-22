@@ -8,11 +8,20 @@
 import Foundation
 import SwiftyJSON
 
-struct Player: Comparable, Codable {
-    static func < (lhs: Player, rhs: Player) -> Bool {
-        return lhs.getLastFirstNames() < rhs.getLastFirstNames()
-    }
+struct Player: Codable {
     
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let position: String?
+    let height: String?
+    let weight: Int?
+    let team: Team
+    
+    /**
+     A function that returns a player's name formatted as "LastName, FirstName". It returns one or the other is either name is missing.
+     - Returns the last and first names of the player, comma separated
+     */
     func getLastFirstNames() -> String {
         // based on assumption that player will have at least one name
         if lastName == "" {
@@ -24,6 +33,10 @@ struct Player: Comparable, Codable {
         }
     }
     
+    /**
+     A function that returns a player's name formatted as "FirstName LastName". It returns one or the other is either name is missing.
+     - Returns the first and last names of the player, space separated
+     */
     func getFirstLastNames() -> String {
         // based on assumption that player will have at least one name
         if lastName == "" {
@@ -34,18 +47,6 @@ struct Player: Comparable, Codable {
             return "\(firstName) \(lastName)"
         }
     }
-    
-    static func == (lhs: Player, rhs: Player) -> Bool {
-        return lhs.lastName == rhs.lastName && lhs.firstName == rhs.firstName
-    }
-    
-    let id: Int
-    let firstName: String
-    let lastName: String
-    let position: String?
-    let height: String?
-    let weight: Int?
-    let team: Team
     
     init(id: Int, firstName: String, lastName: String, position: String?, height: String?, weight: Int?, team: Team) {
         self.id = id
@@ -75,4 +76,16 @@ struct Player: Comparable, Codable {
             weight: json["weight_pounds"].int,
             team: team)
     }
+}
+
+extension Player: Comparable {
+    
+    static func < (lhs: Player, rhs: Player) -> Bool {
+        return lhs.getLastFirstNames() < rhs.getLastFirstNames()
+    }
+    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        return lhs.lastName == rhs.lastName && lhs.firstName == rhs.firstName
+    }
+    
 }

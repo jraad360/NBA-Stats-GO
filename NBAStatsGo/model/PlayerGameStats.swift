@@ -82,6 +82,11 @@ struct PlayerGameStats: Codable {
         self.pf = pf
     }
     
+    /**
+     This constructor returns a PlayerGameStats struct when given JSON returned by the APIs
+     - Parameter json: JSON object container a player's stats in a particular game
+     - Returns a PlayerGameStats containing the stats for a player in a particular game
+     */
     init(json: JSON) throws {
         let min = json["min"].string != nil && json["min"].string != "" ? Int(json["min"].string!.split(separator: ":")[0])! : 0
         self.init(

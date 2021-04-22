@@ -18,13 +18,14 @@ class BallDontLieAPIManager: APIManager {
     
     /**
      Uses balldontlie.io's API to retrieve a list of all NBA players in history
+     - Parameter filters: filters used to search for specific players
+     - Returns an array of NBA Players that match the given search parameters
      */
     func getPlayers(filters: [String : String]) throws -> [Player] {
         let path = apiPath + "players"
         var totalCount = 0
         var currentPage = 0
         var players = [Player]()
-        
         
         let name = filters["name"] ?? ""
         
@@ -33,7 +34,7 @@ class BallDontLieAPIManager: APIManager {
         
         repeat {
             do {
-                let json = try callAPI(path: path, queryParameters: [
+                let json = try HTTPRequest.callAPI(path: path, queryParameters: [
                                         "per_page": String(pageSize),
                                         "page": String(currentPage),
                                         "search": name])
@@ -67,6 +68,8 @@ class BallDontLieAPIManager: APIManager {
     
     /**
      Uses balldontlie.io's API to retrieve a list of an NBA player's season-by-season averages for their entire career
+     - Parameter player: the player whose stats are being requested
+     - Returns an array of season averages for a player's entire career
      */
     func getCareerStats(for player: Player) throws -> [PlayerSeasonAverageStats] {
         let path = apiPath + "season_averages"
@@ -78,7 +81,7 @@ class BallDontLieAPIManager: APIManager {
         for (index, year) in careerRange.enumerated() {
             do {
                 print(year)
-                let json = try callAPI(path: path, queryParameters: [
+                let json = try HTTPRequest.callAPI(path: path, queryParameters: [
                                         "season": String(year),
                                         "player_ids[]": String(player.id)])
                 if !json["data"].isEmpty && json["data"].count != 0 {
@@ -104,6 +107,9 @@ class BallDontLieAPIManager: APIManager {
     
     /**
      Uses balldontlie.io's API to find a player's career high in a given statistical category
+     - Parameter player: the NBA player whose career high is requested
+     - Parameter statCategory: the statistical category in which to search for the highest value
+     - Returns the career high (the highest value a player has recorded over every game in their career) in the given statistical category for the given player
      */
     func getCareerHigh(for player: Player, in statCategory: StatCategory) throws -> String {
         var careerHigh: Double = 0
@@ -114,7 +120,7 @@ class BallDontLieAPIManager: APIManager {
         var currentPage = 1
         repeat {
             do {
-                let json = try callAPI(path: path, queryParameters: [
+                let json = try HTTPRequest.callAPI(path: path, queryParameters: [
                                         "per_page": String(pageSize),
                                         "page": String(currentPage),
                                         "player_ids[]": String(player.id)])
@@ -154,6 +160,11 @@ class BallDontLieAPIManager: APIManager {
         }
     }
     
+    /**
+     Uses balldontlie.io's API to return the stats for every individual game in a player's career
+     - Parameter player: the NBA player whose stats are requested
+     - Returns an array of all the game stats for a player
+     */
     func getAllGamesStats(for player: Player) throws -> [PlayerGameStats] {
         var gameStats = [PlayerGameStats]()
         var totalCount = 0
@@ -180,45 +191,14 @@ class BallDontLieAPIManager: APIManager {
     // MARK: Helper Functions
     
     /**
-     Helper method used to call any API via HTTP
+     Helper method used to call the API for individual game stats
+     - Parameter queryParameters: the query parameters to attach to the GET call
      */
-    private func callAPI(path: String, queryParameters: [String: String]) throws -> JSON {
-        // TODO: handle invalid URL
-        let url = getURL(path: path, queryParameters: queryParameters)
-        
-        let request = URLRequest(url: url)
-        let session = URLSession.shared
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        var result: Data? = nil
-        
-        var httpStatusCode: Int? = nil
-        
-        session.dataTask(with: request) { (data, response, error) in
-            if let httpResponse = response as? HTTPURLResponse {
-                httpStatusCode = httpResponse.statusCode
-            }
-            result = data
-            semaphore.signal()
-        }.resume()
-        
-        _ = semaphore.wait(wallTimeout: .distantFuture)
-        
-        if httpStatusCode == 429 {
-            throw APIError.tooManyRequests
-        }
-
-        let json = result != nil ? try JSON(data: result!) : JSON()
-        
-        return json
-    }
-    
     private func getGamesStats(queryParameters: [String: String]) throws -> (gameStats: [PlayerGameStats], meta: JSON) {
         var gameStats = [PlayerGameStats]()
         
         let path = apiPath + "stats"
-        let json = try callAPI(path: path, queryParameters: queryParameters)
+        let json = try HTTPRequest.callAPI(path: path, queryParameters: queryParameters)
         let games = json["data"]
         for game in games {
             gameStats.append(try PlayerGameStats(json: game.1))
@@ -226,32 +206,46 @@ class BallDontLieAPIManager: APIManager {
         return (gameStats, json["meta"])
     }
     
+    /**
+     Helper method used to calculate the first and last seasons a player played. To do this, API calls are made to figure out the dates of the first and last games a player played. Since Balldontlie's season_averages API only retrieves season averages for a given season, this helper method reduces the amount of API calls needed to be made. Without this calculation, an API call would need to be made for every season since 1979 in order to get a player's season averages. The function is complicated because games are not always in chronological order. Games played in the 2000s are returned before games played in the 1900s, meaning that it is not possible to determine the first and last seasons of a cross-centennial player without a significant amount of API calls that makes the calculation not worth it. For this reason, if the first game returned is chronologically greater than the last game returned, this optimization is not worth it, and the range from the the first year of stats available to the last season of stats available is returned.
+     - Parameter player: the player for which we want to find out the seasons played
+     - Returns a range from the player's first year in the league to their last
+     */
     private func getCareerRange(for player: Player) throws -> ClosedRange<Int> {
-        let firstPageOfGames = try getGamesStats(queryParameters: [
-                                            "per_page": String(pageSize),
-                                            "page": String(1),
-                                            "player_ids[]": String(player.id)])
+        let firstPageOfGames = try getGamesStats(queryParameters: ["per_page": String(pageSize), "page": String(1), "player_ids[]": String(player.id)])
         if firstPageOfGames.gameStats.count == 0 {
             return maximumYear...maximumYear
         }
-        
         let firstSeason = firstPageOfGames.gameStats[0].game.season
         
-        var lastPage = Int(firstPageOfGames.meta["total_pages"].int ?? 1)
+        let lastPage = Int(firstPageOfGames.meta["total_pages"].int ?? 1)
         
         if lastPage == 1 {
             return (Int(firstSeason) ?? minimumYear)...(Int(firstSeason) ?? maximumYear)
         }
         
+        let lastSeason = try getLastSeason(player: player, lastPage: lastPage)
+        
+        if lastSeason < firstSeason {
+            return minimumYear...maximumYear
+        }
+        
+        return (Int(firstSeason) ?? minimumYear)...(Int(lastSeason) ?? maximumYear)
+    }
+    
+    /**
+     This is used to calculate the upper bound for a player's career range. The function is complicated because there are also playoff games appended to the end of the response that must be ignored, resulting  in more API calls that must be made to figure out the last regular season game of a player.
+     */
+    private func getLastSeason(player: Player, lastPage: Int) throws -> String {
+        // last
+        var currentPage = lastPage
+        
         var lastSeason = String(minimumYear)
-        while lastPage > 1 {
-            let lastPageOfGames = try getGamesStats(queryParameters: [
-                                                "per_page": String(pageSize),
-                                                "page": String(lastPage),
-                                                "player_ids[]": String(player.id)])
+        while currentPage > 1 {
+            let lastPageOfGames = try getGamesStats(queryParameters: ["per_page": String(pageSize), "page": String(currentPage), "player_ids[]": String(player.id)])
             let firstGameIsPlayoffs = lastPageOfGames.gameStats[0].game.playoffs
             if firstGameIsPlayoffs {
-                lastPage -= 1
+                currentPage -= 1
                 continue
             }
             var lastGame = lastPageOfGames.gameStats[0]
@@ -264,21 +258,7 @@ class BallDontLieAPIManager: APIManager {
             lastSeason = lastGame.game.season
             break
         }
-        
-        if lastSeason < firstSeason {
-            return minimumYear...maximumYear
-        }
-        
-        return (Int(firstSeason) ?? minimumYear)...(Int(lastSeason) ?? maximumYear)
+        return lastSeason
     }
-    
-    private func getURL(path: String, queryParameters: [String: String]) -> URL {
-        let queryItems = queryParameters.map { URLQueryItem(name: $0.key, value: $0.value) }
-        var urlComponents = URLComponents(string: path)!
-        
-        urlComponents.queryItems = queryItems
-        return urlComponents.url!
-    }
-    
     
 }
