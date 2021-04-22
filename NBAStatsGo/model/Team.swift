@@ -324,6 +324,10 @@ struct Team: Codable {
             name: teams[index]["name"].string!)
     }
     
+    /**
+     Called by the Controller code to retrieve the logo of the NBA team corresponding to the Team struct
+     - Returns an image of the team's logo
+     */
     func getTeamImage() -> UIImage? {
         return UIImage(named: String(self.id))
     }

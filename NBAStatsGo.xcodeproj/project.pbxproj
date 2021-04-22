@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B13E5B12631C92700E434FB /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B13E5B02631C92700E434FB /* HTTPRequest.swift */; };
 		1B301328262B1BDF00A89D1F /* players.json in Resources */ = {isa = PBXBuildFile; fileRef = 1B301327262B1BDF00A89D1F /* players.json */; };
 		1B30132D262B1D6600A89D1F /* StatsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B30132C262B1D6600A89D1F /* StatsManager.swift */; };
 		1B4B78FE262BD49500523067 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4B78FD262BD49500523067 /* JSONReader.swift */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		004EC43B8BCE11FC293D264B /* Pods-NBAStatsGoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NBAStatsGoTests.debug.xcconfig"; path = "Target Support Files/Pods-NBAStatsGoTests/Pods-NBAStatsGoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1B13E5B02631C92700E434FB /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		1B301327262B1BDF00A89D1F /* players.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = players.json; sourceTree = "<group>"; };
 		1B30132C262B1D6600A89D1F /* StatsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsManager.swift; sourceTree = "<group>"; };
 		1B4B78FD262BD49500523067 /* JSONReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				C334ED5E2613953D00F38E32 /* APIError.swift */,
 				C334ED5F2613953D00F38E32 /* APIManager.swift */,
 				C334ED602613953D00F38E32 /* BallDontLieAPIManager.swift */,
+				1B13E5B02631C92700E434FB /* HTTPRequest.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				C37B3BDD262B6C28008242B8 /* SearchTableViewSearchExtension.swift in Sources */,
 				C334ED6B2613953D00F38E32 /* PlayerGameStats.swift in Sources */,
 				C334ED682613953D00F38E32 /* APIError.swift in Sources */,
+				1B13E5B12631C92700E434FB /* HTTPRequest.swift in Sources */,
 				C334ED702613953D00F38E32 /* Player.swift in Sources */,
 				C334ED6C2613953D00F38E32 /* PlayerSeasonAverageStats.swift in Sources */,
 			);

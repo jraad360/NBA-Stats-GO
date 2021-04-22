@@ -7,7 +7,12 @@
 
 import Foundation
 
+/**
+ The StatCategory enum is used to refer to a statistical category. It is used when attempting to retrieve a particular statistical category from a JSON object or when trying to specify what statistical category to calculate a player's career high for
+ */
 enum StatCategory: String, CaseIterable, Codable {
+    
+    /// The raw values are equal to the JSON keys for each stat category in the way they appear in the JSON returned by the API
     case min
     case pts
     case ast
@@ -28,6 +33,7 @@ enum StatCategory: String, CaseIterable, Codable {
     case turnover
     case pf
     
+    /// This computed property returns the full title for stat category. This can be used to determine what text to display for a stat category on the front-end.
     var label: String {
         switch self {
         case .min:
