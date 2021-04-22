@@ -13,6 +13,13 @@ class JSONReader {
     let jsonEncoder: JSONEncoder = JSONEncoder()
     let jsonDecoder: JSONDecoder = JSONDecoder()
     
+    // MARK: Writing Function
+    
+    /**
+     Writes a serializable object to storage as JSON
+     - Parameter object: the object to be stored
+     - Parameter fileName: the path and name of the file to which the object will be saved
+     */
     func write<T: Codable>(object: T, to fileName: String) throws {
         do {
             let fileURL = try FileManager.default
@@ -24,6 +31,13 @@ class JSONReader {
         }
     }
     
+    // MARK: Reading Functions
+    
+    /**
+     Retrieves an object from storage and decodes and returns it
+     - Parameter fileName: the path and name of the file storing the object to be decoded
+     - Parameter structType: the kind of struct that the data is to be converted to
+     */
     func read<T: Codable>(from fileName: String, structType: T.Type) throws -> T {
         let fileURL = try FileManager.default
             .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
@@ -34,7 +48,8 @@ class JSONReader {
     }
     
     /**
-     Retrieves JSON from local file
+     Retrieves JSON from local bundled file
+     - Parameter name: the path and name of the file storing the object to be decoded
      */
     func readBundledFile(forName name: String) -> Data? {
         do {
