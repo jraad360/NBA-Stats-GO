@@ -1,5 +1,7 @@
-#   NBA Stats GO
-NBA Stats Go is our (David Liu and Jorge Raad) final project for ECE 564. The idea for this app came from our mutual interest in basketball and the NBA. The app allows users to search and view stats on NBA players, compare stats between players, and search for instances of a player's career high.  
+#   NBA Stats GO (Spring 2021)
+NBA Stats Go is our (David Liu and Jorge Raad) final project for ECE 564. The idea for this app came from our mutual interest in basketball and the NBA. The app allows users to search and view stats on NBA players, compare stats between players, and search for instances of a player's career high.
+
+[Demo](https://drive.google.com/file/d/16C_rlo5PqzEfb2kwZsYfBxQxVHqNoVOG/view?usp=sharing)
 
 ## Key Features/Functions
 Below are the key features and functions of NBA Stats GO based on the views present in our product. For more detailed information into how to use the app on a component level, check out the "Additional Information" section below.
